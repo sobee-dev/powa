@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POWA – Register</title>
+
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
+  <link href="static/css/style.css" rel="stylesheet">
+
+
+
+</head>
+<body >
+
+  {% include 'header.html' %}
+  <div class="relative w-full h-screen overflow-hidden text-white">
+
+    <img id="heroimg" src="static/img/students.jpg" alt="powa students" class="absolute w-[120%] h-full object-cover z-10 opacity-35 transition: transform 0.5s linear, opacity 1s ease" />
+
+    <div class="absolute h-screen w-full flex items-center  inset-0 bg-green-900/60 z-30 mb-5 overflow-scroll">
+
+      <div class="w-full mx-auto p-4 md:w-full md:mx-6 max-md:h-fit max-md:w-md">
+        <a href="{{url_for('controller.home')}}" class="flex items-center justify-center gap-1 mb-8 w-[50%] mx-auto">
+          <img src="static/img/powa-logo.png" alt="powa logo" class="">
+          <h1 class="text-2xl font-bold text-green-500">OWA</h1>
+        </a>
+
+        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-6">
+          <h2 class="text-center text-2xl font-bold">Create an Account</h2>
+          <p class="text-center text-white/80 mb-6">Enter your details to join the community.</p>
+          <form action="{{ url_for ('controller.register') }}" method = "post" novalidate id="registerForm" class="space-y-4 md:grid md:grid-cols-2 md:gap-4 items-center">
+            {{ register_form.hidden_tag() }}
+            <div>
+
+              {{ register_form.fullname.label (class="block text-white/90 mb-1") }}
+              {{ register_form.fullname (class="w-full bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none",placeholder="e.g. Bisi Adebayo") }}
+              {% for err in register_form.fullname.errors %}
+              <span style="color:red">{{ err }}</span>
+              {% endfor %}
+
+            </div>
+            <div>
+
+              {{ register_form.email.label (class="block text-white/90 mb-1") }}
+              {{ register_form.email(class="w-full bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none", placeholder="e.g. b.adebayo@gmail.com" ) }}
+              {% for err in register_form.email.errors %}
+              <span style="color:red">{{ err }} </span>
+              {% endfor %}
+
+            </div>
+            <div>
+
+              {{ register_form.phone.label (class="block text-white/90 mb-1") }}
+              {{ register_form.phone(class="w-full bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none", placeholder="e.g. 08012345678") }}
+              {% for err in register_form.phone.errors %}
+              <span style="color:red">{{ err }} </span>
+              {% endfor %}
+
+            </div>
+
+            <div>
+
+              {{ register_form.gender.label (class="block text-white/90 mb-1") }}
+
+              {{ register_form.gender(class="choices-select w-full bg-green-200/10 border-green-500/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-green-200/20 focus:outline-none") }}
+
+              {% for err in register_form.gender.errors %}
+                <span style="color:red">{{ err }}</span>
+              {% endfor %}
+            </div>
+
+            <div>
+
+              {{ register_form.select_course.label (class="block text-white/90 mb-1") }}
+
+              {{ register_form.select_course(class="choices-select w-full pr-12 bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none") }}
+
+              {% for err in register_form.select_course.errors %}
+                <span style="color:red">{{ err }}</span>
+              {% endfor %}
+            </div>
+
+
+
+            <div>
+
+              {{ register_form.funnel.label (class="block text-white/90 mb-1") }}
+
+              {{ register_form.funnel(class=" choices-select w-full pr-12 bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none") }}
+
+              {% for err in register_form.funnel.errors %}
+                <span style="color:red">{{ err }}</span>
+              {% endfor %}
+            </div>
+
+            <div>
+              {{ register_form.check_box (class="mr-2")}}
+              {% for err in register_form.check_box.errors %}
+              <span style="color:red">{{ err }}</span>
+              {% endfor %}
+              <span>I agree to POWA's
+              <a href="/terms" target="_blank" class="text-green-500 underline">Terms of Service and Privacy Policy</a>
+              </span>
+
+              {{ register_form.submit(class="w-full powa-btn", value="Register") }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+<script>
+  document.querySelectorAll('.choices-select').forEach((select) => {
+    new Choices(select, {
+      searchEnabled: false
+
+    });
+  });
+</script>
+
+
+</body>
+</html>

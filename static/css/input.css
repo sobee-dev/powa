@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.powa-btn{
+    @apply bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-gradient-to-r from-green-500 to-emerald-700 hover:scale-105
+}
+.text-fluid{
+    @apply text-[min(10vw,70px)]
+    }
+.fade-in{
+    @apply opacity-0 translate-y-8 transition-all duration-1000 ease-in-out
+}
+@layer components {
+  .custom-checklist li {
+    @apply relative pl-8; /* pl-8 = padding-left: 2rem */
+  }
+
+  .custom-checklist li::before {
+    content: '';
+    @apply absolute left-0 top-[0.35rem] w-5 h-5 bg-no-repeat bg-contain;
+    background-image: url('/static/img/circle-tick.jpg');
+  }
+}
+
+.visible-y{
+    @apply opacity-100 translate-y-0
+}
+
+.left-in{
+    @apply opacity-0 translate-x-3 transition-all duration-1500 ease-in-out
+}
+.visible-x{
+    @apply opacity-100 translate-x-0
+}
+
+.cust-section{
+    @apply h-auto w-full my-25 text-center py-7
+}
+
+
+@keyframes slide {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-slide {
+  display: inline-block;
+  animation: slide 15s linear infinite;
+  white-space: nowrap;
+}
+
+
+.choices__list--dropdown,
+.choices__list[aria-expanded] {
+  @apply bg-green-300 text-white;
+}
+
+
+.choices__item--choice {
+  @apply bg-green-600 text-white hover:bg-green-600 hover:text-black;
+}
+
+.choices__inner {
+  @apply w-full bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none;
+}
+
+.choices__input {
+  @apply text-white;
+}

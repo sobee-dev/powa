@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Course checkout</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body style="margin:0;padding:0;background-color:#f3f4f6;font-family: system-ui,-apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+
+  <!-- Wrapper table (full-width) -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f3f4f6;">
+    <tr>
+      <td align="center" style="padding:20px;">
+
+        <!-- Centered card (600px max) -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background:#ffffff;border-radius:8px;overflow:hidden;">
+          <tr>
+            <td style="padding:20px;">
+
+              <!-- Header: logo + brand -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:8px;">
+                <tr>
+                  <td style="vertical-align:middle;padding-right:12px;">
+                    <!-- Use an absolute URL for images in email, or attach inline via CID -->
+                    <img
+                      src="{{ url_for('static', filename='img/powa-logo.png', _external=True) }}"
+                      alt="POWA logo"
+                      width="90"
+                      style="display:block;border:0;outline:none;text-decoration:none;height:auto;">
+                  </td>
+                  <td style="vertical-align:middle;text-align:left;">
+                    <div style="font-size:28px;font-weight:700;color:#16A34A;line-height:1;">POWA</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Intro -->
+              <h1 style="font-size:20px;line-height:1.4;color:#111827;margin:12px 0 10px;">Congratulations!! welcome to the tech Powa!</h1>
+              <p style="font-size:15px;line-height:1.6;color:#374151;margin:0 0 16px;">
+                You have shown interest in our {{course.title}} program. Proceed to choose the most suitable payment option for you.
+              </p>
+
+              <!-- Main content with left border -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-left:5px solid #16A34A;padding-left:16px;margin-top:14px;">
+                <!-- Full Payment -->
+                <tr>
+                  <td style="padding:12px 0;border-bottom:0;">
+                    <h2 style="font-size:16px;margin:0 0 6px;color:#111827;">Full Payment</h2>
+                    <p style="margin:0;font-size:14px;color:#374151;">Pay the total sum of #{{ course.full_price}} to the accounts provided and send proof of payment.</p>
+                  </td>
+                </tr>
+
+                <!-- Installment Payment -->
+                <tr>
+                  <td style="padding:12px 0;border-bottom:0;">
+                    <h2 style="font-size:16px;margin:0 0 6px;color:#111827;">Installment Payment</h2>
+                    <p style="margin:0;font-size:14px;color:#374151;">
+                      Make a part payment of {{course.part_payment}} to reserve your seat. <strong>NOTE:</strong> All payments must be completed before onboarding.
+                    </p>
+                  </td>
+                </tr>
+
+                <!-- Account details -->
+                <tr>
+                  <td style="padding:12px 0;border-bottom:0;">
+                    <h2 style="font-size:16px;margin:0 0 6px;color:#111827;">Account details</h2>
+                    <p style="margin:0;font-size:14px;color:#374151;">Account Name: <strong>POWA Digitals</strong></p>
+                    <p style="margin:4px 0 0;font-size:14px;color:#374151;">Account Number: <strong>123456789</strong></p>
+                    <p style="margin:4px 0 8px;font-size:14px;color:#374151;">Bank: <strong>ABC Bank Plc</strong></p>
+
+                    <p style="margin:10px 0 6px;font-size:14px;color:#374151;">Please send proof of payment to:</p>
+                    <p style="margin:8px 0;">
+                      <a href="https://wa.me/2348141713547" style="display:inline-block;padding:10px 16px;border-radius:8px;background:#16A34A;color:#ffffff;text-decoration:none;font-weight:700;">Whatsapp 08141713547</a>
+                    </p>
+                    <p style="margin:8px 0 0;font-size:14px;color:#374151;">Email: <a href="mailto:thetechpowa@gmail.com" style="color:#16A34A;text-decoration:none;">thetechpowa@gmail.com</a></p>
+                  </td>
+                </tr>
+
+                <!-- Alternatively -->
+                <tr>
+                  <td style="padding:12px 0;">
+                    <h2 style="font-size:16px;margin:0 0 6px;color:#111827;">Alternatively</h2>
+                    <p style="margin:0;">
+                      <!-- assume course.link is an absolute URL passed into template -->
+                      <a href="" style="display:inline-block;padding:10px 16px;border-radius:8px;background:#F59E0B;color:#ffffff;text-decoration:none;font-weight:700;">Pay online</a>
+                    </p>
+
+                    <p style="margin:4px 0 8px;font-size:14px;color:#374151;"> <strong>Details you provided: </strong></p>
+                    <p style="margin:4px 0 8px;font-size:14px;color:#374151;"><strong>Fullname:</strong> {{user.fullname}}</p>
+                    <p style="margin:4px 0 8px;font-size:14px;color:#374151;"><strong>Course of Choice:</strong> {{user.course}}</p>
+                    <p style="margin:4px 0 8px;font-size:14px;color:#374151;"><strong>Phone:</strong> {{user.phone}}</p>
+                    <p style="margin:4px 0 8px;font-size:14px;color:#374151;"><strong>Email:</strong> {{user.email}} </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Footer small print -->
+              <p style="font-size:12px;color:#6b7280;margin:20px 0 0;">
+                If you didn’t sign up for this, ignore this message.
+              </p>
+
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

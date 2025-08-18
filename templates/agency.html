@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Agency | POWA</title>
+    <link href="static/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
+
+  </head>
+  <body class="">
+
+    {% include 'header.html' %}
+
+    <section>
+      <div class="relative mb-15 z-30 overflow-hidden top-0 w-full h-64">
+    <!-- Background image -->
+        <img src="{{ url_for('static', filename='img/positive-young.jpg') }}"
+             class="absolute inset-0 h-full w-full object-cover z-10" />
+
+        <!-- Overlay and text -->
+        <div class="absolute inset-0 z-20 bg-green-900/60 flex items-center justify-center">
+          <h2 class="text-white text-5xl font-extrabold font-sans">Our Agency</h2>
+        </div>
+      </div>
+    </section>
+
+    {% include 'footer.html'  %}
+
+  </body>
+</html>

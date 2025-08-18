@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="static/css/style.css" rel="stylesheet">
+  <title>About POWA</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
+  <style>
+    body {
+  font-family: sans-serif;
+  margin: 0;
+  color: #222;
+  background: #fff;
+}
+
+h1, h2, h3 {
+  margin: 0 0 10px;
+}
+
+a {
+  text-decoration: none;
+<!--  color: white;-->
+}
+
+.center {
+  text-align: center;
+}
+
+.section {
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.hero {
+  position: relative;
+  height: 60vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.hero-overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  inset: 0;
+  z-index: 2;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+}
+
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+.split .text, .split .image {
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.card .icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.team-card img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.bg-muted {
+  background: #f3f2f2;
+}
+
+.cta {
+  background: emerald;
+  color: white;
+  padding: 4rem 1rem;
+}
+.btn {
+  display: inline-block;
+  background: white;
+  color: #00be10;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+  </style>
+  
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://placehold.co/1920x600.png" alt="Diverse group of students" class="hero-bg"/>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>About POWA</h1>
+      <p>
+        We are dedicated to revolutionizing education in Nigeria by providing
+        accessible, high-quality learning experiences for students everywhere.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="section">
+    <div class="container split">
+      <div class="text">
+        <h2>Our Story</h2>
+        <p>
+          POWA was born from a simple yet powerful idea: that every Nigerian
+          student deserves access to world-class educational resources. Frustrated
+          by traditional learning, our team built a flexible, engaging platform.
+          We started small. Today, we empower thousands across Nigeria.
+        </p>
+      </div>
+      <div class="image">
+        <img src="https://placehold.co/600x400.png" alt="Founders discussing plans" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="section bg-muted">
+    <div class="container split">
+      <div class="image">
+        <img src="https://placehold.co/600x400.png" alt="Student using a laptop" />
+      </div>
+      <div class="text">
+        <h2>Our Mission & Vision</h2>
+        <div class="list">
+          <div class="item">
+            <h3>🎯 Our Mission</h3>
+            <p>
+              To empower Nigerian students with knowledge and skills for a
+              competitive global landscape via a digital learning ecosystem.
+            </p>
+          </div>
+          <div class="item">
+            <h3>👁️ Our Vision</h3>
+            <p>
+              To be the leading digital education platform in Africa—committed to
+              student success, academic excellence, and innovation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section">
+    <div class="container">
+      <h2 class="center">Why Choose POWA?</h2>
+      <p class="center">We are committed to providing an unparalleled learning experience.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">📖</div>
+          <h3>Expert-Led Curriculum</h3>
+          <p>Courses designed and taught by industry leaders and seasoned academics.</p>
+        </div>
+        <div class="card">
+          <div class="icon">👥</div>
+          <h3>Vibrant Community</h3>
+          <p>Connect with a network of ambitious peers and mentors.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Career Focused</h3>
+          <p>Gain practical skills for the Nigerian job market.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛟</div>
+          <h3>Dedicated Support</h3>
+          <p>Our team supports you throughout your learning journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Meet the founder -->
+  <section class="section bg-muted">
+    <div class="container">
+      <h2 class="center">Meet The founder</h2>
+    </div>
+    <div class="container split">
+      <div class="image">
+        <img src="https://placehold.co/600x400.png" alt="founder of powa" />
+      </div>
+      <div class="text">
+        <h2>Meet Anita
+
+        </h2>
+        
+          <p>
+            Anita Is the founder of powa...........................
+          </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Meet the Team -->
+  <section class="section bg-muted">
+    <div class="container">
+      <h2 class="center">Meet Our Team</h2>
+      <p class="center">The passionate individuals dedicated to your learning journey.</p>
+      <div class="grid">
+        <div class="card team-card">
+          <img src="https://placehold.co/100x100.png" alt="Dr. Adebayo Ogunlesi"/>
+          <h3>Dr. Adebayo Ogunlesi</h3>
+          <p>Founder & Visionary</p>
+        </div>
+        <div class="card team-card">
+          <img src="https://placehold.co/100x100.png" alt="Ngozi Okonjo-Iweala"/>
+          <h3>Ngozi Okonjo-Iweala</h3>
+          <p>Head of Academics</p>
+        </div>
+        <div class="card team-card">
+          <img src="https://placehold.co/100x100.png" alt="Emeka Anyaoku"/>
+          <h3>Emeka Anyaoku</h3>
+          <p>Lead Developer</p>
+        </div>
+        <div class="card team-card">
+          <img src="https://placehold.co/100x100.png" alt="Funmilayo Ransome-Kuti"/>
+          <h3>Funmilayo Ransome-Kuti</h3>
+          <p>Student Success Lead</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class=" cta bg-emerald-700 border-b-8 border-b-green-300 mx-auto rounded-2xl">
+    <div class="container center">
+      <h2>Join Our Community</h2>
+      <p>Ready to start your journey? Enroll today and unlock a world of knowledge.</p>
+      <a href="{{url_for('controller.register')}}" class="btn">Get Started Now</a>
+    </div>
+  </section>
+
+
+ {% include 'footer.html' %}
+
+  <script>
+    console.log("About page loaded.");
+  </script>
+</body>
+</html>
+
