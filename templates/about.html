@@ -3,132 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="static/css/style.css" rel="stylesheet">
   <title>About POWA</title>
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
-  <style>
-    body {
-  font-family: sans-serif;
-  margin: 0;
-  color: #222;
-  background: #fff;
-}
-
-h1, h2, h3 {
-  margin: 0 0 10px;
-}
-
-a {
-  text-decoration: none;
-<!--  color: white;-->
-}
-
-.center {
-  text-align: center;
-}
-
-.section {
-  padding: 4rem 1rem;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 1rem;
-}
-
-.hero {
-  position: relative;
-  height: 60vh;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.hero-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-.hero-overlay {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.6);
-  inset: 0;
-  z-index: 2;
-}
-.hero-content {
-  position: relative;
-  z-index: 3;
-  max-width: 800px;
-}
-
-.split {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-}
-.split .text, .split .image {
-  flex: 1;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-.card .icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.team-card img {
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.bg-muted {
-  background: #f3f2f2;
-}
-
-.cta {
-  background: emerald;
-  color: white;
-  padding: 4rem 1rem;
-}
-.btn {
-  display: inline-block;
-  background: white;
-  color: #00be10;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  font-weight: bold;
-  margin-top: 1rem;
-}
-  </style>
-  
+  <!-- Tailwind CDN (swap for your compiled CSS in production) -->
+  <link href="static/css/style.css" rel="stylesheet">
 </head>
-<body>
+<body class="font-sans m-0 text-[#222] bg-white">
 
   <!-- Hero Section -->
-  <section class="hero">
-    <img src="https://placehold.co/1920x600.png" alt="Diverse group of students" class="hero-bg"/>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>About POWA</h1>
+  <section class="relative h-[60vh] text-white flex items-center justify-center text-center">
+    <img src="https://placehold.co/1920x600.png" alt="Diverse group of students"
+         class="absolute inset-0 w-full h-full object-cover z-10" />
+    <div class="absolute inset-0 bg-black/60 z-20"></div>
+    <div class="relative z-30 max-w-[800px] px-4">
+      <h1 class="mb-[10px]">About POWA</h1>
       <p>
         We are dedicated to revolutionizing education in Nigeria by providing
         accessible, high-quality learning experiences for students everywhere.
@@ -137,10 +25,10 @@ a {
   </section>
 
   <!-- Our Story -->
-  <section class="section">
-    <div class="container split">
-      <div class="text">
-        <h2>Our Story</h2>
+  <section class="py-16 px-4">
+    <div class="max-w-[1100px] mx-auto px-4 flex flex-wrap gap-8 items-center">
+      <div class="flex-1 min-w-0">
+        <h2 class="mb-[10px] text-[30px]">Our Story</h2>
         <p>
           POWA was born from a simple yet powerful idea: that every Nigerian
           student deserves access to world-class educational resources. Frustrated
@@ -148,30 +36,30 @@ a {
           We started small. Today, we empower thousands across Nigeria.
         </p>
       </div>
-      <div class="image">
-        <img src="https://placehold.co/600x400.png" alt="Founders discussing plans" />
+      <div class="flex-1 min-w-0">
+        <img src="https://placehold.co/600x400.png" alt="Founders discussing plans" class="w-full h-auto" />
       </div>
     </div>
   </section>
 
   <!-- Mission & Vision -->
-  <section class="section bg-muted">
-    <div class="container split">
-      <div class="image">
-        <img src="https://placehold.co/600x400.png" alt="Student using a laptop" />
+  <section class="py-16 px-4 bg-green-500">
+    <div class="max-w-[1100px] mx-auto px-4 flex flex-wrap gap-8 items-center">
+      <div class="flex-1 min-w-0">
+        <img src="https://placehold.co/600x400.png" alt="Student using a laptop" class="w-full h-auto" />
       </div>
-      <div class="text">
-        <h2>Our Mission & Vision</h2>
-        <div class="list">
-          <div class="item">
-            <h3>🎯 Our Mission</h3>
+      <div class="flex-1 min-w-0">
+        <h2 class="mb-[10px]">Our Mission & Vision</h2>
+        <div>
+          <div class="mb-6">
+            <h3 class="mb-[10px]">🎯 Our Mission</h3>
             <p>
               To empower Nigerian students with knowledge and skills for a
               competitive global landscape via a digital learning ecosystem.
             </p>
           </div>
-          <div class="item">
-            <h3>👁️ Our Vision</h3>
+          <div>
+            <h3 class="mb-[10px]">👁️ Our Vision</h3>
             <p>
               To be the leading digital education platform in Africa—committed to
               student success, academic excellence, and innovation.
@@ -183,81 +71,77 @@ a {
   </section>
 
   <!-- Why Choose Us -->
-  <section class="section">
-    <div class="container">
-      <h2 class="center">Why Choose POWA?</h2>
-      <p class="center">We are committed to providing an unparalleled learning experience.</p>
-      <div class="grid">
-        <div class="card">
-          <div class="icon">📖</div>
-          <h3>Expert-Led Curriculum</h3>
+  <section class="py-16 px-4 bg-gray-100">
+    <div class="max-w-[1100px] mx-auto px-4">
+      <h2 class="text-center mb-[10px]">Why Choose POWA?</h2>
+      <p class="text-center">We are committed to providing an unparalleled learning experience.</p>
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-8 mt-8">
+        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
+          <div class="text-2xl mb-4">📖</div>
+          <h3 class="mb-[10px]">Expert-Led Curriculum</h3>
           <p>Courses designed and taught by industry leaders and seasoned academics.</p>
         </div>
-        <div class="card">
-          <div class="icon">👥</div>
-          <h3>Vibrant Community</h3>
+        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
+          <div class="text-2xl mb-4">👥</div>
+          <h3 class="mb-[10px]">Vibrant Community</h3>
           <p>Connect with a network of ambitious peers and mentors.</p>
         </div>
-        <div class="card">
-          <div class="icon">🎯</div>
-          <h3>Career Focused</h3>
+        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
+          <div class="text-2xl mb-4">🎯</div>
+          <h3 class="mb-[10px]">Career Focused</h3>
           <p>Gain practical skills for the Nigerian job market.</p>
         </div>
-        <div class="card">
-          <div class="icon">🛟</div>
-          <h3>Dedicated Support</h3>
+        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
+          <div class="text-2xl mb-4">🛟</div>
+          <h3 class="mb-[10px]">Dedicated Support</h3>
           <p>Our team supports you throughout your learning journey.</p>
         </div>
       </div>
     </div>
   </section>
-  
-  <!-- Meet the founder -->
-  <section class="section bg-muted">
-    <div class="container">
-      <h2 class="center">Meet The founder</h2>
-    </div>
-    <div class="container split">
-      <div class="image">
-        <img src="https://placehold.co/600x400.png" alt="founder of powa" />
-      </div>
-      <div class="text">
-        <h2>Meet Anita
 
-        </h2>
-        
-          <p>
-            Anita Is the founder of powa...........................
-          </p>
+  <!-- Meet the founder -->
+  <section class="py-16 px-4 bg-green-500">
+    <div class="max-w-[1100px] mx-auto px-4">
+      <h2 class="text-center mb-[10px]">Meet The founder</h2>
+    </div>
+    <div class="max-w-[1100px] mx-auto px-4 flex flex-wrap gap-8 items-center">
+      <div class="flex-1 min-w-0">
+        <img src="https://placehold.co/600x400.png" alt="founder of powa" class="w-full h-auto" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <h2 class="mb-[10px]">Meet Anita</h2>
+        <p>
+          Anita Is the founder of powa...........................
+        </p>
       </div>
     </div>
   </section>
 
-
   <!-- Meet the Team -->
-  <section class="section bg-muted">
-    <div class="container">
-      <h2 class="center">Meet Our Team</h2>
-      <p class="center">The passionate individuals dedicated to your learning journey.</p>
-      <div class="grid">
-        <div class="card team-card">
-          <img src="https://placehold.co/100x100.png" alt="Dr. Adebayo Ogunlesi"/>
-          <h3>Dr. Adebayo Ogunlesi</h3>
+  <section class="py-16 px-4 bg-[#f3f2f2]">
+    <div class="max-w-[1100px] mx-auto px-4">
+      <h2 class="text-center mb-[10px]">Meet Our Team</h2>
+      <p class="text-center">The passionate individuals dedicated to your learning journey.</p>
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-8 mt-8">
+        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
+          <img src="https://placehold.co/100x100.png" alt="Dr. Adebayo Ogunlesi" class="rounded-full mb-4 mx-auto" />
+          <h3 class="mb-[10px]">Dr. Adebayo Ogunlesi</h3>
           <p>Founder & Visionary</p>
         </div>
-        <div class="card team-card">
-          <img src="https://placehold.co/100x100.png" alt="Ngozi Okonjo-Iweala"/>
-          <h3>Ngozi Okonjo-Iweala</h3>
+        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
+          <img src="https://placehold.co/100x100.png" alt="Ngozi Okonjo-Iweala" class="rounded-full mb-4 mx-auto" />
+          <h3 class="mb-[10px]">Ngozi Okonjo-Iweala</h3>
           <p>Head of Academics</p>
         </div>
-        <div class="card team-card">
-          <img src="https://placehold.co/100x100.png" alt="Emeka Anyaoku"/>
-          <h3>Emeka Anyaoku</h3>
+        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
+          <img src="https://placehold.co/100x100.png" alt="Emeka Anyaoku" class="rounded-full mb-4 mx-auto" />
+          <h3 class="mb-[10px]">Emeka Anyaoku</h3>
           <p>Lead Developer</p>
         </div>
-        <div class="card team-card">
-          <img src="https://placehold.co/100x100.png" alt="Funmilayo Ransome-Kuti"/>
-          <h3>Funmilayo Ransome-Kuti</h3>
+        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
+          <img src="https://placehold.co/100x100.png" alt="Funmilayo Ransome-Kuti" class="rounded-full mb-4 mx-auto" />
+          <h3 class="mb-[10px]">Funmilayo Ransome-Kuti</h3>
           <p>Student Success Lead</p>
         </div>
       </div>
@@ -265,20 +149,21 @@ a {
   </section>
 
   <!-- Call to Action -->
-  <section class=" cta bg-emerald-700 border-b-8 border-b-green-300 mx-auto rounded-2xl">
-    <div class="container center">
-      <h2>Join Our Community</h2>
+  <section class="bg-green-500 text-white py-16 px-4 border-b-8 border-b-green-300 mx-auto rounded-2xl">
+    <div class="max-w-[1100px] mx-auto px-4 text-center">
+      <h2 class="mb-[10px]">Join Our Community</h2>
       <p>Ready to start your journey? Enroll today and unlock a world of knowledge.</p>
-      <a href="{{url_for('controller.register')}}" class="btn">Get Started Now</a>
+      <a href="{{url_for('controller.register')}}"
+         class="inline-block bg-white text-[#00be10] py-[0.8rem] px-[1.5rem] rounded-[6px] font-bold mt-4 no-underline">
+        Get Started Now
+      </a>
     </div>
   </section>
 
-
- {% include 'footer.html' %}
+  {% include 'footer.html' %}
 
   <script>
     console.log("About page loaded.");
   </script>
 </body>
 </html>
-

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login</title>
+  <link href="static/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="relative flex min-h-screen items-center justify-center p-4 bg-black">
+
+  <!-- Background image -->
+  <img src="https://placehold.co/1920x1080.png" alt="students"
+       class="absolute inset-0 w-full h-full object-cover z-[-2]" />
+  <div class="absolute inset-0 bg-black/60 z-[-1]"></div>
+
+  <!-- Login Card -->
+  <div class="w-full max-w-md z-10">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center justify-center gap-2 mb-8">
+      <img src=" {{ url_for('static', filename='img/powa-logo.png') }}" alt="logo" class="h-9 w-auto">
+    </a>
+
+    <!-- Card -->
+    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 text-white">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold">Welcome Back</h2>
+        <p class="text-white/80 text-sm">Enter your credentials to access your account.</p>
+      </div>
+      <form action ="{{ url_for ('controller.login') }}" method="post"  class="space-y-4">
+        <div class="space-y-2">
+          {{ login_form.email.label (class= 'block text-white/90 text-sm', id="email", )}}
+          {{ login_form.email (class="w-full bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none", placeholder=" email address")}}
+
+        </div>
+        <div class="space-y-2">
+          {{login_form.password.label (class="block text-white/90 text-sm")}}
+          {{ login_form.password(id="password", class="w-full bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none")}}
+
+          <button
+            type="button"
+            onclick="togglePassword()"
+            class="absolute right-2 top-1/2 -translate-y-1/2 pt-0.5 text-gray-500 hover:text-gray-700"
+          >
+
+          </button>
+        </div>
+        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">Login</button>
+      </form>
+
+    </div>
+  </div>
+</body>
+</html>

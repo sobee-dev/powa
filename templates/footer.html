@@ -7,7 +7,6 @@
         <a class="flex gap-x-0.2 w-auto" href="{{url_for('controller.home')}}">
 
             <img src=" {{ url_for('static', filename='img/powa-logo.png') }}" alt="logo" class="h-9 w-auto">
-            <div class="text-4xl font-bold font text-green-600">OWA</div>
 
         </a>
 
@@ -192,6 +191,18 @@ document.addEventListener('DOMContentLoaded', function () {
       button.classList.toggle('open');
     });
   }
+
+  const faqs = document.querySelectorAll(".faq");
+
+    faqs.forEach((faq) => {
+      faq.addEventListener("toggle", () => {
+        if (faq.open) {
+          faqs.forEach((other) => {
+            if (other !== faq) other.open = false; // close others
+          });
+        }
+      });
+    });
 
 });
 </script>

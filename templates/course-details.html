@@ -12,7 +12,7 @@
 <body>
   <header class="relative mb-15 z-30 overflow-hidden top-0 w-full h-64">
   <!-- Background image -->
-  <img src="{{ url_for('static',filename='img/positive-young.jpg')}}"
+  <img src="{{ url_for('static',filename='img/{{course.cover_img}}')}}"
        class="absolute inset-0 h-full w-full object-cover z-10" />
 
   <!-- Overlay and text -->
@@ -27,13 +27,14 @@
         <h2 class=" text-3xl font-bold">About Course</h2>
      
         <div class="mt-7 text-left border-">
-          <p class="font-sansita">This course is a great course If you learn it, you are good to go</p>
+          <p class="font-sansita">{{course.description}}</p>
         </div>
         <div class="border-green-400">
           <h3 class="text-left mt-4 mb- text-2xl text-bold text-green-500">Who this course is for?</h3>
           <ul class=" text-left rounded-2xl p-4 custom-checklist">
-            <li class="">Stay at home mom</li>
-            <li class="">Students.</li>
+            {% for b in course.beneficiaries %}
+            <li class="">{{b}}</li>
+            {% endfor %}
           </ul>
         </div>
       </div>
@@ -46,8 +47,9 @@
             <p class="italic text-lg font-bold p-3">On Completion of the Course you will be able to:</p>
 
             <ul class="text-left p-2 px-2 list-disc pl-8">
-              <li class=""> Write good copy</li>
-              <li class=""> ETC</li>
+              {% for b in course.course_benefits %}
+            <li class="">{{b}}</li>
+              {% endfor %}
             </ul>
         </div>
 
@@ -57,8 +59,9 @@
             <p class="italic text-lg font-bold p-3">Here is a breakdown of your order of Lessons:</p>
 
             <ul class="text-left p-2 px-2 list-disc pl-8">
-              <li class=""> Introduction to Copy</li>
-              <li class=""> Tools platforms, and setup</li>
+              {% for c in course.course_outline %}
+            <li class="">{{c}}</li>
+            {% endfor %}
             </ul>
         </div>
       </div>
@@ -73,9 +76,9 @@
 
                 <ul class="text-xl text-green-900 p-3">
 
-                  <li class=""> A working laptop</li>
-                  <li class="">willingness</li>
-                  <li class=""> Internet</li>
+                  {% for r in course.requirements %}
+                    <li class="">{{r}}</li>
+                  {% endfor %}
                 </ul>
              </div>
          </div>
@@ -86,8 +89,8 @@
                 <h3 class="mt-4 text-3xl font-bold text-green-500">Duration and Access</h3>
 
                 <ul class=" p-2 pl-8">
-                  <li class=""><span class=" font-bold"> Course duration: </span> 3 months</li>
-                  <li class=""><span class=" font-bold"> Time Commitment: </span> 1-2 hours per day</li>
+                  <li class=""><span class=" font-bold"> Course duration: </span> {{course.duration}}</li>
+                  <li class=""><span class=" font-bold"> Time Commitment: </span> {{course.time_commitment}}</li>
                   <li class=""><span class=" font-bold"> Access: </span> Lifetime Access to materials and updates</li>
                 </ul>
             </div>
@@ -97,7 +100,7 @@
             <div class="my-auto mx-auto">
               <h3 class="mt-4 text-3xl font-bold text-green-500">Pricing</h3>
               <p> For full Access to this course, you will be paying</p>
-              <p class="text-4xl font-bold">#30,000</p>
+              <p class="text-4xl font-bold">#{{course.full_price}}</p>
               <p> Installment option available upon registration.</p>
             </div>
          </div>
@@ -136,7 +139,7 @@
     </section>
 
     <section>
-      <div id="contact" class="  text-white bg-green-900 h-auto w-full my-25 mx-auto text-center py-4  rounded-lg">
+      <div id="contact" class="  text-white bg-green-500 h-auto w-full my-25 mx-auto text-center py-4  rounded-lg">
         <h1 class="my-5 text-5xl font-bold"> JOIN US</h1>
         <p class="py-3 pb-2 text-xl">Want to be next sought after professional? Join 100+ Students already making a step</p>
         <div class=" hover:text-green-400 hover:scale-105 h-22 w-60 border-green-200 border-b-8 border-2 border-green-300 rounded-xl mx-auto p-5 my-5">

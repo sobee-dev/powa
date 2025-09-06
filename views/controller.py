@@ -1,10 +1,10 @@
 
 from flask import render_template, redirect, url_for, flash, session, request, Blueprint, abort, current_app
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user, login_user
 
-from forms import RegisterForm,VerifyForm, ProfileForm
+from forms import RegisterForm, VerifyForm, ProfileForm, LoginForm
 
-from models.database import db,User
+from models.database import db, User, Admin
 from Services import data_services
 from flask_mail import Message
 from extensions import mail
@@ -17,26 +17,26 @@ controller = Blueprint("controller", __name__)
 def check():
     return data_services.courses
 
-@controller.route("/mail")
-def mail_test():
-
-    try:
-        msg = Message(
-            subject="SMTP Test",
-            recipients=[current_app.config['MAIL_USERNAME']],  # send to yourself
-
-        )
-        msg.body = "If you see this, your email client does not support HTML."
-
-        # Render HTML template (put your template inside templates/ folder)
-        msg.html = render_template("registration_email.html")
-
-        mail.send(msg)
-        return "Email sent ✅"
-    except Exception as e:
-        import traceback
-        traceback.print_exc()
-        return f"Email failed ❌: {e}", 500
+# @controller.route("/mail")
+# def mail_test():
+#
+#     try:
+#         msg = Message(
+#             subject="SMTP Test",
+#             recipients=[current_app.config['MAIL_USERNAME']],  # send to yourself
+#
+#         )
+#         msg.body = "If you see this, your email client does not support HTML."
+#
+#         # Render HTML template (put your template inside templates/ folder)
+#         msg.html = render_template("registration_email.html")
+#
+#         mail.send(msg)
+#         return "Email sent ✅"
+#     except Exception as e:
+#         import traceback
+#         traceback.print_exc()
+#         return f"Email failed ❌: {e}", 500
 
 @controller.route("/")
 def home():
@@ -120,7 +120,7 @@ def register():
         print("Account created successfully")
         flash('Account Created successfully!!!', 'success')
 
-        return f"Application submitted succesfully. Check your email for next step.{new_user.fullname}, {course['title']}, {new_user.email} "
+        return "Application submitted successfully. Check your email for next step."
     return render_template("register.html",register_form= register_form)
 
 @controller.route("/about_powa")
@@ -135,11 +135,29 @@ def agency():
 
     return render_template("agency.html")
 
+@controller.route('/login', methods=["GET", "POST"])
+def login():
+    login_form = LoginForm()
+    if request.method == "POST":
+        admin_email = login_form.email.data
+        admin_password = login_form.password.data
+
+        admin = Admin.query.filter_by(admin_email=admin_email).first()
+        if admin and admin.check_password(admin_password):
+            login_user(admin)
+            return redirect(url_for("controller.admin_dashboard"))
+        else:
+            flash("Invalid username or password", "danger")
+
+    return render_template("login.html", login_form=login_form)
+
 
 @controller.route("/hq")
 # @login_required
-def admin():
-    return render_template("admin.html")
+def admin_dashboard():
+    users_list = data_services.get_all_users()
+    total_students = len(users_list)
+    return render_template("admin.html",users_list=users_list, total=total_students)
 
 
 @controller.route("/verify-email")
@@ -150,11 +168,11 @@ def verify():
         if request.method == "POST" and verify_form.validate_on_submit():
             user = current_user  # Use the currently logged-in user
             if not user.is_verified:
-                # Add your verification logic here (e.g., OTP match or email code)
+                # Added verification logic here (e.g., OTP match or email code)
                 user.is_verified = True
                 db.session.commit()
                 flash("Your account has been verified!", "success")
-                return redirect(url_for('dashboard'))  # Redirect to a relevant page
+                return redirect(url_for('controller.dashboard'))  # Redirect to a relevant page
             else:
                 flash("Account is already verified.", "info")
 

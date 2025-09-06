@@ -2,7 +2,7 @@ from numbers import Number
 
 from flask_wtf import FlaskForm
 from wtforms.fields.choices import SelectField
-from wtforms.fields.simple import StringField, PasswordField, SubmitField, BooleanField
+from wtforms.fields.simple import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, Regexp
 import email_validator
 
@@ -49,3 +49,7 @@ class VerifyForm(FlaskForm):
     email = StringField('Email Address', validators=[DataRequired(), Email()])
     otp = StringField('OTP', validators=[DataRequired(),Length(min=3, max=8)])
     submit = SubmitField('Submit')
+
+class SlidetextForm(FlaskForm):
+    header_text = TextAreaField('Enter text for header slide')
+    home_text = TextAreaField ('Enter text for homepage slide')
