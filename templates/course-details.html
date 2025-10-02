@@ -12,7 +12,7 @@
 <body>
   <header class="relative mb-15 z-30 overflow-hidden top-0 w-full h-64">
   <!-- Background image -->
-  <img src="{{ url_for('static',filename='img/{{course.cover_img}}')}}"
+  <img src="{{ url_for('static',filename='img/' ~ course.img) }}"
        class="absolute inset-0 h-full w-full object-cover z-10" />
 
   <!-- Overlay and text -->
@@ -27,7 +27,7 @@
         <h2 class=" text-3xl font-bold">About Course</h2>
      
         <div class="mt-7 text-left border-">
-          <p class="font-sansita">{{course.description}}</p>
+          <p class="font-sansita">{{course.about}}</p>
         </div>
         <div class="border-green-400">
           <h3 class="text-left mt-4 mb- text-2xl text-bold text-green-500">Who this course is for?</h3>
@@ -56,7 +56,7 @@
         <div class="fade-in rounded-3xl bg-white p-5 border-4 border-green-500 shadow-xl shadow-green-500">
 
             <h3 class="mt-4 mb- text-2xl text bold text-green-500">Course Outline</h3>
-            <p class="italic text-lg font-bold p-3">Here is a breakdown of your order of Lessons:</p>
+            <p class="italic text-lg font-bold p-3">Here is an overview of the course segments:</p>
 
             <ul class="text-left p-2 px-2 list-disc pl-8">
               {% for c in course.course_outline %}

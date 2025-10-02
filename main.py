@@ -27,22 +27,12 @@ def inject_year():
     from datetime import datetime
     return {"year": datetime.now().year}
 
-
-with app.app_context():
-    db.create_all()
-    create_admin()
-    # db.drop_all()
-    print("db created successfully")
-
-    print(User.query.all())
-
-print("MAIL_SERVER:", app.config.get("MAIL_SERVER"))
-print("MAIL_USERNAME:", app.config.get("MAIL_USERNAME"))
-print("MAIL_USE_TLS:", app.config.get("MAIL_USE_TLS"))
-print("MAIL_PORT:", app.config.get("MAIL_PORT"))
-
 app.register_blueprint(controller)
 if __name__ == "__main__":
+    with app.app_context():
+        # This will only run when you actually start the app
+        create_admin()
+        print(User.query.all())
     app.run(debug= True)
 
 

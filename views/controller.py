@@ -51,8 +51,8 @@ def course_details(slug):
         if c["slug"] == slug:
             course = c
             break
-        if not course:
-            abort(404)
+    if not course:
+        abort(404)
     return render_template("course-details.html", course=course )
 
 def send_registration_email(user, course):

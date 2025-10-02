@@ -3,11 +3,103 @@
 [
     {
         "id": 1,
-        "title": "Creative Writing",
-        "slug": "creative-writing",
-        "img": "",
+        "title": "Sales & Copywriting",
+        "slug": "sales-&-copywriting",
+        "img": "sales&copywriting1.jpg",
         "cover_img": "",
-        "description": "This course makes you create life out of nothing, with words",
+        "desc": "Learn to write persuasive content that grabs attention and drives sales for businesses. Develop the skills to create ads, campaigns, and marketing material that converts.",
+
+        "about": "Copywriting is one of the highest-demand skills on the internet because businesses are always looking for ways to increase sales, and copywriting is the tool that makes it happen. In this course, you’ll master the psychology of selling and learn how to craft messages that drive results. By the end, you’ll be able to help businesses grow and offer your copywriting skills as a service to earn income.",
+        "full_price": "20,000" ,
+        "part_payment": "10,000" ,
+        "purchase_link": "",
+        "duration": "6 weeks",
+        "beneficiaries": ["Beginners ready to start a high-demand career in sales and marketing.","Small business owners who want to increase sales and attract more customers with ease.","Freelancers aiming to offer copywriting services and grow their income.","Content creators who want to communicate more effectively online."],
+        "course_outline": [" Introduction to Copywriting: \nLearn what copywriting is, why it matters for businesses, and how to start your copywriting career.",
+            "Understanding Your Audience \nDiscover how to research your audience through surveys, interviews, social media, and customer feedback.\n",
+            "Writing Headlines That Convert \nCraft attention-grabbing headlines using numbers, emotions, FOMO, and WIIFM principles.\n",
+            "Core Copywriting Techniques \nMaster AIDA, benefits over features, CTAs, USPs, and creating urgency in your messages.\n",
+            "Crafting Strong Leads \nStart with hooks, mini-stories, and concise openings that complement your headlines.\n",
+            "Writing Persuasive Body Copy \nWrite like you speak, keep sentences short, use active voice, and make your copy skimmable.\n",
+            "Copywriting Across Platforms \nApply your skills to email newsletters, landing pages, blogs, and sales letters.\n",
+            "Advanced Strategies \nUse numbers and data, create mental images, reduce objections, craft testimonials, and optimize CTA copy."],
+        "requirements": ["A laptop or smartphone","Good Internet Connection","Word processor (like Microsoft Word or Google Docs)",
+            "No prior experience required"],
+        "time_commitment": "4 hours per week of flexible virtual classes",
+        "course_benefits": ["Write clear, persuasive, and impactful copy for ads, campaigns, and marketing materials","Understand customer psychology to craft messages that influence decisions",
+            "Create attention-grabbing headlines, hooks, and calls-to-action that convert","Edit and polish copy for maximum impact",
+            "Build a professional portfolio as you complete course projects","Develop freelancing and client communication skills to position yourself as a professional copywriter"]
+
+
+
+    },
+    {
+        "id": 2,
+        "title": " Technical Writing",
+        "slug": "technical-writing",
+        "img": "technical-writing.jpg",
+        "cover_img": "",
+        "desc": "Learn to explain complex information in a clear, concise, and professional way. Develop the skills to create manuals, guides, reports, and online help resources that help users understand and use products or services effectively.",
+
+        "about": "This skill is ideal for you if you enjoy explaining complex ideas clearly and helping people understand how things work.\n\nTechnical writing is an in-demand skill across technology, engineering, science, and business. In this course, you’ll learn how to transform complex technical concepts into clear, actionable content. By the end, you’ll be able to produce professional documents, guides, and manuals, and confidently offer your services to companies or clients as a freelancer.",
+
+        "full_price": "20,000" ,
+        "part_payment": "10,000" ,
+        "purchase_link": "",
+        "duration": "6 Weeks",
+        "beneficiaries": ["Beginners ready to launch a career in technical writing",
+            "Professionals who want to improve workplace documentation and communication","Freelancers looking to offer technical writing services and grow their client base",
+            "Students and content creators aiming to simplify complex information for any audience"],
+        "course_outline": ["Explore the Fundamentals of Technical Writing: Learn what technical writing is, why it matters, and the career paths available.",
+            "Analyze Your Audience: Understand readers’ knowledge, needs, and expectations to tailor content effectively.\n",
+            "Apply Effective Writing Styles: Use clear, concise language, active voice, and consistent terminology to improve readability.",
+            "Design and Structure Documents: Organize content using headings, lists, tables, and formatting techniques for clarity.\n",
+            "Research and Incorporate Accurate Information: Gather, verify, and reference technical information from reliable sources.\n",
+            "Integrate Visuals and Enhancements: Use diagrams, screenshots, tables, and charts to complement written content.",
+            "Edit, Proofread, and Optimize Content: Review content for clarity, grammar, coherence, and formatting consistency.\n",
+            "Build a Portfolio and Launch Your Career: Compile projects, create samples, and learn to pitch your services to clients or employers."],
+        "requirements": ["A laptop or smartphone","Good Internet Connection","Word processor (like Microsoft Word or Google Docs)",
+            "No prior experience required"],
+        "time_commitment": "4 hours per week of flexible virtual classes",
+        "course_benefits": ["Write clear, concise, and structured technical documents that communicate information effectively.",
+            "Break down complex concepts into understandable content suitable for any audience.",
+            "Create professional manuals, guides, reports, and online help resources that meet real-world standards.",
+            "Use visuals, formatting, and examples to enhance comprehension and usability.",
+            "Edit and proofread technical content to ensure clarity, consistency, and accuracy.",
+            "Build a professional portfolio that showcases your technical writing skills and attracts clients or employers."]
+
+    },
+    {
+        "id": 3,
+        "title": "Sales & Copywriting",
+        "slug": "sales-&-copywriting",
+        "img": "sales&copywriting1.jpg",
+        "cover_img": "",
+        "desc": "Learn to write persuasive content that grabs attention and drives sales for businesses. Develop the skills to create ads, campaigns, and marketing materials that convert.",
+
+        "about": "This course makes you create life out of nothing, with words",
+        "full_price": "20,000" ,
+        "part_payment": "10,000" ,
+        "purchase_link": "",
+        "duration": "8 Weeks",
+        "beneficiaries": [],
+        "course_outline": [],
+        "requirements": ["A laptop","Good Internet"],
+        "time_commitment": "6 hours weekly",
+        "course_benefits": []
+
+
+
+    },
+    {
+        "id": 2,
+        "title": "Sales & Copywriting",
+        "slug": "sales-&-copywriting",
+        "img": "sales&copywriting1.jpg",
+        "cover_img": "",
+        "desc": "Learn to write persuasive content that grabs attention and drives sales for businesses. Develop the skills to create ads, campaigns, and marketing materials that convert.",
+
+        "about": "This course makes you create life out of nothing, with words",
         "full_price": "20,000" ,
         "part_payment": "10,000" ,
         "purchase_link": "",

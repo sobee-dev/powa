@@ -28,15 +28,21 @@
         <div class=" absolute flex items-center inset-0 ">
           <div class=" relative mx-auto z-10 px-6 sm:px-10 text-white">
             <h1 class="  text-center text-2xl text-fluid font-bold mb-4 fade-in"> Your <span class=" font-bold text-green-500">Skills</span> Can Pay <span class="text-green-500">You, </span>Let's Show You How...</h1>
-            <p class=" text-center text-xl my-6">Welcome to <span class=" text-xl font-bold">POWA</span>, the virtual learning academy for smart, driven individuals ready to master high-income digital skills and start earning from them. We don't just teach.
-                We mentor, guide, and support you until your skills start paying you
-            </p>
-            <p class=" text-center text-xl my-6"> Over 100 students have already started their journey with POWA. Now it's your turn to build the life you want, <span class=" font-bold">one skill at a time</span>
 
+            <p class=" text-center text-xl my-6">
+              At <span class=" text-xl font-bold">POWA</span>, we care about your growth. We are more than just a virtual learning platform. We are a community that equips you with practical digital and tech skills to help you earn more, boost your value, and advance your career.
+            </p>
+
+            <p class=" text-center text-xl my-6">
+              From beginner-friendly training to mentorship and accountability, we guide you until you can monetize your skills and grow professionally.
+            </p>
+
+            <p class=" text-center text-xl my-6">
+              Over 100 students have already started their journey with POWA. Now it is your turn to build the life you want, one skill at a time.
             </p>
             <div class="flex gap-4 flex-wrap items-center justify-center mb-4">
-              <a href="{{url_for('controller.register')}}" class=" powa-btn font-semibold ">Enroll Now</a>
-              <a href="{{url_for('controller.home')}}#courses" class="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-green-500 transition">Explore Courses</a>
+              <a href="{{url_for('controller.register')}}" class=" powa-btn font-semibold ">Join Our Community</a>
+              <a href="{{url_for('controller.home')}}#courses" class="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-green-500 transition">Explore High-Income Skills</a>
             </div>
           </div>
         </div>
@@ -144,26 +150,26 @@
     </section>
 
     <h2 class=" text-center my-12 mx-auto p-6 w-auto text-4xl font-bold bg-gradient-to-tr from-green-950 via-lime-500  to bg-yellow-200 bg-clip-text text-transparent fade-in">
-        Choose your desired skill and upgrade your portfolio from our list of industry standard skills across key sectors.
+        Master In-Demand Tech and Non-Tech Skills That Make You Stand Out.
     </h2>
     <section id="courses" class="bg-green-500 h-auto w-full my-25 px-5 text-center py-7 text-white">
 
-      <h3 class="text-2xl text-center italic mb-4"> Explore a selection of our most popular courses across various departments...</h3>
+      <h3 class="text-2xl text-center italic mb-4"> Explore top courses across key industries and boost your career with practical skills designed to land your next job....</h3>
 
       <div class="container p-10 grid grid-col gap-6 md:grid-cols-3 text-left">
 
         {% for course in courses %}
 
             <div class="  max-md:mx-7 rounded-xl border-r-8 border-r-green-900 transition-transform shadow-lg shadow-green-300 h-auto fade-in">
-                  <div class=" h-[130px] w-full overflow-hidden bg-blue-300">
-                      <img src="" class="w-full h-auto hover:scale-105" alt="">
+                  <div class=" h-[200px] w-full overflow-hidden bg-blue-300">
+                      <img src="static/img/{{course.img}}" class="w-full h-full hover:scale-105" alt="">
                   </div>
                   <div class="w-full h-auto p-3 bg-gray-200">
                       <h4 class="text-2xl text-black font-bold">{{course.title}}</h4>
-                      <div class="py-4  text-green-950 relative overflow-hidden max-h-32 transition-all duration-200">
-                        <p class="p-2">{{course.description}}</p>
+                      <div class="py-2  text-green-950 relative overflow-hidden max-h-32 transition-all duration-200">
+                        <p class=" p-2">{{course.desc}}</p>
                       </div>
-                      <div class=" flex p-3">
+                      <div class=" flex px-3 py-2">
                           <a class="powa-btn" href="{{url_for('controller.register')}}">Enroll now</a>
                           <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class=" text-black p-2 border-2 ml-auto border-green-600 rounded-lg bg-white hover:text-green-600 hover:scale-105">Course Details</a>
                       </div>
