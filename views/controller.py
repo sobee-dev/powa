@@ -17,6 +17,10 @@ controller = Blueprint("controller", __name__)
 def check():
     return data_services.courses
 
+@controller.route("/checkhealth")
+def check():
+    return "OK", 200
+
 # @controller.route("/mail")
 # def mail_test():
 #
