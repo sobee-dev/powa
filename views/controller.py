@@ -14,7 +14,7 @@ from extensions import mail
 controller = Blueprint("controller", __name__)
 
 @controller.route("/check")
-def check():
+def check_courses():
     return data_services.courses
 
 @controller.route("/checkhealth")
