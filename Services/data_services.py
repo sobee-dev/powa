@@ -10,7 +10,3 @@ with open(file_path,encoding="utf-8") as f:
 
 def get_all_users():
     return User.query.all()
-
-for a in courses:
-   a= a["slug"]
-   print(a)
