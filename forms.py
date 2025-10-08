@@ -18,9 +18,25 @@ class RegisterForm(FlaskForm):
     phone = StringField('Phone Number', validators=[DataRequired(), Regexp(r'^0\d{10,}$', message="Enter a valid phone number")])
     select_course = SelectField('Select a course', validators=[DataRequired()], choices=[
         ('', '-- Select a course --'),
+        ('sales-and-copywriting', 'Sales & Copywriting'),
+        ('technical-writing','Technical Writing'),
+        ('digital-marketing','Digital Marketing'),
+        ('email-marketing','Email Marketing'),
+        ('content-writing','Content-Writing'),
+        ('scriptwriting', 'ScriptWriting'),
         ('creative-writing', 'Creative Writing'),
-        ('biz', 'Business'),
-        ('art', 'Art')])
+        ('virtual-assistance','Virtual Assistant'),
+        ('voice-over-acting','Voice Over Acting'),
+        ('video-editing&motion-graphics','Video Editing & Motion Graphics'),
+        ('smartphone-video-editing','Smartphone Video Editing'),
+        ('graphics-design','Graphics Design'),
+        ('frontend - development',''),
+        ('backend-development','Backend Development'),
+        ('project-management','Project Management'),
+        ('ui-ux-design','UI/UX Design'),
+        ('data-analysis','Data Analysis'),
+        ('product-management','Product Management'),
+        ('hr-tech-management-system','HR & Tech Management')])
 
     funnel = SelectField('How did you hear about us?', validators=[DataRequired()], choices=[
         ('', '-- Select --'),

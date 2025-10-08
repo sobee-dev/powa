@@ -17,21 +17,21 @@
 
   <!-- Overlay and text -->
   <div class="absolute inset-0 z-20 bg-green-900/60 flex items-center justify-center">
-    <h2 class="text-white text-5xl font-extrabold font-sans">{{ course.title}}</h2>
+    <h2 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-sans text-center px-2">{{ course.title}}</h2>
   </div>
 </header>
 
   <main class="bg-green-100">
     <section class="cust-section p-3">
-      <div class="fade-in rounded-3xl mx-10 bg-white p-5 border-4 border-green-500">
+      <div class="fade-in rounded-3xl mx-auto bg-white p-2 border-4 border-green-500">
         <h2 class=" text-3xl font-bold">About Course</h2>
      
         <div class="mt-7 text-left border-">
           <p class="font-sansita">{{course.about}}</p>
         </div>
         <div class="border-green-400">
-          <h3 class="text-left mt-4 mb- text-2xl text-bold text-green-500">Who this course is for?</h3>
-          <ul class=" text-left rounded-2xl p-4 custom-checklist">
+          <h3 class="text-left mt-4 text-2xl text-bold text-green-500">Who this course is for</h3>
+          <ul class=" text-left p-2 custom-checklist">
             {% for b in course.beneficiaries %}
             <li class="">{{b}}</li>
             {% endfor %}
@@ -41,12 +41,12 @@
     </section>
 
     <section class="cust-section p-3">
-      <div class="  grid md:grid-cols-2 gap-10 p-7 px-15">
+      <div class="grid gap-6 sm:gap-8 md:gap-10 p-4 sm:p-6 md:p-10" >
         <div class="rounded-3xl bg-white p-5 border-4 border-green-500 shadow-xl shadow-green-500">
           <h3 class="mt-4 mb- text-2xl text-bold text-green-500">What you will learn</h3>
             <p class="italic text-lg font-bold p-3">On Completion of the Course you will be able to:</p>
 
-            <ul class="text-left p-2 px-2 list-disc pl-8">
+            <ul class="text-left p-2 px-2 list-disc pl-5">
               {% for b in course.course_benefits %}
             <li class="">{{b}}</li>
               {% endfor %}
@@ -69,15 +69,15 @@
 
     <section>
       <div class="mx-auto grid md:grid-cols-3 gap-7 items-center max-md:" >
-         <div class="fade-in mx-auto h-80 w-80 bg-gray-100 rounded-full text-center flex items-center border-b-7 border-green-500 shadow-xl shadow-green-400">
+         <div class="fade-in mx-auto h-80 w-80 bg-gray-100 rounded-full text-center flex items-center border-b-7 border-green-500 shadow-xl  shadow-green-400">
 
              <div class="my-auto mx-auto">
-                <h3 class="mt-4  text-2xl font-bold text-green-500 ">Tools and Requirements</h3>
+                <h3 class="mt-4 text-2xl font-bold text-green-500 md:text-3xl ">Tools and Requirements</h3>
 
-                <ul class=" text-green-950 font-bold p-3">
+                <ul class=" rounded-full p-1 sm:text-sm text-green-950">
 
                   {% for r in course.requirements %}
-                    <li class="text-bold">{{r}}</li>
+                    <li class=""><span class="text-2xl font-bold text-green-500">&gt;</span>  {{r}}</li>
                   {% endfor %}
                 </ul>
              </div>
@@ -86,7 +86,7 @@
          <div class=" mx-auto h-80 w-80 bg-green-100 rounded-full text-center flex items-center border-b-7 border-green-500 shadow-xl shadow-green-400">
             <div class="my-auto mx-auto">
 
-                <h3 class="mt-4 text-3xl font-bold text-green-500">Duration and Access</h3>
+                <h3 class="mt-4 text-2xl font-bold text-green-500 md:text-3xl">Duration and Access</h3>
 
                 <ul class=" p-2 pl-8">
                   <li class=""><span class=" font-bold"> Course duration: </span> {{course.duration}}</li>
@@ -98,42 +98,35 @@
 
          <div class="fade-in mx-auto h-80 w-80 bg-gray-200 rounded-full text-center flex items-center border-b-7 border-green-500 shadow-xl shadow-green-400">
             <div class="my-auto mx-auto">
-              <h3 class="mt-4 text-3xl font-bold text-green-500">Pricing</h3>
+              <h3 class="mt-4 text-2xl font-bold text-green-500 md:text-3xl">Tuition</h3>
               <p> For full Access to this course, you will be paying</p>
-              <p class="text-4xl font-bold">#{{course.full_price}}</p>
+              <p class="text-4xl font-bold">&#8358;{{course.full_price}}</p>
               <p> Installment option available upon registration.</p>
             </div>
          </div>
       </div>
     </section>
 
-    <section class="my-7 bg-green-500 px-10">
+    <section class="my-7 bg-green-500 px-2">
       <div>
-        <h3 class=" text-center my-10 py-6 text-3xl font-bold text-">What you get when you enroll at POWA</h3>
-        <ul class=" max-md:w-md md:grid md:grid-cols-2 custom-checklist rounded-2xl p-4 bg-white space-y-2">
+        <h3 class=" text-center my-10 text-white py-6 text-3xl font-bold text-">Why You Should Join Us.</h3>
+        <ul class="mx-auto md:grid md:grid-cols-2 custom-checklist rounded-2xl p-4 bg-white space-y-2">
 
-          <li class="fade-in"> In-demand marketable skills taught by experienced professionals</li>
-          <li class="fade-in"> Practical, project-based learning you can apply instantly</li>
+          <li class="fade-in"> You get to acquire In-demand, marketable skills taught by industry experts.</li>
           <li class="fade-in"> A certificate of completion to validate your expertise</li>
-          <li class="fade-in"> 100% online learning with flexible schedules.</li>
-          <li class="fade-in"> Industry-relevant training delivered in live and recorded sessions.</li>
-          <li class="fade-in"> Access to exclusive freelance, internship, and remote job boards.</li>
-          <li class="fade-in"> Support with job hunting, interviews, and offer negotiation.</li>
-          <li class="fade-in"> Real-world assignments that build your portfolio.</li>
-          <li class="fade-in"> 1-on-1 mentorship and personalized career guidance</li>
-          <li class="fade-in"> Internship connection opportunities with partner organizations.</li>
-          <li class="fade-in"> Constructive feedback to help you improve fast.</li>
-          <li class="fade-in"> A vibrant global community of learners and professionals.</li>
-          <li class="fade-in"> Optimization of your résumé, portfolio, and LinkedIn profile.</li>
-          <li class="fade-in"> Training in communication, professionalism, and client management.</li>
-          <li class="fade-in"> Lifetime access to all course content and future updates.</li>
-          <li class="fade-in"> Weekly live classes, Q&A sessions, and progress reviews.</li>
-          <li class="fade-in"> Dedicated support via Slack or WhatsApp.</li>
-          <li class="fade-in"> Structured accountability to keep you on track.</li>
-          <li class="fade-in"> Entry into our alumni network for ongoing support and referrals.</li>
-          <li class="fade-in"> Learn-and-earn opportunities through special projects.</li>
-          <li class="fade-in"> Career planning tools and personalized goal-setting.</li>
-          <li class="fade-in"> A student success team to guide and check in with you consistently.</li>
+          <li class="fade-in"> Practical, project-based learning you can apply instantly</li>
+          <li class="fade-in"> 100% online learning with flexible schedules</li>
+          <li class="fade-in"> Access to exclusive freelance and remote job boards</li>
+          <li class="fade-in"> Support with job hunting, interviews, and offer negotiation</li>
+          <li class="fade-in"> Practical assignments that build your portfolio</li>
+          <li class="fade-in"> Internship placement opportunities with partner organizations</li>
+          <li class="fade-in"> A vibrant global community of learners and professionals</li>
+          <li class="fade-in"> Optimization of your resume and portfolio</li>
+          <li class="fade-in"> Lifetime access to all course content and future updates</li>
+          <li class="fade-in"> Weekly live classes, Q&A sessions, and progress reviews</li>
+          <li class="fade-in"> Dedicated support via Slack and WhatsApp</li>
+          <li class="fade-in"> Structured accountability to keep you on track</li>
+          <li class="fade-in"> Entry into our alumni network for ongoing support and referrals</li>
         </ul>
       </div>
     </section>
