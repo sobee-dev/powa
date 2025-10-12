@@ -1,21 +1,18 @@
 
-from flask import render_template, redirect, url_for, flash, session, request, Blueprint, abort, current_app
-from flask_login import login_required, current_user, login_user
+import requests
+from config.config import Config
+from flask import render_template, redirect, url_for, flash, request, Blueprint, abort
+from flask_login import current_user, login_user, login_required
 
-from forms import RegisterForm, VerifyForm, ProfileForm, LoginForm
-
-from models.database import db, User, Admin
 from Services import data_services
-from flask_mail import Message
-from extensions import mail
-
-
+from forms import RegisterForm, VerifyForm, LoginForm
+from models.database import db, User, Admin
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 controller = Blueprint("controller", __name__)
 
-@controller.route("/check")
-def check_courses():
-    return data_services.courses
+
 
 @controller.route("/checkhealth")
 def check():
@@ -60,18 +57,25 @@ def course_details(slug):
     return render_template("course-details.html", course=course )
 
 def send_registration_email(user, course):
-
-
     subject = "Course Enrollment!!!"
-    recipients = [user.email]
+    to_email = user.email
+
+    message = Mail(
+        from_email=(Config.FROM_EMAIL, "THE TECH POWA"),
+        to_emails=to_email,
+        subject=subject,
+        plain_text_content=f"Hi {user.fullname}, Welcome to THE TECH POWA!!!",
+        html_content=render_template("registration_email.html", user=user, course=course)
+    )
 
     try:
-        msg = Message(subject=subject,recipients=recipients)
-
-        msg.body = f"Hi {user.fullname}, your registration was received."
-        msg.html = render_template("registration_email.html", user=user, course=course)
-        mail.send(msg)
-        return "Email sent ✅"
+        sg = SendGridAPIClient(Config.SENDGRID_API_KEY)
+        response = sg.send(message)
+        if response.status_code == 202:
+            return "Email sent ✅"
+        else:
+            print(f"SendGrid error: {response.status_code} {response.body.decode()}")
+            return f"Email failed ❌: {response.status_code}", 500
     except Exception as e:
         import traceback
         traceback.print_exc()
@@ -124,7 +128,7 @@ def register():
         print("Account created successfully")
         flash('Account Created successfully!!!', 'success')
 
-        return "Application submitted successfully. Check your email for next step."
+        return render_template('success.html', user=new_user, course=course)
     return render_template("register.html",register_form= register_form)
 
 @controller.route("/about_powa")
@@ -141,15 +145,19 @@ def agency():
 
 @controller.route('/login', methods=["GET", "POST"])
 def login():
+    if current_user.is_authenticated:
+        print('already authenticated')
+        return redirect(url_for("controller.admin_dashboard"))
     login_form = LoginForm()
-    if request.method == "POST":
+    if request.method == "POST" and login_form.validate_on_submit():
         admin_email = login_form.email.data
         admin_password = login_form.password.data
 
         admin = Admin.query.filter_by(admin_email=admin_email).first()
         if admin and admin.check_password(admin_password):
             login_user(admin)
-            return redirect(url_for("controller.admin_dashboard"))
+            next_page = request.args.get('next')
+            return redirect(next_page or url_for("controller.admin_dashboard"))
         else:
             flash("Invalid username or password", "danger")
 
@@ -157,7 +165,7 @@ def login():
 
 
 @controller.route("/hq")
-# @login_required
+@login_required
 def admin_dashboard():
     users_list = data_services.get_all_users()
     total_students = len(users_list)

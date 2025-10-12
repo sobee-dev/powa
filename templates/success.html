@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POWA | Registration Successful</title>
+
+    <link href="static/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+
+  <main class="bg-white shadow-xl rounded-2xl p-8 max-w-md text-center">
+    <div id="successAnimation" class="w-28 h-28 mx-auto mb-4" role="img" aria-label="Success animation"></div>
+
+    <h1 class="text-2xl font-bold text-green-600 mb-2">🎉 Registration Successful!</h1>
+
+    <p class="text-gray-700 mb-2">
+      Hi <span class="font-semibold">{{ user.fullname }}</span>,
+    </p>
+
+    <p class="text-gray-700 mb-4">
+      Your registration for <span class="font-semibold">{{ course.title }}</span> has been received.
+    </p>
+
+    <p class="text-gray-500 mb-6">
+      Check your email <span class="font-semibold">{{ user.email }}</span> for the next step.
+    </p>
+
+    {% if course.payment_link %}
+      <a href="{{ course.payment_link }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition transform hover:-translate-y-0.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m0 0l-3-3m3 3l3-3M3 12h18" />
+        </svg>
+        Proceed to Payment
+      </a>
+    {% else %}
+      <p class="text-gray-500">Payment link not currently available.</p>
+    {% endif %}
+
+    <a href="{{ url_for('controller.register') }}" class="block mt-4 text-sm text-gray-600 hover:text-green-700">Back to Registration</a>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      lottie.loadAnimation({
+        container: document.getElementById('successAnimation'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://assets10.lottiefiles.com/packages/lf20_touohxv0.json'
+      });
+    });
+  </script>
+</body>
+</html>

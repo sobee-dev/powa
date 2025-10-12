@@ -17,6 +17,24 @@
 <body >
 
   {% include 'header.html' %}
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="max-w-lg mx-auto mt-6 space-y-3">
+        {% for category, message in messages %}
+          <div class="
+            flex justify-between items-center p-4 rounded-lg shadow-md border
+            {% if category == 'success' %} bg-green-50 border-green-400 text-green-700
+            {% elif category == 'warning' %} bg-yellow-50 border-yellow-400 text-yellow-700
+            {% elif category == 'danger' or category == 'error' %} bg-red-50 border-red-400 text-red-700
+            {% else %} bg-gray-50 border-gray-300 text-gray-700 {% endif %}
+          ">
+            <span>{{ message }}</span>
+            <button type="button" class="text-gray-500 hover:text-gray-700" onclick="this.parentElement.remove()">✕</button>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
   <div class="relative w-full h-screen overflow-hidden text-white">
 
     <img id="heroimg" src="static/img/students.jpg" alt="powa students" class="absolute w-[120%] h-full object-cover z-10 opacity-35 transition: transform 0.5s linear, opacity 1s ease" />

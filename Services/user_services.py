@@ -30,7 +30,8 @@ def create_admin():
         db.session.add(admin)
         db.session.commit()
         print("Default admin created")
-
+    else:
+        print('admin already available')
 
 def log_out():
     logout_user()

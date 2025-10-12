@@ -16,6 +16,8 @@ class Config:
     MAIL_USERNAME = os.getenv('MAIL_USERNAME')
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER = os.getenv('MAIL_DEFAULT_SENDER')
+    FROM_EMAIL= os.getenv("MAIL_DEFAULT_SENDER", "info@thetechpowa.com")
+    SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 
     ADMIN_EMAIL = os.getenv('ADMIN_EMAIL')
     ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')

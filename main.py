@@ -18,7 +18,7 @@ mail.init_app(app)
 
 from models.database import User,Interests,Admin
 migrate = Migrate(app, db)
-# print('migration successful')
+
 login_manager.init_app(app)
 
 

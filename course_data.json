@@ -190,7 +190,7 @@
         "id": 6,
         "title": "HR Tech & Management Systems",
         "slug": "hr-tech-management-system",
-        "img": "",
+        "img": "hr-tech.png",
         "cover_img": "",
         "desc": "Learn how to leverage technology to streamline HR processes and manage people effectively. Develop skills in using HR software, data-driven decision-making, and digital tools to improve recruitment, performance management, and employee engagement.",
 
@@ -231,7 +231,7 @@
         "id": 7,
         "title": "Scriptwriting",
         "slug": "scriptwriting",
-        "img": "",
+        "img": "scriptwriting.png",
         "cover_img": "",
         "desc": "Learn how to craft engaging scripts for film, television, online videos, or podcasts that capture and hold an audience’s attention.\nDevelop strong storytelling techniques, character development skills, and formatting knowledge to bring ideas to life on the page and screen.",
 
@@ -276,7 +276,7 @@
         "cover_img": "",
         "desc": "Learn to write compelling stories, poems, and narratives that express unique ideas and emotions with clarity and impact.\nDevelop essential skills in storytelling, character creation, descriptive language, and editing to craft original works across different creative genres.",
 
-        "about": "Learn to write compelling stories, poems, and narratives that express unique ideas and emotions with clarity and impact.\nDevelop essential skills in storytelling, character creation, descriptive language, and editing to craft original works across different creative genres.",
+        "about": "Creative writing is a valuable skill that helps individuals express ideas clearly, craft engaging stories, and communicate effectively across different platforms. In this course, you will master the art of storytelling, character development, and writing techniques for various purposes such as blogs, scripts, and content creation. By the end of the course, you’ll have the confidence and skill to write compelling pieces that inform, inspire, and captivate any audience.",
         "full_price": "20,000" ,
         "part_payment": "10,000" ,
         "purchase_link": "",
@@ -519,7 +519,7 @@
         "id": 14,
         "title": "Frontend Development",
         "slug": "frontend-development",
-        "img": "",
+        "img": "frontend.png",
         "cover_img": "",
         "desc": "Learn how to build responsive, user-friendly websites and web applications from the ground up. Develop practical skills in HTML, CSS, JavaScript, and modern frontend tools that prepare you to create clean, functional interfaces for real-world projects.",
 
@@ -601,7 +601,7 @@
         "id": 16,
         "title": "Project Management",
         "slug": "project-management",
-        "img": "",
+        "img": "project-management.png",
         "cover_img": "",
         "desc": "Learn how to plan, organize, and manage projects effectively from start to finish. Develop practical skills in scheduling, resource allocation, risk management, and team coordination to deliver projects on time and within scope.",
 
@@ -721,7 +721,7 @@
         "id": 19,
         "title": "Product Management",
         "slug": "product-management",
-        "img": "",
+        "img": "product-management.png",
         "cover_img": "",
         "desc": "Learn how to guide a product from idea to launch while aligning business goals with user needs. Develop skills in market research, product strategy, roadmap planning, and cross-team collaboration to successfully manage the product lifecycle.",
 

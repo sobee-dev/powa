@@ -3,10 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Login</title>
-  <link href="static/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <title>POWA | Admin Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
+
 </head>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="flash-container" class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
+      {% for category, message in messages %}
+        <div
+          class="flash-msg relative mb-3 flex items-center justify-between
+            backdrop-blur-md bg-white/80 border-l-4 shadow-lg rounded-2xl p-4 text-sm font-medium text-gray-800
+            opacity-0 translate-y-3 transition-all duration-500
+            {% if category == 'success' %}border-green-500 text-green-700
+            {% elif category == 'danger' %}border-red-500 text-red-700
+            {% elif category == 'warning' %}border-yellow-400 text-yellow-700
+            {% else %}border-blue-500 text-blue-700{% endif %}">
+
+          <span class="flex-1 pr-3">{{ message }}</span>
+
+          <button class="close-btn text-gray-500 hover:text-gray-700 transition">
+            ✕
+          </button>
+        </div>
+      {% endfor %}
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const messages = document.querySelectorAll(".flash-msg");
+
+        messages.forEach((msg, i) => {
+          // Fade in one after another
+          setTimeout(() => {
+            msg.classList.remove("opacity-0", "translate-y-3");
+          }, i * 200);
+
+          // Auto-hide after 4 seconds
+          setTimeout(() => {
+            msg.classList.add("opacity-0", "-translate-y-3");
+            setTimeout(() => msg.remove(), 500);
+          }, 4000 + i * 200);
+
+          // Manual close
+          msg.querySelector(".close-btn").addEventListener("click", () => {
+            msg.classList.add("opacity-0", "-translate-y-3");
+            setTimeout(() => msg.remove(), 300);
+          });
+        });
+      });
+    </script>
+  {% endif %}
+{% endwith %}
 <body class="relative flex min-h-screen items-center justify-center p-4 bg-black">
 
   <!-- Background image -->
@@ -28,6 +76,7 @@
         <p class="text-white/80 text-sm">Enter your credentials to access your account.</p>
       </div>
       <form action ="{{ url_for ('controller.login') }}" method="post"  class="space-y-4">
+        {{ login_form.hidden_tag() }}
         <div class="space-y-2">
           {{ login_form.email.label (class= 'block text-white/90 text-sm', id="email", )}}
           {{ login_form.email (class="w-full bg-white/10 border border-white/30 rounded px-3 py-2 text-white placeholder-white/60 focus:bg-white/20 focus:outline-none", placeholder=" email address")}}
