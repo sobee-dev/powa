@@ -61,14 +61,14 @@
               </tr>
             </thead>
             <tbody>
-            {% for user in users_list %}
+            {% for student in students %}
               <tr class="bg-green-100 text-left">
-                <td class="p-3 border"> {{ user.fullname }}</td>
-                <td class="p-3 border"> {{ user.email }}</td>
-                <td class="p-3 border"> {{ user.phone }}</td>
-                <td class="p-3 border"> {{ user.course }}</td>
-                <td class="p-3 border"> {{ user.gender }}</td>
-                <td class="p-3 border"> {{ user.funnel }}</td>
+                <td class="p-3 border"> {{ student.fullname }}</td>
+                <td class="p-3 border"> {{ student.email }}</td>
+                <td class="p-3 border"> {{ student.phone }}</td>
+                <td class="p-3 border"> {{ student.course }}</td>
+                <td class="p-3 border"> {{ student.gender }}</td>
+                <td class="p-3 border"> {{ student.funnel }}</td>
                 <td class="p-3 border"> </td>
                 <td class="p-3 border">
                   <button class="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"> Remove</button>
@@ -80,7 +80,30 @@
         </div>
 
         <!-- Pagination -->
-        <div id="pagination" class="flex justify-center mt-4 space-x-2"></div>
+        <div class="flex justify-center mt-6 space-x-2">
+          {% if students.has_prev %}
+            <a href="{{ url_for('controller.admin_dashboard', page=students.prev_num) }}"
+             class="px-3 py-1 border rounded bg-green-200 hover:bg-green-500">Previous</a>
+          {% endif %}
+
+          {% for page_num in students.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+            {% if page_num %}
+              {% if page_num == students.page %}
+                <span class="px-3 py-1 border rounded bg-green-500 text-white">{{ page_num }}</span>
+              {% else %}
+                <a href="{{ url_for('controller.admin_dashboard', page=page_num) }}"
+                  class="px-3 py-1 border rounded bg-green-200 hover:bg-green-500">{{ page_num }}</a>
+              {% endif %}
+          {% else %}
+            <span class="px-3 py-1">...</span>
+          {% endif %}
+        {% endfor %}
+
+        {% if students.has_next %}
+        <a href="{{ url_for('controller.admin_dashboard', page=students.next_num) }}"
+           class="px-3 py-1 border rounded bg-green-200 hover:bg-green-500">Next</a>
+        {% endif %}
+      </div>
       </section>
 
       <!-- Announcements Section -->
@@ -89,8 +112,8 @@
         <div class="bg-white p-4 rounded-xl shadow">
           <h3 class="font-semibold mb-2">Student Emails</h3>
           <ul id="" class="list-disc pl-6 max-h-40 overflow-y-auto text-sm">
-            {% for user in users_list %}
-            <li>{{ user.email }}</li>
+            {% for student in students %}
+            <li>{{ student.email }}</li>
             {% endfor %}
           </ul>
         </div>

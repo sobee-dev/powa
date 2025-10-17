@@ -16,25 +16,53 @@
 </head>
 <body >
 
-  {% include 'header.html' %}
   {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      <div class="max-w-lg mx-auto mt-6 space-y-3">
-        {% for category, message in messages %}
-          <div class="
-            flex justify-between items-center p-4 rounded-lg shadow-md border
-            {% if category == 'success' %} bg-green-50 border-green-400 text-green-700
-            {% elif category == 'warning' %} bg-yellow-50 border-yellow-400 text-yellow-700
-            {% elif category == 'danger' or category == 'error' %} bg-red-50 border-red-400 text-red-700
-            {% else %} bg-gray-50 border-gray-300 text-gray-700 {% endif %}
-          ">
-            <span>{{ message }}</span>
-            <button type="button" class="text-gray-500 hover:text-gray-700" onclick="this.parentElement.remove()">✕</button>
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}
+  {% if messages %}
+    <div id="flash-container" class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
+      {% for category, message in messages %}
+        <div
+          class="flash-msg relative mb-3 flex items-center justify-between
+            backdrop-blur-md bg-white/80 border-l-4 shadow-lg rounded-2xl p-4 text-sm font-medium text-gray-800
+            opacity-0 translate-y-3 transition-all duration-500
+            {% if category == 'success' %}border-green-500 text-green-700
+            {% elif category == 'danger' %}border-red-500 text-red-700
+            {% elif category == 'warning' %}border-yellow-400 text-yellow-700
+            {% else %}border-blue-500 text-blue-700{% endif %}">
+
+          <span class="flex-1 pr-3">{{ message }}</span>
+
+          <button class="close-btn text-gray-500 hover:text-gray-700 transition">
+            ✕
+          </button>
+        </div>
+      {% endfor %}
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const messages = document.querySelectorAll(".flash-msg");
+
+        messages.forEach((msg, i) => {
+          // Fade in one after another
+          setTimeout(() => {
+            msg.classList.remove("opacity-0", "translate-y-3");
+          }, i * 200);
+
+          // Auto-hide after 4 seconds
+          setTimeout(() => {
+            msg.classList.add("opacity-0", "-translate-y-3");
+            setTimeout(() => msg.remove(), 500);
+          }, 4000 + i * 200);
+
+          // Manual close
+          msg.querySelector(".close-btn").addEventListener("click", () => {
+            msg.classList.add("opacity-0", "-translate-y-3");
+            setTimeout(() => msg.remove(), 300);
+          });
+        });
+      });
+    </script>
+  {% endif %}
+{% endwith %}
   <div class="relative w-full h-screen overflow-hidden text-white">
 
     <img id="heroimg" src="static/img/students.jpg" alt="powa students" class="absolute w-[120%] h-full object-cover z-10 opacity-35 transition: transform 0.5s linear, opacity 1s ease" />

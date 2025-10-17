@@ -1,10 +1,8 @@
-from numbers import Number
-
 from flask_wtf import FlaskForm
 from wtforms.fields.choices import SelectField
 from wtforms.fields.simple import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
-from wtforms.validators import DataRequired, Email, Length, EqualTo, Regexp
-import email_validator
+from wtforms.validators import DataRequired, Email, Length, Regexp
+
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -25,18 +23,21 @@ class RegisterForm(FlaskForm):
         ('content-writing','Content-Writing'),
         ('scriptwriting', 'ScriptWriting'),
         ('creative-writing', 'Creative Writing'),
-        ('virtual-assistance','Virtual Assistant'),
+        ('virtual-assistance','Virtual Assistance'),
         ('voice-over-acting','Voice Over Acting'),
         ('video-editing&motion-graphics','Video Editing & Motion Graphics'),
         ('smartphone-video-editing','Smartphone Video Editing'),
         ('graphics-design','Graphics Design'),
-        ('frontend - development',''),
-        ('backend-development','Backend Development'),
+        ('frontend - development','Front-end Development'),
+        ('backend-development','Back-end Development'),
         ('project-management','Project Management'),
         ('ui-ux-design','UI/UX Design'),
         ('data-analysis','Data Analysis'),
         ('product-management','Product Management'),
-        ('hr-tech-management-system','HR & Tech Management')])
+        ('hr-tech-management-system','HR & Tech Management'),
+        ('blogging-and-seo', 'Blogging & SEO Writing'),
+        ('wordpress-dev', 'Wordpress Development'),
+        ('fullstack-dev', 'Full Stack Advanced Development')])
 
     funnel = SelectField('How did you hear about us?', validators=[DataRequired()], choices=[
         ('', '-- Select --'),

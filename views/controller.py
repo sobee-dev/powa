@@ -1,15 +1,15 @@
 
 import requests
 from config.config import Config
-from flask import render_template, redirect, url_for, flash, request, Blueprint, abort
-from flask_login import current_user, login_user, login_required
+from flask import render_template, redirect, url_for, flash, request, Blueprint, abort, current_app, session
+from flask_login import current_user, login_user, login_required, logout_user
 
 from Services import data_services
 from forms import RegisterForm, VerifyForm, LoginForm
-from models.database import db, User, Admin
+from models.database import db, User
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
-
+from Services.user_services import Admin
 controller = Blueprint("controller", __name__)
 
 
@@ -41,8 +41,8 @@ def check():
 
 @controller.route("/")
 def home():
-
-    return render_template("index.html",courses= data_services.courses)
+    faq_data = data_services.information
+    return render_template("index.html",courses= data_services.courses,faq_data=faq_data)
 
 @controller.route("/courses/<slug>")
 def course_details(slug):
@@ -116,7 +116,6 @@ def register():
         except Exception as e:
             db.session.rollback()
             flash('Error saving user: ' + str(e), 'danger')
-            print("User not added")
             return redirect(url_for('controller.register'))
 
         try:
@@ -153,9 +152,14 @@ def login():
         admin_email = login_form.email.data
         admin_password = login_form.password.data
 
-        admin = Admin.query.filter_by(admin_email=admin_email).first()
-        if admin and admin.check_password(admin_password):
-            login_user(admin)
+        env_email =current_app.config['ADMIN_EMAIL']
+        env_password =current_app.config['ADMIN_PASSWORD']
+
+        if admin_email == env_email and admin_password == env_password:
+            admin = Admin(admin_id=1, admin_email=admin_email)
+            login_user(admin, remember=True)
+            session.permanent = True
+            flash("Logged in successfully")
             next_page = request.args.get('next')
             return redirect(next_page or url_for("controller.admin_dashboard"))
         else:
@@ -164,12 +168,22 @@ def login():
     return render_template("login.html", login_form=login_form)
 
 
+@controller.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    flash("Logged out successfully.", "info")
+    return redirect(url_for("login"))
+
+
 @controller.route("/hq")
 @login_required
 def admin_dashboard():
-    users_list = data_services.get_all_users()
-    total_students = len(users_list)
-    return render_template("admin.html",users_list=users_list, total=total_students)
+    page = request.args.get('page', 1, type=int)
+    per_page = 20  # 20 students per page
+    students = User.query.paginate(page=page, per_page=per_page)
+    total_no_of_students = User.query.count()
+    return render_template("admin.html", total=total_no_of_students, students=students)
 
 
 @controller.route("/verify-email")

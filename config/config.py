@@ -1,5 +1,5 @@
 import os
-
+from datetime import timedelta
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -9,6 +9,9 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI' , 'sqlite:///powa_database.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER')
+
+    PERMANENT_SESSION_LIFETIME = timedelta(minutes=30)  # Logout after 30 minutes of inactivity
+    REMEMBER_COOKIE_DURATION = timedelta(hours=1)
 
     MAIL_SERVER = os.getenv('MAIL_SERVER')
     MAIL_PORT = int(os.getenv('MAIL_PORT'))

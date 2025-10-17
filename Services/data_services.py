@@ -10,3 +10,10 @@ with open(file_path,encoding="utf-8") as f:
 
 def get_all_users():
     return User.query.all()
+
+
+
+file_path2 = os.path.join(os.path.dirname(__file__), '..', 'faq.json')
+with open(file_path2,encoding="utf-8") as faq:
+    information = json.load(faq)
+

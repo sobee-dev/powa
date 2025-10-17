@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>POWA | Virtual training Academy</title>
+  <title>POWA | Virtual Tech Academy</title>
 
   <link href="static/css/style.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
@@ -38,19 +38,19 @@
             </p>
 
             <p class=" text-center text-xl my-6">
-              Over 100 students have already started their journey with POWA. Now it is your turn to build the life you want, one skill at a time.
+              Students across Africa have already started their journey with POWA. Now it’s your turn to build the life you want, one skill at a time.
             </p>
             <div class="flex gap-4 flex-wrap items-center justify-center mb-4">
               <a href="{{url_for('controller.register')}}" class=" powa-btn font-semibold ">Join Our Community</a>
-              <a href="{{url_for('controller.home')}}#courses" class="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-green-500 transition">Explore High-Income Skills</a>
+              <a href="{{url_for('controller.home')}}#courses" class="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-green-500 transition">Explore In-demand Skills.</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="slide-text" class="mt-7 py-4 h-[100px]">
-      <div class="h-full w-[90%] md:w-[70%] bg-green-200 overflow-hidden whitespace-nowrap border-b-6 border-green-500 rounded-br-xl">
+    <section id="slide-text" class="mt-0 py-4">
+      <div class=" w-[90%] md:w-[70%] bg-green-200 overflow-hidden whitespace-nowrap border-b-6 border-green-500 rounded-br-xl">
         <div class="inline-block animate-slide text-lg font-bold text-green-950 font-4xl p-2">
           This text here keeps sliding... &nbsp; This text keeps sliding... &nbsp;
         </div>
@@ -58,16 +58,9 @@
 
     </section>
 
-    <section id="features" class="cust-section overflow-x-hidden">
-      <h2 class="w-[90%] md:w-[50%] mt-8 mb-4 text-2xl sm:text-3xl md:text-4xl font-bold left-in mx-auto"> Why Choose POWA? </h2>
-      <div class="w-[90%] md:w-[50%] text-base sm:text-lg md:text-xl border-l-7 border-l-green-900 rounded-br-2xl bg-[#40FF56]/80 rounded-tl-3xl text-left mx-auto p-4 my-4">
-        <p class=""> At POWA, we don't just teach, we walk with you until you start earning from your skills.
-        Whether you are looking to freelance, land a remote job, or break into tech and digital industries,
-            our programs are built to get you results, not just certificates
-        </p>
-      </div>
+    <section id="features" class=" text-center overflow-x-hidden">
+      <h2 class="w-[90%] md:w-[50%] mb-4 text-2xl sm:text-3xl md:text-4xl font-bold left-in mx-auto"> Why Choose POWA? </h2>
 
-      <h3 class="text-2xl font-bold">Here's what makes us different:</h3>
 
       <div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
@@ -77,7 +70,7 @@
               <img src="{{ url_for('static', filename='img/icons/relevant-skill.png') }}" class="h-full w-full mx-auto" alt="Powa merits icon"></div>
             
             <div class="mt-2 p-2">
-              <h3 class="text-2xl font-bold py-2">Relevant Skill Training</h3>
+              <h3 class="text-xl md:text-2xl font-bold py-2">Relevant Skill Training</h3>
               <p>We teach you skills that are in high demand across global markets</p>
             </div>
           </div>
@@ -89,7 +82,7 @@
               <img src="{{ url_for('static', filename='img/icons/expert-led-classes.png') }}" class="h-full w-full mx-auto" alt="Powa merits icon"></div>
             
             <div class="mt-2 p-2">
-              <h3 class="text-2xl font-bold py-2">Expert-Led Classes</h3>
+              <h3 class="text-xl md:text-2xl font-bold py-2">Expert-Led Classes</h3>
               <p>Learn directly from professionals who have built careers doing what they teach</p>
             </div>
           </div>
@@ -101,7 +94,7 @@
               <img src="{{ url_for('static', filename='img/icons/remote-and-freelance.png') }}" class="h-full w-full mx-auto" alt="Powa merits icon"></div>
             
             <div class="mt-2 p-2">
-              <h3 class="text-2xl font-bold py-2">Remote & Freelance Job Access</h3>
+              <h3 class="text-xl md:text-2xl font-bold py-2">Remote & Freelance Job Access</h3>
               <p>We connect you to over 100+ freelance and remote job boards, and show you how to land roles that pay.</p>
             </div>
           </div>
@@ -114,7 +107,7 @@
             </div>
             
             <div class="mt-2 p-2">
-              <h3 class="text-2xl font-bold py-2 ">Career Mentorship</h3>
+              <h3 class="text-xl md:text-2xl font-bold py-2 ">Career Mentorship</h3>
               <p>Our mentors guide you with personalized support, so you never feel stuck or lost on your journey.</p>
             </div>
           </div>
@@ -127,7 +120,7 @@
             </div>
 
             <div class="mt-2 p-2">
-              <h3 class="text-2xl font-bold py-2 ">Real-World Projects</h3>
+              <h3 class="text-xl md:text-2xl font-bold py-2 ">Real-World Projects</h3>
               <p>Build a practical portfolio with real-world projects that reflects what clients and employers actually expect.</p>
             </div>
           </div>
@@ -140,7 +133,7 @@
             </div>
 
             <div class="mt-2 p-2">
-              <h3 class="text-2xl font-bold py-2 ">Flexible Online Learning</h3>
+              <h3 class="text-xl md:text-2xl font-bold py-2 ">Flexible Online Learning</h3>
               <p>Learn from anywhere in the world on your own schedule.</p>
             </div>
           </div>
@@ -149,25 +142,25 @@
 
     </section>
 
-    <h2 class=" text-center my-12 mx-auto p-6 w-auto text-4xl font-bold bg-gradient-to-tr from-green-950 via-lime-500  to bg-yellow-200 bg-clip-text text-transparent fade-in">
-        Master In-Demand Tech and Non-Tech Skills That Make You Stand Out.
+    <h2 class=" text-center my-3 md:my-9 mx-auto p-6 w-auto text-3xl md:text-4xl font-bold text-[#1f9e32] fade-in">
+        Our Courses
     </h2>
-    <section id="courses" class="bg-green-700 h-auto w-full my-25 px-5 text-center py-7 text-white">
+    <h3 class="md:text-xl mx-3 text-black text-lg text-center mb-4"> Explore top courses across key industries and boost your career with practical skills designed to land your next job.</h3>
 
-      <h3 class="text-2xl text-center mb-4"> Explore top courses across key industries and boost your career with practical skills designed to land your next job....</h3>
+    <section id="courses" class="bg-gray-200 h-auto w-full my-9 md:my-20 px-5 text-center py-3 text-white">
 
       <div class="container p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
 
         {% for course in courses %}
 
-            <div class=" bg-gray-200 max-md:mx-4 sm:mx-6 md:mx-7 rounded-xl border-r-8 border-r-green-900 transition-transform shadow-sm shadow-green-300 h-auto rounded-4xl fade-in">
+            <div class="bg-white max-md:mx-4 sm:mx-6 md:mx-7 rounded-xl border-r-8 border-r-green-900 transition-transform shadow-lg shadow-green-300 h-auto rounded-4xl fade-in">
                   <div class=" h-[160px] sm:h-[180px] md:h-[200px] w-full overflow-hidden bg-blue-300">
                       <img src="static/img/{{course.img}}" class="w-full h-full hover:scale-105" alt="">
                   </div>
-                  <div class="w-full h-auto p-3 bg-gray-200">
+                  <div class="w-full h-auto p-3 bg-white">
                       <h4 class="text-lg sm:text-xl md:text-2xl text-black font-bold">{{course.title}}</h4>
                       <div class="py-2  text-green-950 relative overflow-hidden max-h-32 transition-all duration-200">
-                        <p class=" p-2 text-sm sm:text-base md:text-lg">{{course.desc}}</p>
+                        <p class=" p-2 text-sm sm:text-base md:text-sm">{{course.desc}}</p>
                       </div>
                       <div class=" flex px-3 gap-2 py-2">
                           <a class="powa-btn text-sm sm:text-base" href="{{url_for('controller.register')}}">Enroll now</a>
@@ -193,9 +186,9 @@
               <img src="" class="h-full w-full rounded-full object-cover">
             </div>
             <div class="h-[30%] text center">
-              <h3 class="font-bold" >Mr. John Doe</h3>
-              <span class="italic mb-2"> (owner of techoboss ltd)</span>
-              <p class="p-2 italic font-bold text-lg">" The onboarding is very seemless and the classes interesting. they have world class tutors and exceptional management</p>
+              <h3 class="font-bold" >Nanpon Daka</h3>
+              <span class="italic mb-2"> (Sales & Copywriting)</span>
+              <p class="p-2 italic font-bold text-sm">" The classes have been highly instructive, and the coach has done an amazing job of keeping students engaged and motivated. I’m really proud of POWA for making this training both affordable and accessible."</p>
             </div>
           </div>
           <!-- Slide 2 -->
@@ -204,9 +197,9 @@
               <img src="" class="h-full w-full rounded-full object-cover">
             </div>
             <div class="h-[30%] text center">
-              <h3 class="font-bold" >Mr. John Doe</h3>
-              <span class="italic mb-2"> (owner of techoboss ltd)</span>
-              <p class="p-2 italic font-bold text-lg">" The onboarding is very seemless and the classes interesting. they have world class tutors and exceptional management</p>
+              <h3 class="font-bold" >Josephine:</h3>
+              <span class="italic mb-2"> (Sales & Copywriting)</span>
+              <p class="p-2 italic font-bold text-sm">" Studying Copywriting at POWA has been a game changer for me. I’ve gained valuable insights on how to tailor my words to connect with different audiences and sell ideas effectively. The lessons are practical, my coach has been very supportive."</p>
             </div>
           </div>
           <!-- Slide 3 -->
@@ -215,9 +208,9 @@
               <img src="" class="h-full w-full rounded-full object-cover">
             </div>
             <div class="h-[30%] text center">
-              <h3 class="font-bold" >Mr. John Doe</h3>
-              <span class="italic mb-2"> (owner of techoboss ltd)</span>
-              <p class="p-2 italic font-bold text-lg">" The onboarding is very seemless and the classes interesting. they have world class tutors and exceptional management</p>
+              <h3 class="font-bold" >Mary</h3>
+              <span class="italic mb-2"> (SMM)</span>
+              <p class="p-2 italic font-bold text-lg">" The Social Media Management class at POWA has completely transformed how I approach online marketing. The live lessons are engaging, and easy to apply. I now feel confident managing campaigns, and creating impact as a social media manager."</p>
             </div>
           </div>
         </div>
@@ -234,79 +227,53 @@
     </section>
 
 
-    <section id="progress" class="text-white bg-green-500 container h-auto w-full my-25 mx-auto text-center py-4  rounded-lg">
-      <div class="h-full w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-white pt-4 gap-6">
-        <div> <h2 class="text-4xl font-sans font-extrabold fade-in">500+ </h2><p class="text-2xl font-serif">Students trained</p></div>
-        <div> <h2 class="text-4xl font-sans font-extrabold fade-in">170+ </h2><p class="text-2xl font-serif"> Students currently enrolled</p></div>
-        <div> <h2 class="text-4xl font-sans font-extrabold fade-in">200+ </h2><p class="text-2xl font-serif"> Clients satisfied</p></div>
+    <section id="progress" class="text-white bg-[#1f9e32] container h-auto w-full my-25 mx-auto text-center py-4  rounded-lg">
+      <div class="stats h-full w-full mx-auto grid grid-cols-1  md:grid-cols-3 text-white pt-4 gap-6">
+        <div> <h2><span data-target="1500" class="count text-4xl  font-extrabold fade-in">0</span> <span class="text-4xl  font-extrabold">+</span> </h2> <p class="text-2xl font-serif">Students trained</p></div>
+        <div> <h2><span data-target="1200" class="count text-4xl  font-extrabold fade-in">0</span> <span class="text-4xl  font-extrabold">+</span> </h2> <p class="text-2xl font-serif"> Students currently enrolled</p></div>
+        <div> <h2><span data-target="45" class="count text-4xl  font-extrabold fade-in">0</span> <span class="text-4xl  font-extrabold">+</span> </h2> <p class="text-2xl font-serif">Employed</p></div>
       </div>
     </section>
 
 
     <section id="FAQ" class="cust-section overflow-x-hidden ">
-      <h2 class="w-[90%] md:w-[50%] mx-auto fade-in text-2xl sm:text-3xl font-bold my-5">Some Frequently Asked Questions</h2>
+      <h2 class="w-[90%] md:w-[50%] mx-auto fade-in text-2xl sm:text-3xl font-bold my-5">Frequently Asked Questions</h2>
       <div class="p-3 mx-auto md:grid md:grid-cols-2 md:space-3">
-       <details class="faq px-3 py-2 open:shadow-lg rounded-lg open:bg-gray-300">
+        {% for key, value in faq_data.items() %}
+             {% if key.strip() and value.strip() %}
+               <details class="faq px-3 py-2 open:shadow-lg rounded-lg open:bg-gray-300">
 
-          <summary class=" w-full border-2 border-green-500 mx-auto rounded-2xl font-semibold text-2xl my-1.5">Is this program suitable to women?</summary>
-          <div class="mt-4 w-full mx-auto text-lg bg-green-500 text-white p-3">
-            Yes, This is suitable for woman as we have a high percentage of women even in our staff
-          </div>
-       </details>
-       <details class=" faq px-3 py-2 open:shadow-lg rounded-lg open:bg-gray-300">
-
-          <summary class=" w-full border-2 border-green-500 mx-auto rounded-2xl font-semibold text-2xl my-1.5">Is this program suitable to women?</summary>
-          <div class="mt-4 w-full mx-auto text-lg bg-green-500 text-white p-3">
-            Yes, This is suitable for woman as we have a high percentage of women even in our staff
-          </div>
-       </details>
-
-       <details class=" faq px-3 py-2 open:shadow-lg rounded-lg open:bg-gray-300">
-
-          <summary class=" w-full border-2 border-green-500 mx-auto rounded-2xl font-semibold text-2xl my-1.5">Is this program suitable to women?</summary>
-          <div class="mt-4 w-full mx-auto text-lg bg-green-500 text-white p-3">
-            Yes, This is suitable for woman as we have a high percentage of women even in our staff
-          </div>
-       </details>
-       <details class=" faq px-3 py-2 open:shadow-lg rounded-lg open:bg-gray-300">
-
-          <summary class=" w-full border-2 border-green-500 mx-auto rounded-2xl font-semibold text-2xl my-1.5">Is this program suitable to women?</summary>
-          <div class="mt-4 w-full mx-auto text-lg bg-green-500 text-white p-3">
-            Yes, This is suitable for woman as we have a high percentage of women even in our staff
-          </div>
-       </details>
-       <details class="faq px-3 py-2 open:shadow-lg rounded-lg open:bg-gray-300">
-
-          <summary class=" w-full border-2 border-green-500 mx-auto rounded-2xl font-semibold text-2xl my-1.5">Is this program suitable to women?</summary>
-          <div class="mt-4 w-full mx-auto text-lg bg-green-500 text-white p-3">
-            Yes, This is suitable for woman as we have a high percentage of women even in our staff
-          </div>
-       </details>
+                  <summary class="px-2 text-left w-full border border-green-500 mx-auto rounded-2xl font-semibold text-md md:text-lg my-1.5">{{key}}</summary>
+                  <div class="mt-4 w-full mx-auto text-lg bg-green-500 text-white p-3">
+                      {{value}}
+                  </div>
+               </details>
+            {% endif %}
+        {% endfor %}
 
       </div>
     </section>
 
 
-    <section id="contact" class="  text-white bg-green-500 h-auto w-full my-25 mx-auto text-center py-4  rounded-lg">
-      <h1 class="my-5 text-3xl sm:text-4xl md:text-5xl font-bold"> Talk to Our experts</h1>
-      <p class="py-3 pb-2 text-xl">Need a professional guidance? Or you want to make an enquiry, Reach out to our standby coach for assistance</p>
-      <div class=" flex justify-center  h-22 w-60 border-green-200 border-b-8 border-2 border-green-300 rounded-xl mx-auto p-5 my-5">
-        <a href="https://wa.me/2348141713547?text=Hello%2C%20I%20want%20to%20be%20added%20to%20the%20waitlist%20my%20name%20is....." class="hover:scale-110">
-          <img src="{{ url_for('static', filename='img/whatsapp.png') }}">
-        </a>
-        <p class="text-xl font-bold my-auto"> Chat with us..</p>
-      </div>
+    <section id="contact" class="  text-white bg-[#1f9e32] h-auto w-full my-25 mx-auto text-center py-4  rounded-lg">
+      <h1 class="my-5 text-3xl sm:text-4xl md:text-5xl font-bold"> Not sure which skill to pick?</h1>
+      <p class="mb-3 py-3 pb-2 text-lg md:text-xl">Book a free clarity session to discover the perfect fit for you. Our support team will help you choose the skill that matches your goals and strengths.</p>
+
+      <a class="my-6 p-4 rounded-xl text-xl font-bold text-[#1f9e32] bg-white border-3 border-green-900 text-center hover:scale-110  my-7" href="https://wa.me/2348141713547?text=Hello%20,%20I%20want%20to%20book%20a%20free%20clarity%20session%20to%20know%20the%20right%20skill%20to%20acquire%20at%20Tech%20POWA....." >
+         Chat with us..
+      </a>
+
 
     </section>
 
     <section id="join us" class="h-auto w-full my-25 px-5 text-center py-7 pt-7">
       <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold my-8 mt-8 fade-in">
-        Want to be the next sought after professional?
+        Ready to level up your career?
       </h2>
-      <p class="text-3xl">Learn from authorities in your chosen field, Gain access to internship and job opportunities</p>
+      <p class=" text-2xl md:text-3xl">Build a global career in tech with POWA. Learn industry-ready skills and access top opportunities across Africa and beyond.</p>
 
       <div class="py-5">
-        <a href="{{ url_for('controller.register') }}" class=" my-4 font-bold rounded-2xl w-auto border-b-4 border-b-green-200 bg-green-500 text-lg p-3">Join our community</a>
+        <a href="{{ url_for('controller.register') }}" class=" my-4 font-bold rounded-2xl w-auto border-b-4 border-b-green-200 bg-green-500 text-lg p-3">Apply Now.</a>
       </div>
 
     </section>

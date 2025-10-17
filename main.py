@@ -6,7 +6,6 @@ from views.controller import controller
 from config.config import Config
 from extensions import db, mail, login_manager
 from flask_migrate import Migrate
-from Services.user_services import create_admin
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -16,7 +15,7 @@ app.config.from_object(Config)
 db.init_app(app)
 mail.init_app(app)
 
-from models.database import User,Interests,Admin
+from models.database import User,Interests
 migrate = Migrate(app, db)
 
 login_manager.init_app(app)
@@ -35,10 +34,8 @@ app.register_blueprint(controller)
 
 if __name__ == "__main__":
     with app.app_context():
-        # This will only run when you actually start the app
-        create_admin()
         print(User.query.all())
-    app.run(debug= True)
+    app.run(debug= False)
 
 
 

@@ -21,19 +21,19 @@
   </div>
 </header>
 
-  <main class="bg-green-100">
+  <main class="bg-green-50">
     <section class="cust-section p-3">
       <div class="fade-in rounded-3xl mx-auto bg-white p-2 border-4 border-green-500">
         <h2 class=" text-3xl font-bold">About Course</h2>
      
         <div class="mt-7 text-left border-">
-          <p class="font-sansita">{{course.about}}</p>
+          <p class="font-sansita">{{course.about | replace('\n', '<br>') | safe}}</p>
         </div>
         <div class="border-green-400">
           <h3 class="text-left mt-4 text-2xl text-bold text-green-500">Who this course is for</h3>
           <ul class=" text-left p-2 custom-checklist">
             {% for b in course.beneficiaries %}
-            <li class="">{{b}}</li>
+            <li class="mb-2">{{b}}</li>
             {% endfor %}
           </ul>
         </div>
@@ -44,11 +44,11 @@
       <div class="grid gap-6 sm:gap-8 md:gap-10 p-4 sm:p-6 md:p-10" >
         <div class="rounded-3xl bg-white p-5 border-4 border-green-500 shadow-xl shadow-green-500">
           <h3 class="mt-4 mb- text-2xl text-bold text-green-500">What you will learn</h3>
-            <p class="italic text-lg font-bold p-3">On Completion of the Course you will be able to:</p>
+            <p class=" text-lg font-bold p-3">On Completion of the Course you will be able to:</p>
 
             <ul class="text-left p-2 px-2 list-disc pl-5">
               {% for b in course.course_benefits %}
-            <li class="">{{b}}</li>
+            <li class="mb-2">{{b}}</li>
               {% endfor %}
             </ul>
         </div>
@@ -56,11 +56,11 @@
         <div class="fade-in rounded-3xl bg-white p-5 border-4 border-green-500 shadow-xl shadow-green-500">
 
             <h3 class="mt-4 mb- text-2xl text bold text-green-500">Course Outline</h3>
-            <p class="italic text-lg font-bold p-3">Here is an overview of the course segments:</p>
+            <p class="text-sm md:text-lg font-bold p-3">Here is an overview of the course segments:</p>
 
             <ul class="text-left p-2 px-2 list-disc pl-8">
               {% for c in course.course_outline %}
-            <li class="">{{c}}</li>
+            <li class="mb-2">{{c | replace('\n', '<br>') | safe}}</li>
             {% endfor %}
             </ul>
         </div>
@@ -68,40 +68,44 @@
     </section>
 
     <section>
-      <div class="mx-auto grid md:grid-cols-3 gap-7 items-center max-md:" >
-         <div class="fade-in mx-auto h-80 w-80 bg-gray-100 rounded-full text-center flex items-center border-b-7 border-green-500 shadow-xl  shadow-green-400">
+      <div class="mx-auto grid md:grid-cols-3 gap-7 items-center" >
+         <div class="py-6 fade-in mx-auto max-md:mx-4 sm:mx-md md:mx-7 rounded-2xl bg-white text-center flex items-center transition-transform border-green-500 shadow-md  shadow-green-400">
 
              <div class="my-auto mx-auto">
-                <h3 class="mt-4 text-2xl font-bold text-green-500 md:text-3xl ">Tools and Requirements</h3>
+                <h3 class="my-5 text-center bg-green-500 py-2 px-2 rounded-2xl text-xl font-bold text-white md:text-2xl ">Tools and Requirements</h3>
+                <div class="m-2 py-5 border-y-2 border-green-500 rounded-xl">
+                    <ul class="text-left rounded-full px-2 sm:text-sm text-green-950">
 
-                <ul class=" rounded-full p-1 sm:text-sm text-green-950">
-
-                  {% for r in course.requirements %}
-                    <li class=""><span class="text-2xl font-bold text-green-500">&gt;</span>  {{r}}</li>
-                  {% endfor %}
-                </ul>
+                      {% for r in course.requirements %}
+                        <li class="pl"><span class="text-xl font-bold text-green-500"> ✓</span>    {{r}}</li>
+                      {% endfor %}
+                    </ul>
+                </div>
              </div>
          </div>
 
-         <div class=" mx-auto h-80 w-80 bg-green-100 rounded-full text-center flex items-center border-b-7 border-green-500 shadow-xl shadow-green-400">
+         <div class=" fade-in mx-auto max-md:mx-4 sm:mx-6 md:mx-7 rounded-2xl bg-white text-center flex items-center transition-transform border-green-500 shadow-xl  shadow-green-400">
             <div class="my-auto mx-auto">
 
-                <h3 class="mt-4 text-2xl font-bold text-green-500 md:text-3xl">Duration and Access</h3>
-
-                <ul class=" p-2 pl-8">
-                  <li class=""><span class=" font-bold"> Course duration: </span> {{course.duration}}</li>
-                  <li class=""><span class=" font-bold"> Time Commitment: </span> {{course.time_commitment}}</li>
-                  <li class=""><span class=" font-bold"> Access: </span> Lifetime Access to materials and updates</li>
-                </ul>
+                <h3 class="my-5 text-center bg-green-500 py-2 px-2 rounded-2xl text-xl font-bold text-white md:text-2xl">Duration and Access</h3>
+                <div class="m-2 py-5 border-y-2 border-green-500 rounded-xl">
+                    <ul class=" p-2 pl-8">
+                      <li class=""><span class=" font-bold"> Course duration: </span> {{course.duration}}</li>
+                      <li class=""><span class=" font-bold"> Time Commitment: </span> {{course.time_commitment}}</li>
+                      <li class=""><span class=" font-bold"> Access: </span> Lifetime Access to materials and updates</li>
+                    </ul>
+                </div>
             </div>
          </div>
 
-         <div class="fade-in mx-auto h-80 w-80 bg-gray-200 rounded-full text-center flex items-center border-b-7 border-green-500 shadow-xl shadow-green-400">
+         <div class="fade-in mx-auto max-md:mx-4 sm:mx-6 md:mx-7 rounded-2xl bg-white text-center flex items-center transition-transform border-green-500 shadow-xl  shadow-green-400">
             <div class="my-auto mx-auto">
-              <h3 class="mt-4 text-2xl font-bold text-green-500 md:text-3xl">Tuition</h3>
-              <p> For full Access to this course, you will be paying</p>
-              <p class="text-4xl font-bold">&#8358;{{course.full_price}}</p>
-              <p> Installment option available upon registration.</p>
+              <h3 class="my-5 text-center bg-green-500 py-2 px-2 rounded-2xl text-xl font-bold text-white md:text-2xl">Tuition</h3>
+              <div class="m-2 py-5 border-y-2 border-green-500 rounded-xl">
+                <p> For full Access to this course, you will be paying</p>
+                <p class="text-4xl font-bold">&#8358;{{course.full_price}}</p>
+                <p> Installment option available upon registration.</p>
+              </div>
             </div>
          </div>
       </div>
