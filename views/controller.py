@@ -3,7 +3,7 @@ import requests
 from config.config import Config
 from flask import render_template, redirect, url_for, flash, request, Blueprint, abort, current_app, session
 from flask_login import current_user, login_user, login_required, logout_user
-
+import random
 from Services import data_services
 from forms import RegisterForm, VerifyForm, LoginForm
 from models.database import db, User
@@ -41,8 +41,34 @@ def check():
 
 @controller.route("/")
 def home():
+    all_courses = data_services.courses
     faq_data = data_services.information
-    return render_template("index.html",courses= data_services.courses,faq_data=faq_data)
+    featured = random.sample(all_courses, min(6, len(all_courses)))
+    return render_template("index.html",faq_data=faq_data,featured=featured)
+
+@controller.route("/courses")
+def courses():
+
+    all_courses = data_services.courses
+
+    featured = random.sample(all_courses, min(8, len(all_courses)))
+
+
+    tech = []
+    marketing = []
+    design = [ ]
+    writing = []
+    for course in all_courses:
+        if course["cat"] == 'tech':
+            tech.append(course)
+        elif course["cat"] == 'marketing':
+            marketing.append(course)
+        elif course["cat"] == 'design':
+            design.append(course)
+        elif course["cat"] == 'writing':
+            writing.append(course)
+
+    return render_template("courses.html",tech=tech,marketing=marketing,design=design,writing=writing,featured=featured)
 
 @controller.route("/courses/<slug>")
 def course_details(slug):
@@ -132,15 +158,15 @@ def register():
 
 @controller.route("/about_powa")
 def about_powa():
+    team = data_services.team
+    return render_template("about.html", team=team)
 
-    return render_template("about.html")
 
 
-
-@controller.route("/agency")
-def agency():
-
-    return render_template("agency.html")
+@controller.route("/services")
+def services():
+    faq_data = data_services.information
+    return render_template("our-services.html",faq_data=faq_data)
 
 @controller.route('/login', methods=["GET", "POST"])
 def login():
@@ -175,6 +201,14 @@ def logout():
     flash("Logged out successfully.", "info")
     return redirect(url_for("login"))
 
+@controller.route("/terms")
+def terms():
+    render_template('terms.html')
+
+@controller.route("/privacy_policy")
+def privacy_policy():
+    render_template('privacy.html')
+
 
 @controller.route("/hq")
 @login_required
@@ -185,25 +219,29 @@ def admin_dashboard():
     total_no_of_students = User.query.count()
     return render_template("admin.html", total=total_no_of_students, students=students)
 
+@controller.route("/contact")
+def contact_us():
+    return render_template("contact-us.html")
 
-@controller.route("/verify-email")
-def verify():
-    verify_form = VerifyForm()
 
-    if request.method == "POST" and verify_form.validate_on_submit():
-        if request.method == "POST" and verify_form.validate_on_submit():
-            user = current_user  # Use the currently logged-in user
-            if not user.is_verified:
-                # Added verification logic here (e.g., OTP match or email code)
-                user.is_verified = True
-                db.session.commit()
-                flash("Your account has been verified!", "success")
-                return redirect(url_for('controller.dashboard'))  # Redirect to a relevant page
-            else:
-                flash("Account is already verified.", "info")
-
-    return render_template("verify.html", form=verify_form)
-
+# @controller.route("/verify")
+# def verify():
+#     verify_form = VerifyForm()
+#
+#     if request.method == "POST" and verify_form.validate_on_submit():
+#         if request.method == "POST" and verify_form.validate_on_submit():
+#             user = current_user  # Use the currently logged-in user
+#             if not user.is_verified:
+#                 # Added verification logic here (e.g., OTP match or email code)
+#                 user.is_verified = True
+#                 db.session.commit()
+#                 flash("Your account has been verified!", "success")
+#                 return redirect(url_for('controller.dashboard'))  # Redirect to a relevant page
+#             else:
+#                 flash("Account is already verified.", "info")
+#
+#     return render_template("courses.html", form=verify_form)
+#
 
 
 

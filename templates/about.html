@@ -8,117 +8,193 @@
 
   <link href="static/css/style.css" rel="stylesheet">
 </head>
-<body class="font-sans m-0 text-[#222] bg-white">
-
-  <!-- Hero Section -->
-  <section class="relative h-[60vh] text-white flex items-center justify-center text-center">
-    <img src="https://placehold.co/1920x600.png" alt="Diverse group of students"
-         class="absolute inset-0 w-full h-full object-cover z-10" />
-    <div class="absolute inset-0 bg-black/60 z-20"></div>
-    <div class="relative z-30 max-w-[800px] px-4">
-      <h1 class="mb-[10px]">Who Are We?</h1>
-      <p>
-        POWA is a trusted virtual tech academy and digital agency empowering Africans with in-demand tech and digital skills.
-        Our programs help individuals transition into tech and upgrade their skills.
-        Through project based training and access to thousands of remote job opportunities, we help Africans land top tech roles, build careers, and turn their skills into income.
-      </p>
-    </div>
-  </section>
+<body class="">
 
 
+  <div class="page-wrapper">
+    {% include 'header.html' %}
+    <section class=" h-148 relative flex flex-col md:flex-row items-center justify-between gap-8 py-10">
 
-  <!-- Mission & Vision -->
-  <section class="py-10 px-4 bg-green-500">
-    <div class="max-w-[1100px] mx-auto px-4 flex flex-wrap gap-8 items-center">
+      <div class="md:w-1/2 space-y-7">
+        <h1 class="text-[36px] md:text-[48px] leading-[140%] font-bold text-black">
+          We transform <span class="text-primary">Brands</span>,<br />
+          Build Tech Talents
+        </h1>
 
-      <div class="flex">
-
-        <div>
-          <div class="mb-6">
-            <h3 class="mb-[10px]">🎯 Our Mission</h3>
-            <p>
-              Our mission is to close Africa’s skills gap by giving individuals access to affordable tech and digital skills training.
-              We also help businesses grow online and reach more customers through our digital services.
-            </p>
-          </div>
-          <div>
-            <h3 class="mb-[10px]">👁️ Our Vision</h3>
-            <p>
-              We envision a future where every young person can access tech education from anywhere in the world and turn their skills into income.
-              Our goal is to connect individuals to mentorship, meaningful earning opportunities, and a supportive community that fosters career, personal, and economic growth.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section class="py-16 px-4 bg-gray-100">
-    <div class="max-w-[1100px] mx-auto px-4">
-      <h2 class="text-center mb-[10px]">Why Choose POWA?</h2>
-      <p class="text-center">We are committed to providing an unparalleled learning experience.</p>
-      <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-8 mt-8">
-        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
-          <div class="text-2xl mb-4">📖</div>
-          <h3 class="mb-[10px]">Expert-Led Curriculum</h3>
-          <p>Courses designed and taught by industry leaders and seasoned academics.</p>
-        </div>
-        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
-          <div class="text-2xl mb-4">👥</div>
-          <h3 class="mb-[10px]">Vibrant Community</h3>
-          <p>Connect with a network of ambitious peers and mentors.</p>
-        </div>
-        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
-          <div class="text-2xl mb-4">🎯</div>
-          <h3 class="mb-[10px]">Career Focused</h3>
-          <p>Gain practical skills for the Nigerian job market.</p>
-        </div>
-        <div class="bg-white p-8 rounded-[12px] text-center [box-shadow:0_2px_12px_rgba(0,0,0,0.05)]">
-          <div class="text-2xl mb-4">🛟</div>
-          <h3 class="mb-[10px]">Dedicated Support</h3>
-          <p>Our team supports you throughout your learning journey.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Meet the founder -->
-  <section class="py-16 px-4 bg-green-500">
-    <div class="max-w-[1100px] mx-auto px-4">
-      <h2 class="text-center mb-[10px]">Meet The founder</h2>
-    </div>
-    <div class="max-w-[1100px] mx-auto px-4 flex flex-wrap gap-8 items-center">
-      <div class="flex-1 min-w-0">
-        <img src="https://placehold.co/600x400.png" alt="founder of powa" class="w-full h-auto" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <h2 class="mb-[10px]">Meet Anita</h2>
-        <p>
-          Ann Ben is a writer with 3+ years of experience who has successfully turned her skills into income.
-          Her passion for growth and empowering Africans inspired her to found The Tech POWA, an online school where individuals can learn, upskill, and build rewarding careers in tech and digital industries.
+        <p class="text-black text-[16px] md:text-[18px] leading-[200%] mx-auto">
+          At POWA, we blend digital innovation with tech education, helping
+          businesses scale and individuals upskill. Together, we power growth that lasts.
         </p>
+
+        <button class="bg-primary hover:bg-green-700 text-white font-semibold py-2 px-8 rounded-lg transition-all">
+          Enroll now
+        </button>
       </div>
-    </div>
-  </section>
+
+      <div class="max-md:w-full relative flex justify-center items-center">
+         <img loading="lazy" class="max-md:h-[323px] w-full  rounded-xl shadow-lg z-10" src="{{ url_for('static', filename='img/aboutstar.png') }}">
+      </div>
+    </section>
 
 
-  <!-- Call to Action -->
-  <section class="text-green-950 py-16 px-4 border-b-8 border-b-green-300 mx-auto rounded-2xl">
-    <div class="max-w-[1100px] mx-auto px-4 text-center">
-      <h2 class="mb-[10px]">Ready to level up your career?</h2>
-      <p>Build a global career in tech with POWA. Learn industry-ready skills and access top opportunities across Africa and beyond.</p>
-      <a href="{{url_for('controller.register')}}"
-         class="inline-block bg-white text-[#00be10] py-[0.8rem] px-[1.5rem] rounded-[6px] font-bold mt-4 no-underline">
-        Apply Now.
-      </a>
+    <section class=" h-auto space-y-[24px] md:h-148 relative grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-8 pt-10">
+
+        <div class="w-full  relative flex justify-center items-center order-2 md:order-1">
+          <img loading="lazy" class="max-md:h-[358px] w-full rounded-xl shadow-lg z-10" src="{{ url_for('static', filename='img/whoweare.png') }}">
+
+        </div>
+
+        <div class="w-full  space-y-7 order-1 md:order-2" >
+            <h1 class="md:text-[40px] text-[24px] font-semibold text-black font-clash">
+              Who we are
+            </h1>
+
+            <p class="text-black text-[16px]  md:text-[18px] mx-auto leading-[258%]">
+              We are a trusted virtual tech academy and digital agency empowering Africans with in-demand tech and digital skills. Our programs help individuals transition into tech and upgrade their skills.
+              Through project based training and access to thousands of remote job opportunities, we help Africans land top tech roles, build careers, and turn their skills into income.
+            </p>
+        </div>
+    </section>
+  </div>
+
+
+    <section class="h-auto p-5 w-full text-black md:h-[355px] bg-green-50 ">
+         <div class="page-wrapper space-y-[16px]">
+
+           <h1 class="font-clash text-[21.2px] font-bold md:text-[40px] ">
+                What we do
+           </h1>
+           <div class="w-full grid grid-col md:grid-cols-2 items-center justify-between gap-12">
+
+              <div class=" " >
+                <p class="md:text-[18px] text-[16px] leading-[200%]">We build brands, create digital platforms, and train the next wave of tech talent.<br />
+                  With <strong>20+ expert-led courses,</strong>  we equip you with the skills and tools to launch, grow, and lead—without limits.
+                </p>
+              </div>
+
+              <div class="md:pl-10 space-y-[8px] md:text-[24px] text-[16px] leading-[242%] font-bold items-center ">
+                <p class="flex items-center flex-row gap-4">
+                  <img src="{{ url_for('static', filename='img/icons/black-tick.png') }}">
+                  In-demand tech skill courses
+                </p>
+                <p class="flex items-center flex-row gap-4">
+                  <img src="{{ url_for('static', filename='img/icons/black-tick.png') }}">
+                  Easy to understand curriculum
+                </p>
+                <p class="flex items-center flex-row gap-4">
+                  <img src="{{ url_for('static', filename='img/icons/black-tick.png') }}">
+                  Experienced tutors
+                </p>
+              </div>
+           </div>
+         </div>
+    </section>
+
+<div class="page-wrapper">
+
+    <section class="text-center">
+      <div class="page-wrapper w-full">
+        <div class="text-[24px] mb-7 mx-auto w-[281px] md:w-[396px] h-[64px] md:text-[40px] leading-[48px] border border-dotted border-primary py-1 font-semibold font-clash">Why Choose Us</div>
+        <p class="text-[16px] leading-[30px] font-bold text-gray-900/60 md:text-[20px] md:leading-[37px]">Because you deserve more than average, and we deliver<br /> excellence every time.</p>
+      </div>
+
+      <div class="md:mx-15 grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-y divide-gray-300 rounded-xl overflow-hidden">
+
+      <!-- Box 1 -->
+          <div class="p-10 flex flex-col items-center text-center">
+            <div class="bg-orange-50 p-4 rounded-2xl mb-4">
+              <img src="{{ url_for('static', filename='img/icons/wy1.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
+            </div>
+            <h3 class="font-semibold text-[18px] md:text-lg mb-2">Learn skills that pay</h3>
+            <p class="md:w-2/3 text-gray-600 text-[16px] leading-[26px]">
+              Gain practical, job-ready skills that give you an edge early in the global marketplace.
+            </p>
+          </div>
+
+          <!-- Box 2 -->
+          <div class="p-10 flex flex-col items-center text-center">
+            <div class="bg-orange-50 p-4 rounded-2xl mb-4">
+              <img src="{{ url_for('static', filename='img/icons/wy2.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
+            </div>
+            <h3 class="font-semibold text-[18px] md:text-lg mb-2">Expert training. Mentorship. Community.</h3>
+            <p class="md:w-2/3 text-gray-600 text-[16px] leading-[26px]">
+              Learn from experts, get real-time mentorship, and build skills with a supportive community.
+            </p>
+          </div>
+
+          <!-- Box 3 -->
+          <div class="p-10 flex flex-col items-center text-center">
+            <div class="bg-orange-50 p-4 rounded-2xl mb-4">
+              <img src="{{ url_for('static', filename='img/icons/wy3.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
+            </div>
+            <h3 class="font-semibold text-[18px] md:text-lg mb-2">Build a portfolio that stands out</h3>
+            <p class="md:w-2/3  text-gray-600 text-[16px] leading-[26px]">
+              Work on hands-on projects and internship experiences that help you showcase your skills with confidence.
+            </p>
+          </div>
+
+          <!-- Box 4 -->
+          <div class="p-10 flex flex-col items-center text-center">
+            <div class="bg-orange-50 p-4 rounded-2xl mb-4">
+              <img src="{{ url_for('static', filename='img/icons/wy4.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
+            </div>
+            <h3 class="font-semibold text-[18px] md:text-lg mb-2">Land remote jobs</h3>
+            <p class="md:w-2/3 text-gray-600 text-[16px] leading-[26px]">
+              Discover how to access global freelance and remote opportunities with step-by-step guidance from POWA.
+            </p>
+          </div>
     </div>
+    </section>
+
+
+
+  <section class="text-center space-y-[24px] md:space-y-[32px]">
+      <div class="">
+        <h1 class=" mb-7 text-[24px] md:text-[40px] md:leading-[48px]  font-semibold font-clash">Meet the Team</h1>
+        <p class="md:mx-20 text-[16px] leading-[30px] md:text-[20px] md:leading-[37px]">Tech experts and creative problem-solvers who don't just build digital solutions, we teach you how to build them too.</p>
+      </div>
+
+      <div class="md:h-148 mt-5 grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-10 ">
+
+          <div class=" space-y-7 text-left">
+              <h1 class="md:text-[40px] text-[21.2px] leading-[152%] font-semibold  text-black font-clash">
+                Ann Ben
+              </h1>
+              <p class="md:text-[16px] text-[14px] text-black/60 font-bold leading-[120%]">Founder & CEO</p>
+
+              <p class="text-black text-[14px] md:text-[18px] mx-auto leading-[258%]">
+                Ann is an entrepreneur and marketing strategist who has helped countless students turn their digital skills into successful careers. Passionate about quality tech education and empowerment, she is dedicated to closing the digital skills gap in Africa.
+              </p>
+          </div>
+
+          <div class=" relative ">
+              <img loading="lazy" class="h-full rounded-xl max-md:h-[387px] max-md:w-full z-10" src="{{ url_for('static', filename='img/annben.png') }}">
+          </div>
+      </div>
+
+      <div class="mt-15 pt-10 space-y-4 grid grid-cols-1 md:grid-cols-3 gap-5 ">
+          {% for staff in team %}
+            <div class="text-left px-5 py-6 bg-white rounded-lg shadow-sm ">
+                <img src="{{ url_for('static', filename='img/' + staff.img) }}" class=" pb-3 max-md:h-[238px] w-full rounded-lg md:h-[291px]" >
+                <div class="space-y-[13.7px]">
+                    <h4 class="md:text-[18px]  leading-[120%] text-[16px] font-bold" >{{staff.name}}</h4>
+                    <p class="md:text-[16px] text-black text-[14px] leading-[120%]">{{staff.field}}</p>
+                    <p class="md:text-[14px] text-[11.5px] leading-[24px] md:leading-[30px]">{{staff.portfolio}}</p>
+                </div>
+            </div>
+          {% endfor %}
+      </div>
   </section>
+
+    {% include 'cta.html' %}
+
+
+  </div>
+
 
   {% include 'footer.html' %}
 
-  <script>
-    console.log("About page loaded.");
-  </script>
+
+
 </body>
 </html>

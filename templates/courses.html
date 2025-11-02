@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses | POWA Virtual Tech Academy</title>
+
+  <link href="static/css/style.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
+
+
+
+</head>
+<body>
+<div class="page-wrapper">
+{% include 'header.html' %}
+    </div>
+
+
+
+    <div class="md:h-[295px] h-[140px] bg-black text-white flex items-center justify-center">
+        <div class="text-center space-y-[16px]">
+            <h1 class="md:text-[36px] text-[16px] leading-[120%] font-bold font-clash">Master In-Demand Digital Skills</h1>
+            <p class="text-[14px] text-[#CACACA] md:text-[16.5px]">From tech to business, explore over 20+ specialized courses to <br>help you level up your career or launch something new.</p>
+        </div>
+    </div>
+    <div class="page-wrapper">
+        <div class="md:space-y-6 space-y-4 mt-8 mb-12">
+            <h1 class="font-bold text-[24px] leading-[48px] font-clash md:text-[40px]">Learn. Create. Grow.</h1>
+            <p class="text-[16px] leading-[37px] text-normal">Our courses are designed to help you build real skills for the real world. Whether you’re just starting out or leveling up, you’ll find hands-on lessons, expert guidance, and practical projects to help you grow faster.  Choose a path, learn at your pace, and start building something amazing today.</p>
+        </div>
+
+        <section class="space-y-6">
+            <div id="tabs" class="flex overflow-x-auto scrollbar-hide space-x-3 md:space-x-4 snap-x snap-mandatory justify-start md:justify-evenly ">
+                <button onclick="showTab('featured')" id="tab-featured" class="tab-btn bg-green-100 text-green-700 border-green-500">
+                  Featured Courses
+                </button>
+                <button onclick="showTab('writing')" id="tab-writing" class="tab-btn">
+                    Writing & Communication
+                </button>
+                <button onclick="showTab('tech')" id="tab-tech" class="tab-btn">
+                    Development & Tech
+                </button>
+                <button onclick="showTab('marketing')" id="tab-marketing" class="tab-btn">
+                    Marketing, Business & Growth
+                </button>
+                <button onclick="showTab('design')" id="tab-design" class="tab-btn">
+                    Design & Creativity
+                </button>
+            </div>
+
+            <div class="">
+                <div id="featured" class="tab-content grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4 active">
+
+                  {% for course in featured %}
+                  <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
+                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" class=" object-cover h-full w-full">
+                    </div>
+                    <div class="space-y-5 flex-1">
+                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
+                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                    </div>
+                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
+                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
+                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                    </div>
+                  </div>
+                  {% endfor %}
+            </div>
+                <div id="writing" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4">
+
+                  {% for course in writing %}
+                    <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
+                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" class="object-cover h-full w-full">
+                    </div>
+                    <div class="space-y-5 flex-1">
+                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
+                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                    </div>
+                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
+                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
+                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                    </div>
+                  </div>
+              {% endfor %}
+            </div>
+                <div id="tech" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4">
+
+                  {% for course in tech %}
+              <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
+                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" class="object-cover h-full w-full">
+                    </div>
+                    <div class="space-y-5 flex-1">
+                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
+                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                    </div>
+                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
+                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
+                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                    </div>
+                  </div>
+              {% endfor %}
+            </div>
+                <div id="marketing" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4">
+
+                  {% for course in marketing %}
+                  <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
+                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" class="object-cover  h-full w-full">
+                    </div>
+                    <div class="space-y-5 flex-1">
+                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
+                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                    </div>
+                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
+                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
+                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+                <div id="design" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4">
+
+                {% for course in design %}
+                  <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
+                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" class="object-cover  h-full w-full">
+                    </div>
+                    <div class="space-y-5 flex-1">
+                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
+                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                    </div>
+                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
+                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
+                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                    </div>
+                  </div>
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+        {% include 'cta.html' %}
+    </div>
+
+
+<script>
+function showTab(id) {
+  // Hide all
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+  // Show selected
+  document.getElementById(id).classList.remove('hidden');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  showTab('featured');
+});
+</script>
+
+{% include 'footer.html' %}
+</body>
+</html>

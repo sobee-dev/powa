@@ -1,154 +1,154 @@
-<footer class="w-full h-auto bg-gray-200 mt-25 pt-4 pb-2">
+<footer class="w-full h-auto md:h-107.75 bg-[#101010]  text-white mt-25 py-6 ">
 
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-black">
+    <div class="max-md:space-y-[34px] max-w-md mb-12 md:max-w-screen-xl py-7 gap-6 justify-between mx-auto mt-3 pt-6 grid grid-cols-1 md:grid-cols-6 ">
 
-      <!-- Logo and Description -->
-      <div>
-        <a class="flex gap-x-0.2 w-auto" href="{{url_for('controller.home')}}">
+      <div class="md:col-span-2">
+          <a class="flex mb-6 w-auto" href="{{url_for('controller.home')}}">
 
-            <img src=" {{ url_for('static', filename='img/powa-logo.png') }}" alt="logo" class="h-6 md:h-9 w-auto">
+            <img src=" {{ url_for('static', filename='img/footer-logo.png') }}" alt="logo" class="h-7 md:h-11 w-auto">
+          </a>
+          <p class="md:text-[16px] text-[14px] text-white/60">We empower individuals and businesses with tech skills and digital solutions.</p>
+      </div>
 
-        </a>
-
-        <div class="mt-3 text-base">
-          <p>📞 <a href="tel:08141713547">08141713547</a></p>
-          <p>📩 <a href="mailto:info@thetechpowa.com">info@thetechpowa.com</a></p>
-          <p>📩 <a href="mailto:thetechpowa@gmail.com ">thetechpowa@gmail.com </a> </p>
-        </div>
+      <div class="space-y-7">
+        <h3 class="text-[#F5F5F5] mb-2 text-[16px] md:text-[20px] font-bold"> Company</h3>
+        <ul class="text-[14px] text-white/90 space-y-4">
+          <li><a href="{{url_for('controller.about_powa')}}" class="hover:text-primary">About us</a></li>
+          <li><a href="{{ url_for ('controller.services') }}" class="hover:text-primary">Our services</a></li>
+          <li><a href="{{ url_for ('controller.courses') }}" class="hover:text-primary">Courses</a></li>
+          <li><a href="{{ url_for ('controller.contact_us') }}" class="hover:text-primary">Contact us</a></li>
+          <li><a href="{{ url_for ('controller.home') }}#faq">FAQs</a></li>
+        </ul>
 
       </div>
 
-      <!-- Navigation Links -->
-      <div>
-        <h3 class="font-bold mb-3 text-lg md:text-xl ">Quick Links</h3>
-        <ul class="space-y-2 sm:text-base">
-          <li><a href="{{url_for('controller.about_powa')}}" class="hover:text-white hover:scale-105 transition">About Us</a></li>
-          <li><a href="{{url_for('controller.agency')}}" class="hover:text-white hover:scale-105 transition">Our Agency</a></li>
-          <li><a href="{{url_for('controller.home')}}#courses" class="hover:text-white hover:scale-105 transition">Courses</a></li>
+      <div class="space-y-4">
+        <h3 class="text-[#F5F5F5] mb-2 font-bold text-[16px] md:text-[20px]"> Our Services</h3>
+        <ul class="text-[14px] text-white/90 space-y-4" >
+          <li><a href="" class="hover:text-primary">Web design & Development</a></li>
+          <li><a href="" class="hover:text-primary">Social Media Management</a></li>
+          <li><a href="" class="hover:text-primary">Digital Marketing & Marketing</a></li>
+          <li><a href="" class="hover:text-primary">Writing Services</a></li>
+          <li><a href="" class="hover:text-primary">Consulting & brand strategy</a></li>
+        </ul>
 
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-[#F5F5F5] mb-2 font-bold text-[16px] md:text-[20px]"> Legal</h3>
+        <ul class="space-y-4 text-[14px] text-white/90">
+          <li><a href="{{ url_for ('controller.terms') }}" class="hover:text-primary">Terms of use</a></li>
+          <li><a href="{{ url_for ('controller.privacy_policy') }}" class="hover:text-primary">Privacy policy</a></li>
+        </ul>
+
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-[#F5F5F5] mb-2 font-bold text-[16px] md:text-[20px]"> Contact</h3>
+        <ul class=" space-y-4 text-[14px] text-white/90">
+          <li class="flex space-x-3">
+            <img src="{{ url_for('static', filename='img/icons/call.png') }}">
+            <a href="tel:08141713547">08141713547</a></li>
+          <li class="flex space-x-3">
+            <img src="{{ url_for('static', filename='img/icons/mail.png') }}">
+            <a href="mailto:info@thetechpowa.com">info@thetechpowa.com</a></li>
+          <li class="flex space-x-3 items-center">
+            <a href="https://www.facebook.com/profile.php?id=100089537345526"><img src="{{ url_for('static', filename='img/icons/Facebook.png') }}"></a>
+            <a href="https://www.instagram.com/thetechpowa?igsh=YzljYTk1ODg3Zg=="><img src="{{ url_for('static', filename='img/icons/instagram.png') }}"></a>
+            <a href="https://x.com/thetechpowa?t=uPpQ2pQcuhflI9DfJ7amhg&s=09 "><img src="{{ url_for('static', filename='img/icons/x.png') }}"></a>
+            <a href=""><img src="{{ url_for('static', filename='img/icons/linkedin.png') }}"></a>
         </ul>
       </div>
 
-      <!-- Newsletter -->
-      <div>
-        <h3 class="font-bold mb-3 text-lg md:text-xl ">Newsletter</h3>
-        <p class="text-black sm:text-base  mb-3">Subscribe to get the latest updates.</p>
-        <form class="flex flex-col space-y-2">
-          <input type="email" placeholder="Enter your email" class="px-3 py-2 rounded bg-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-lime-300">
-          <button type="submit" class="bg-white hover:text-green-400 hover:scale-105 px-3 py-2 text-sm sm:text-base rounded">Subscribe</button>
-        </form>
+    </div>
+    <div class="mx-auto max-w-md md:w-2/3 border-white/20 border-t text-center">
+        <p class="md:text-[9.51px] text-[16px] text-white/70 mt-3 mb-2 text-center"> ©️{{year}} The Tech Powa. All rights reserved. </p>
       </div>
 
-      <!-- Social Media -->
-      <div>
-        <h3 class="font-bold mb-3 text-lg md:text-xl">Follow us on social media.</h3>
-        <p class="text-base">Join our growing community of learners and tech enthusiasts.</p>
-        <div class="flex space-x-1">
-          <a href="https://www.facebook.com/profile.php?id=100089537345526" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-black hover:text-blue-700 transition">
-              <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0022 12z"/>
-            </svg>
-          </a>
-
-          <a href="https://x.com/thetechpowa?t=uPpQ2pQcuhflI9DfJ7amhg&s=09 " aria-label="Twitter">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black hover:text-blue-700 transition" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 19c7.5 0 11.6-6.1 11.6-11.6v-.5A8.2 8.2 0 0022 5.5a8 8 0 01-2.3.6 4.1 4.1 0 001.8-2.2c-.7.4-1.5.7-2.3.9a4.1 4.1 0 00-7 3.7A11.6 11.6 0 013 4.7a4.1 4.1 0 001.3 5.4 4 4 0 01-1.9-.5v.1a4.1 4.1 0 003.3 4 4.1 4.1 0 01-1.9.1 4.1 4.1 0 003.9 2.9A8.2 8.2 0 013 17a11.6 11.6 0 006 1.8"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/thetechpowa?igsh=YzljYTk1ODg3Zg==" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black hover:text-pink-600 transition" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-black hover:text-blue-800 transition" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48s1.34 2.98 2.98 2.98S8 8.12 8 6.48 6.62 3.5 4.98 3.5zM2 21h6v-11H2v11zm7.5-11H16v1.6c.6-.9 1.8-1.6 3.2-1.6 3.1 0 3.8 2.1 3.8 4.9V21h-6v-5.2c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6V21h-6V10z"/>
-            </svg>
-          </a>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="text-xs sm:text-sm md:text-base font-semibold mt-4 mb-2 text-center">
-      <p> {{year}} THE TECH POWA. All rights reserved. </p>
-    </div>
-
-    <div class="fixed bottom-5 right-5 text-white p-1 px-2 z-50">
-      <a href="https://wa.me/2348141713547" target="_blank" class=" flex flex-row items-center gap-2 hover:bg-green-600 text-white p-2 rounded-2xl shadow-lg">
-        <span class="hover:bg-green-900 bg-green-300  p-2 rounded-2xl">Chat with us</span>
-        <img src="{{ url_for('static', filename='img/whatsapp.png') }}">
-      </a>
-    </div>
+<div class="fixed bottom-5 right-5 text-white p-1 px-2 z-50">
+   <a href="https://wa.me/2348141713547" target="_blank" class=" flex flex-row items-center gap-2 hover:bg-green-600 text-white p-2 rounded-2xl shadow-lg">
+     <span class="hover:bg-green-900 bg-green-300  p-2 rounded-2xl">Chat with us</span>
+     <img src="{{ url_for('static', filename='img/whatsapp.png') }}">
+   </a>
+</div>
   </footer>
 
 
    <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
   // ===== For slide show =====
-  const track = document.getElementById("slider-track");
-  if (track) {
-    let currentIndex = 0;
-    const totalSlides = 3; // Update if you add more slides
 
-    function updateSlider() {
-      const percentage = -(100 * currentIndex);
-      track.style.transform = `translateX(${percentage}%)`;
+
+  const track = document.getElementById("testimonial-track");
+  const slides = Array.from(track.children);
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  // how many slides visible at once
+  const visibleSlides = 2.5;
+  let currentIndex = 0;
+
+  // get gap (Tailwind gap-x if present)
+  const getGap = () => parseFloat(window.getComputedStyle(track).gap) || 0;
+  const getSlideWidth = () => slides[0].offsetWidth + getGap();
+
+  // Clone first and last slides for infinite effect
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
+
+  // Update slides list
+  const allSlides = Array.from(track.children);
+  const totalSlides = allSlides.length;
+
+  // Initial position (account for clone)
+  let slideWidth = getSlideWidth();
+  track.style.transform = `translateX(-${slideWidth}px)`;
+
+  // Move function
+  const moveToSlide = (index) => {
+    track.style.transition = "transform 0.6s ease";
+    track.style.transform = `translateX(-${(index + 1) * slideWidth}px)`;
+  };
+
+  // Handlers
+  nextBtn.addEventListener("click", () => {
+    currentIndex++;
+    moveToSlide(currentIndex);
+
+    // Loop reset (next)
+    if (currentIndex >= slides.length) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        currentIndex = 0;
+        track.style.transform = `translateX(-${slideWidth}px)`;
+      }, 600);
     }
+  });
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlider();
+  prevBtn.addEventListener("click", () => {
+    currentIndex--;
+    moveToSlide(currentIndex);
+
+    // Loop reset (prev)
+    if (currentIndex < 0) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        currentIndex = slides.length - 1;
+        track.style.transform = `translateX(-${slides.length * slideWidth}px)`;
+      }, 600);
     }
+  });
 
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    }
+  // Recalculate width on resize
+  window.addEventListener("resize", () => {
+    slideWidth = getSlideWidth();
+    track.style.transition = "none";
+    track.style.transform = `translateX(-${(currentIndex + 1) * slideWidth}px)`;
+  });
 
-    // Autoplay every 3 seconds
-    setInterval(nextSlide, 3000);
-  }
-
-  // ===== For the hero animation =====
-  const heroImage = document.getElementById("heroimg");
-  if (heroImage) {
-    let xPos = 0;
-    let scale = 1.3;
-    const maxX = -20;
-    const maxScale = 1.8;
-    const resetX = 0;
-    const resetScale = 1.3;
-
-    function animateFrame() {
-      xPos -= 0.02;
-      if (scale < maxScale) {
-        scale += 0.0005;
-      }
-
-      if (xPos <= maxX || scale >= maxScale) {
-        heroImage.style.opacity = 0.4;
-        setTimeout(() => {
-          xPos = resetX;
-          scale = resetScale;
-          heroImage.style.transform = `translateX(${xPos}%) scale(${scale})`;
-          setTimeout(() => {
-            heroImage.style.opacity = 0.4;
-          }, 100);
-        }, 800);
-      } else {
-        heroImage.style.transform = `translateX(${xPos}%) scale(${scale})`;
-      }
-
-      requestAnimationFrame(animateFrame);
-    }
-
-    heroImage.style.transition = "opacity 0.8s ease, transform 1s ease";
-    heroImage.style.opacity = 0.4;
-    animateFrame();
-  }
 
   // ===== Start animation for text ease in =====
   if (document.querySelectorAll('.fade-in, .left-in').length > 0) {
@@ -169,63 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ===== For mobile menu button =====
-  const button = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  if (button && menu) {
-    button.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      button.classList.toggle('open');
-    });
-  }
 
-<!--  For number counter-->
-  const counters = document.querySelectorAll('.count');
-  const speed = 100; // lower = faster
-
-  const animateCounters = () => {
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = target / speed;
-
-        if (count < target) {
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(updateCount, 20);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCount();
-    });
-  };
-
-  // Start animation only when visible
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounters();
-        observer.disconnect(); // Run only once
-      }
-    });
-  });
-
-  observer.observe(document.querySelector('.stats'));
-
-
-<!--  For FAQ-->
-  const faqs = document.querySelectorAll(".faq");
-
-    faqs.forEach((faq) => {
-      faq.addEventListener("toggle", () => {
-        if (faq.open) {
-          faqs.forEach((other) => {
-            if (other !== faq) other.open = false; // close others
-          });
-        }
-      });
-    });
 
 });
 </script>

@@ -35,7 +35,7 @@ app.register_blueprint(controller)
 if __name__ == "__main__":
     with app.app_context():
         print(User.query.all())
-    app.run(debug= False)
+    app.run(debug= True)
 
 
 

@@ -1,0 +1,20 @@
+[
+  {
+    "name" : "Emeka Nwosu",
+    "field" : "Data Analytics Instructor",
+    "img" : "emeka.jpg",
+    "portfolio" : "Expert in business intelligence and analytics; guided 800+ students to analyze data effectively."
+  },
+  {
+    "name" : " Ifeoma Eze",
+    "field" : "Graphic Design Instructor",
+    "img" : "ifeoma.jpg",
+    "portfolio" : "Specializes in branding and visual  communication; trained 1,000+ students."
+  },
+  {
+    "name" : "Zaynab Suleman",
+    "field" : "Video Editing & Motion Graphics Instructor.",
+    "img" : "zaynab.jpg",
+    "portfolio" : "Produced 100+ digital campaigns; teaches students to create professional-quality videos."
+  }
+]

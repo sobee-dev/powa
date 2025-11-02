@@ -1,0 +1,63 @@
+
+
+    <section class="space-y-[20px] " id="faq">
+
+        <h1 class="text-[24px] md:text-[40px] text-[#101010] font-semibold font-clash text-center mb-[16px]">Frequently asked questions</h1>
+        <p class="max-md:mx-12 mb-10 text-[16px] md:text-[20px] text-[#101010] text-center ">Got questions? We’ve answered the most common ones below</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 justify-between mt-[20px] md:gap-12 space-y-[24px]">
+        {% for key, value in faq_data.items() %}
+             {% if key.strip() and value.strip() %}
+
+          <div class="border-b border-gray-300 pb-2">
+
+            <button
+              class="faq-btn max-md:text-[12px] w-full flex justify-between items-center text-left font-medium hover:text-green-700 transition-all"
+              onclick="toggleAccordion(this)">
+              <span class="text-gray-800 font-bold">{{key}}</span>
+              <span class="faq-icon text-2xl font-bold transition-all duration-300">+</span>
+            </button>
+
+            <div
+              class="faq-content bg-green-50 text-gray-700 rounded-lg px-4 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0">
+              <p class="py-4 max-md:text-[12px]">
+                 {{value}}
+              </p>
+            </div>
+          </div>
+             {% endif %}
+        {% endfor %}
+        </div>
+    </section>
+
+
+<script>
+    function toggleAccordion(button) {
+    // Find the panel & icon related to the clicked button
+    const wrapper = button.closest('div'); // the immediate question wrapper
+    const content = wrapper.querySelector('.faq-content');
+    const icon = button.querySelector('.faq-icon');
+
+    // If this panel is open -> close it
+    if (content.classList.contains('max-h-[1000px]')) {
+      content.classList.remove('max-h-[1000px]', 'opacity-100');
+      content.classList.add('max-h-0', 'opacity-0');
+      if (icon) icon.textContent = '+';
+      return;
+    }
+
+    // Close all other panels (accordion behavior)
+    document.querySelectorAll('.faq-content').forEach(el => {
+      el.classList.remove('max-h-[1000px]', 'opacity-100');
+      el.classList.add('max-h-0', 'opacity-0');
+    });
+    document.querySelectorAll('.faq-icon').forEach(el => {
+      el.textContent = '+';
+    });
+
+    // Open the clicked one
+    content.classList.remove('max-h-0', 'opacity-0');
+    content.classList.add('max-h-[1000px]', 'opacity-100');
+    if (icon) icon.textContent = '−';
+  }
+  </script>

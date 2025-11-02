@@ -5,145 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Powa | {{ course.title }}</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
 </head>
 <body>
-  <header class="relative mb-15 z-30 overflow-hidden top-0 w-full h-64">
-  <!-- Background image -->
-  <img src="{{ url_for('static',filename='img/' ~ course.img) }}"
-       class="absolute inset-0 h-full w-full object-cover z-10" />
+    <div class="page-wrapper">
+    {% include 'header.html' %}
+    </div>
 
-  <!-- Overlay and text -->
-  <div class="absolute inset-0 z-20 bg-green-900/60 flex items-center justify-center">
-    <h2 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-sans text-center px-2">{{ course.title}}</h2>
-  </div>
-</header>
+    <section class="md:h-[295px] h-[116px] bg-black text-white flex items-center justify-center">
 
-  <main class="bg-green-50">
-    <section class="cust-section p-3">
-      <div class="fade-in rounded-3xl mx-auto bg-white p-2 border-4 border-green-500">
-        <h2 class=" text-3xl font-bold">About Course</h2>
-     
-        <div class="mt-7 text-left border-">
-          <p class="font-sansita">{{course.about | replace('\n', '<br>') | safe}}</p>
-        </div>
-        <div class="border-green-400">
-          <h3 class="text-left mt-4 text-2xl text-bold text-green-500">Who this course is for</h3>
-          <ul class=" text-left p-2 custom-checklist">
+            <h1 class="md:text-[36px] text-[16px] font-bold font-clash">{{ course.title}}</h1>
+
+    </section>
+
+    <div class="page-wrapper">
+
+        <section class="md:space-y-6 ">
+            <h1 class="font-bold text-[24px] leading-[48px] font-clash md:text-[40px]">About the course</h1>
+            <p class="leading-[40px] text-[16px] md:text-[18px]">{{course.about | replace('\n', '<br>') | safe}}</p>
+        </section>
+
+        <section class="space-y-4">
+            <h1 class="font-bold text-[24px] leading-[48px] font-clash md:text-[40px]">Who the course is for?</h1>
+            <ul class=" text-left space-y-[16px] p-2 custom-checklist">
             {% for b in course.beneficiaries %}
-            <li class="mb-2">{{b}}</li>
+            <li class="md:text-[18px] text-[16px]">{{b}}</li>
             {% endfor %}
           </ul>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="cust-section p-3">
-      <div class="grid gap-6 sm:gap-8 md:gap-10 p-4 sm:p-6 md:p-10" >
-        <div class="rounded-3xl bg-white p-5 border-4 border-green-500 shadow-xl shadow-green-500">
-          <h3 class="mt-4 mb- text-2xl text-bold text-green-500">What you will learn</h3>
-            <p class=" text-lg font-bold p-3">On Completion of the Course you will be able to:</p>
-
-            <ul class="text-left p-2 px-2 list-disc pl-5">
-              {% for b in course.course_benefits %}
-            <li class="mb-2">{{b}}</li>
+        <section class="space-y-4 ">
+            <h1 class="font-bold text-[24px] leading-[48px] font-clash md:text-[40px]">What you will learn</h1>
+            <p class="md:text-[20px] text-[16px] leading-[30px]">On completion of this course, you will be able to:</p>
+            <ul class="text-left md:text-[18px] text-[16px] leading-[47px] p-2 px-2 list-disc pl-8">
+                {% for b in course.course_benefits %}
+            <li class="md:leading-[50px]">{{b}}</li>
               {% endfor %}
             </ul>
-        </div>
+        </section>
 
-        <div class="fade-in rounded-3xl bg-white p-5 border-4 border-green-500 shadow-xl shadow-green-500">
+        <section class=" space-y-4">
+            <h1 class="font-bold text-[24px] leading-[48px] font-clash md:text-[40px]">Course outline</h1>
+            <p class="md:text-[20px] text-[16px] leading-[30px]">Overview of course segments</p>
 
-            <h3 class="mt-4 mb- text-2xl text bold text-green-500">Course Outline</h3>
-            <p class="text-sm md:text-lg font-bold p-3">Here is an overview of the course segments:</p>
-
-            <ul class="text-left p-2 px-2 list-disc pl-8">
+            <ul class="text-left md:text-[18px] leading-[40px] text-[14px] p-2 px-2 list-disc pl-8">
               {% for c in course.course_outline %}
-            <li class="mb-2">{{c | replace('\n', '<br>') | safe}}</li>
+            <li class=" md:leading-[50px]">{{c | replace('\n', '<br>') | safe}}</li>
             {% endfor %}
             </ul>
-        </div>
-      </div>
-    </section>
 
-    <section>
-      <div class="mx-auto grid md:grid-cols-3 gap-7 items-center" >
-         <div class="py-6 fade-in mx-auto max-md:mx-4 sm:mx-md md:mx-7 rounded-2xl bg-white text-center flex items-center transition-transform border-green-500 shadow-md  shadow-green-400">
+        </section>
 
-             <div class="my-auto mx-auto">
-                <h3 class="my-5 text-center bg-green-500 py-2 px-2 rounded-2xl text-xl font-bold text-white md:text-2xl ">Tools and Requirements</h3>
-                <div class="m-2 py-5 border-y-2 border-green-500 rounded-xl">
-                    <ul class="text-left rounded-full px-2 sm:text-sm text-green-950">
-
-                      {% for r in course.requirements %}
-                        <li class="pl"><span class="text-xl font-bold text-green-500"> ✓</span>    {{r}}</li>
+        <section class="text-left">
+            <div class=" space-y-4 grid grid-cols-1 md:grid-cols-3 gap-2 md:text-[14px]">
+                <div class="md:space-y-[25px]">
+                    <h2 class="font-bold font-clash text-[24px] md:text-[28px]">Tools and Requirements</h2>
+                    <ul class=" text-left md:text-[16px] text-[14px] p-2 px-2 list-disc pl-8">
+                        {% for r in course.requirements %}
+                        <li class="leading-[41px]">  {{r}}</li>
                       {% endfor %}
                     </ul>
                 </div>
-             </div>
-         </div>
 
-         <div class=" fade-in mx-auto max-md:mx-4 sm:mx-6 md:mx-7 rounded-2xl bg-white text-center flex items-center transition-transform border-green-500 shadow-xl  shadow-green-400">
-            <div class="my-auto mx-auto">
+                <div class="md:space-y-[25px]">
+                    <h2 class="font-bold font-clash text-[24px] md:text-[28px]">Duration and Access</h2>
+                    <ul class="leading-[41px] text-left md:text-[16px] text-[14px] p-2 px-2 list-disc pl-8">
 
-                <h3 class="my-5 text-center bg-green-500 py-2 px-2 rounded-2xl text-xl font-bold text-white md:text-2xl">Duration and Access</h3>
-                <div class="m-2 py-5 border-y-2 border-green-500 rounded-xl">
-                    <ul class=" p-2 pl-8">
-                      <li class=""><span class=" font-bold"> Course duration: </span> {{course.duration}}</li>
-                      <li class=""><span class=" font-bold"> Time Commitment: </span> {{course.time_commitment}}</li>
-                      <li class=""><span class=" font-bold"> Access: </span> Lifetime Access to materials and updates</li>
+                        <li class=""><strong>Course duration: </strong>{{course.duration}} </li>
+                        <li class=""><strong>Time Commitment: </strong>{{course.time_commitment}} </li>
+                        <li class=""><strong>Class: </strong>Live classes </li>
+                        <li class=""><strong>Access: </strong>Access to class links, resources  </li>
+
                     </ul>
                 </div>
+
+                <div class="md:space-y-[25px] space-y-4">
+                    <h2 class="font-bold font-clash text-[24px] md:text-[28px]">Tuition</h2>
+                    <p class="text-[15px] md:text-[16px] leading-[41.5-px] ">For full access to this course, you will be paying</p>
+                    <ul class="text-[15px] md:text-[16px] leading-[41.5px] text-left p-2 px-2 list-disc pl-8">
+
+                        <li class=" text-primary font-bold">&#8358;{{course.full_price}} </li>
+                        <li class="">installment option available upon registration </li>
+                        <li class="">(&#8358;{{course.part_payment}} on registration)  ( balance due in week 2) </li>
+                        <li class="">Live session schedule is activated after your first payment</li>
+
+                    </ul>
+                </div>
+
             </div>
-         </div>
+        </section>
 
-         <div class="fade-in mx-auto max-md:mx-4 sm:mx-6 md:mx-7 rounded-2xl bg-white text-center flex items-center transition-transform border-green-500 shadow-xl  shadow-green-400">
-            <div class="my-auto mx-auto">
-              <h3 class="my-5 text-center bg-green-500 py-2 px-2 rounded-2xl text-xl font-bold text-white md:text-2xl">Tuition</h3>
-              <div class="m-2 py-5 border-y-2 border-green-500 rounded-xl">
-                <p> For full Access to this course, you will be paying</p>
-                <p class="text-4xl font-bold">&#8358;{{course.full_price}}</p>
-                <p> Installment option available upon registration.</p>
-              </div>
+        <section class="text-left text-black text-left space-y-4">
+            <div class="space-y-4 mb-10 text-left md:text-center">
+                <h1 class=" font-bold text-[24px] leading-[120%] font-clash md:text-[40px]">Benefits of learning with us</h1>
+                <p class="text-[16px] md:text-[20px] leading-[37px]">Here’s why hundreds of students choose to build their tech<br>careers with us.</p>
             </div>
-         </div>
-      </div>
-    </section>
 
-    <section class="my-7 bg-green-500 px-2">
-      <div>
-        <h3 class=" text-center my-10 text-white py-6 text-3xl font-bold text-">Why You Should Join Us.</h3>
-        <ul class="mx-auto md:grid md:grid-cols-2 custom-checklist rounded-2xl p-4 bg-white space-y-2">
+            <ul class="text-[16px] md:text-[18px] leading-[246%] mx-auto justify-between text-left p-2 list-disc pl-5 md:grid md:grid-cols-2 gap-8">
+                    <li>Learn in-demand, marketable skills from industry experts.</li>
+                    <li>Gain hands-on, project-based experience you can apply immediately.</li>
+                    <li>Earn a recognized certificate to validate your expertise.</li>
+                    <li>Enjoy 100% online, flexible learning with weekly live sessions.</li>
+                    <li>Build a strong portfolio through practical assignments and internship opportunities.</li>
+                    <li>Access exclusive remote and freelance job boards with career support.</li>
+                    <li>Get personalized mentorship, resume optimization, and interview guidance</li>
+                    <li>Join a vibrant global community with lifelong access to course updates and alumni referrals.</li>
+            </ul>
 
-          <li class="fade-in"> You get to acquire In-demand, marketable skills taught by industry experts.</li>
-          <li class="fade-in"> A certificate of completion to validate your expertise</li>
-          <li class="fade-in"> Practical, project-based learning you can apply instantly</li>
-          <li class="fade-in"> 100% online learning with flexible schedules</li>
-          <li class="fade-in"> Access to exclusive freelance and remote job boards</li>
-          <li class="fade-in"> Support with job hunting, interviews, and offer negotiation</li>
-          <li class="fade-in"> Practical assignments that build your portfolio</li>
-          <li class="fade-in"> Internship placement opportunities with partner organizations</li>
-          <li class="fade-in"> A vibrant global community of learners and professionals</li>
-          <li class="fade-in"> Optimization of your resume and portfolio</li>
-          <li class="fade-in"> Lifetime access to all course content and future updates</li>
-          <li class="fade-in"> Weekly live classes, Q&A sessions, and progress reviews</li>
-          <li class="fade-in"> Dedicated support via Slack and WhatsApp</li>
-          <li class="fade-in"> Structured accountability to keep you on track</li>
-          <li class="fade-in"> Entry into our alumni network for ongoing support and referrals</li>
-        </ul>
-      </div>
-    </section>
+        </section>
+        {% include 'cta.html' %}
 
-    <section>
-      <div id="contact" class="  text-white bg-green-500 h-auto w-full my-25 mx-auto text-center py-4  rounded-lg">
-        <h1 class="my-5 text-5xl font-bold"> JOIN US</h1>
-        <p class="py-3 pb-2 text-xl">Want to be next sought after professional? Join 100+ Students already making a step</p>
-        <div class=" hover:text-green-400 hover:scale-105 h-22 w-60 border-green-200 border-b-8 border-2 border-green-300 rounded-xl mx-auto p-5 my-5">
-          <a href="{{url_for('controller.register')}}" class="text-2xl font-bold my-auto ">Enroll Now</a>
-        </div>
-      </div>
-    </section>
-  </main>
+    </div>
+    {% include 'footer.html' %}
 
-  {% include 'footer.html' %}
+</body>
+</html>

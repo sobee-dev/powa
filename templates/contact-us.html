@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | POWA</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
+
+  <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        {% include 'header.html' %}
+
+        <section class="space-y-4 grid h-auto md:grid-cols-2 md:h-[720px] gap-2"  >
+            <div class="flex justify-center items-center ">
+                <div class="space-y-4 text-left">
+                <h1 class="leading-[120%] text-[36px] font-bold md:text-[48px]">Get in touch with us!</h1>
+                <p class=" text-[16px] md:text-[18px] leading-[193%] text-[#494949]">Have a question or ready to start your project? We would love to hear from you. Reach out to us, and get swift response.</p>
+                </div>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/contact.png') }}" class="max-md:h-[353px] w-full mx-auto" alt="Powa merits icon">
+            </div>
+        </section>
+
+        <section class="grid grid-col md:grid-cols-2 space-y-[55px] gap-4">
+            <div>
+                <p class="font-bold leading-[120%] mb-2 text-[24px]">Send us a Message</p>
+                <div class="bg-gray-50">
+                    <form class="bg-[#F1F1F1]/50 p-6 rounded-xl shadow-sm space-y-[20px]">
+                      <div>
+                        <label class="block max-md:text-[14px] text-[#343434] leading-[11.9px] font-bold mb-2">Enter Your Name</label>
+                        <input
+                          type="text"
+                          placeholder="Your full name"
+                          class="w-full px-4 py-2 bg-[#FCFCFC] border border-gray-200 rounded-md focus:outline-none placeholder-[#CACACA] focus:ring-1 focus:ring-green-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label class="block max-md:text-[14px] text-[#343434] leading-[11.9px] font-bold mb-2">Enter Email Address</label>
+                        <input
+                          type="email"
+                          placeholder="example@gmail.com"
+                          class="w-full px-4 py-2 bg-white border !border-gray-200 rounded-md focus:outline-none placeholder-[#CACACA] focus:ring-1 focus:ring-green-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label class="block max-md:text-[14px] text-[#343434] leading-[11.9px]  font-bold mb-2">Enter Your Message</label>
+                        <textarea
+                          rows="5"
+                          placeholder="Your message"
+                          class=" w-full px-4 py-2 bg-white border border-gray-200 rounded-md focus:outline-none placeholder-[#CACACA] focus:ring-1 focus:ring-green-500"
+                        ></textarea>
+                      </div>
+
+                      <button
+                        type="submit"
+                        class="w-full max-md:text-[16px] bg-primary text-white py-2 rounded-md hover:bg-green-700 transition"
+                      >
+                        Send message
+                      </button>
+                    </form>
+                </div>
+            </div>
+            <div class="pl-7">
+                <p class="font-bold mb-[16px] leading-[120%] text-[18px]">Build Your Future in Tech with POWA</p>
+                <p class="md:leading[38px] text-[16px] text-faint py-2 md:text-[18px] mb-6">We create powerful brands, modern digital platforms, and equip you with the skills to grow.<br />Whether you’re launching, scaling, or learning, we got you.</p>
+                <div class="grid grid-cols-2 gap-2 mt-[39px]">
+                    <div class="flex gap-3 ">
+                        <div class="flex items-center max-md:h-[22.5px] max-md:w-[22.5px]">
+                            <img src="{{ url_for('static', filename='img/icons/c1.png') }}">
+                        </div>
+                        <div class="space-y-3 md:text-[16px] text-[12px] leading-[120%]">
+                            <p class="text-[14px] leading-[120%] md:text-[22px] font-bold">Phone Number</p>
+                            <p>08141713547</p>
+                            <p>Mon-Fri, 9AM-6PM</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="flex items-center max-md:h-[22.5px] max-md:w-[22.5px]">
+                            <img src="{{ url_for('static', filename='img/icons/c2.png') }}">
+                        </div>
+                        <div class="space-y-3 text-[12px] md:text-[16px]">
+                            <p class="text-[14px] leading-[120%] md:text-[22px] font-bold">Email</p>
+                            <a href="mailto:thetechpowa@gmail.com" class="hover:text-primary">thetechpowa@gmail.com</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        {% include 'cta.html' %}
+        </div>
+        {% include 'footer.html' %}
+
+
+
+
+</body>
+</html>

@@ -1,28 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
-  content: ["./templates/**/*.html"],
-  safelist: [
-    'animate-pan',
-    'animate-zoom-slow',
-    'animate-fadeIn',
-    'animate-slideInUp',
-  ],
+  content: ["./templates/**/*.html", "./**/*.html"],
   theme: {
     extend: {
-      keyframes: {
-        slide: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-      },
-      animation: {
-        slide: 'slide 15s linear infinite',
+      colors: {
+        primary: "#368B3B",
       },
       fontFamily: {
-        roboto: ['Roboto', 'Sansita'],
-      }
-    }
+        sans: ["Poppins", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
+};
