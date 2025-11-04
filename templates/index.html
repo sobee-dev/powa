@@ -14,15 +14,15 @@
     {% include 'header.html' %}
     <div class="page-wrapper">
     <main>
-      <section class="md:h-[514px] max-md:h-[80vh] relative  py-7  overflow-hidden">
+      <section class=" py-7  overflow-hidden">
 
         <!-- Main Grid -->
-        <div class=" md:h-full h-auto z-10 max-md:space-y-[32px] sm:mx-auto max-md:px-6 grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-[60px]">
+        <div class="z-10 h-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 md:px-0">
 
 
           <!-- Center Text -->
-          <div class=" flex flex-col justify-end text-left h-full ">
-            <div class=" md:space-y-8 max-md:space-y-[32px] ">
+          <div class=" flex flex-col justify-center  text-left h-screen ">
+            <div class=" md:space-y-8 max-md:space-y-[26px] ">
             <h1 class=" md:text-[60px] text-[40px] font-clash font-bold text-black leading-[129%]">
               Your Skills Can <span class="text-primary">Pay</span> You.
               Let’s Show You How
@@ -47,14 +47,13 @@
           </div>
 
           <!-- Right Image -->
-          <div class=" h-[60vh]  md:h-full rounded-[20px] overflow-hidden">
+          <div class=" rounded-[20px] overflow-hidden md:h-full h-auto">
             <img
               src="{{ url_for('static', filename='img/hero2.webp') }}"
               alt="Team working together"
               class="w-full h-full  object-cover "
             >
           </div>
-
         </div>
       </section>
 
@@ -131,8 +130,8 @@
             <div class="space-y-5 mt-auto">
               <h6 class="max-md:text-[12px]"><strong class="max-md:text-[13px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
               <div class="max-md:text-[15.5px] flex text-center justify-between gap-2 py-2 mt-auto">
-                <a class="grow hover:scale-105 hover:bg-green-500 text-white py-3 px-9 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
-                <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-4 border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                <a class="grow hover:scale-105 hover:bg-green-500 text-white py-3 px-auto bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
+                <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-auto border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
               </div>
             </div>
           </div>

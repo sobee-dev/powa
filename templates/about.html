@@ -175,7 +175,7 @@
       <div class="mt-15 pt-10 space-y-4 grid grid-cols-1 md:grid-cols-3 gap-5 ">
           {% for staff in team %}
             <div class="text-left px-5 py-6 bg-white rounded-lg shadow-sm ">
-                <img src="{{ url_for('static', filename='img/' + staff.img) }}" class=" pb-3 max-md:h-[238px] w-auto rounded-lg md:h-[291px]" >
+                <img src="{{ url_for('static', filename='img/' + staff.img) }}" class=" pb-3 max-md:h-[238px] w-full rounded-lg md:h-[291px]" >
                 <div class="space-y-[13.7px]">
                     <h4 class="md:text-[18px]  leading-[120%] text-[16px] font-bold" >{{staff.name}}</h4>
                     <p class="md:text-[16px] text-black text-[14px] leading-[120%]">{{staff.field}}</p>
