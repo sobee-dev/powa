@@ -13,9 +13,9 @@
 
   <div class="page-wrapper">
     {% include 'header.html' %}
-    <section class=" h-148 relative flex flex-col md:flex-row items-center justify-between gap-8 py-10">
+    <section class=" h-148 relative grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-6 py-10">
 
-      <div class="md:w-1/2 space-y-7">
+      <div class="space-y-7">
         <h1 class="text-[36px] md:text-[48px] leading-[140%] font-bold text-black">
           We transform <span class="text-primary">Brands</span>,<br />
           Build Tech Talents
@@ -26,13 +26,13 @@
           businesses scale and individuals upskill. Together, we power growth that lasts.
         </p>
 
-        <button class="bg-primary hover:bg-green-700 text-white font-semibold py-2 px-8 rounded-lg transition-all">
+        <a href="{{ url_for ('controller.register') }}" class="bg-primary hover:bg-green-700 text-white font-semibold py-2 px-8 rounded-lg transition-all">
           Enroll now
-        </button>
+        </a>
       </div>
 
-      <div class="max-md:w-full relative flex justify-center items-center">
-         <img loading="lazy" class="max-md:h-[323px] w-full  rounded-xl shadow-lg z-10" src="{{ url_for('static', filename='img/aboutstar.png') }}">
+      <div class="max-md:w-full max-md:h-[323px] relative flex justify-center items-center">
+         <img loading="lazy" class=" w-full h-full  rounded-xl shadow-sm z-10" src="{{ url_for('static', filename='img/aboutstar.png') }}">
       </div>
     </section>
 
@@ -44,7 +44,7 @@
 
         </div>
 
-        <div class="w-full  space-y-7 order-1 md:order-2" >
+        <div class="  space-y-7 order-1 md:order-2" >
             <h1 class="md:text-[40px] text-[24px] font-semibold text-black font-clash">
               Who we are
             </h1>
@@ -95,7 +95,7 @@
     <section class="text-center">
       <div class="page-wrapper w-full">
         <div class="text-[24px] mb-7 mx-auto w-[281px] md:w-[396px] h-[64px] md:text-[40px] leading-[48px] border border-dotted border-primary py-1 font-semibold font-clash">Why Choose Us</div>
-        <p class="text-[16px] leading-[30px] font-bold text-gray-900/60 md:text-[20px] md:leading-[37px]">Because you deserve more than average, and we deliver<br /> excellence every time.</p>
+        <p class="text-[16px] leading-[30px] font-bold text-gray-900/60 md:text-[20px] md:leading-[37px]">Because you deserve more than average, and we deliver excellence every time.</p>
       </div>
 
       <div class="md:mx-15 grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-y divide-gray-300 rounded-xl overflow-hidden">
@@ -175,7 +175,7 @@
       <div class="mt-15 pt-10 space-y-4 grid grid-cols-1 md:grid-cols-3 gap-5 ">
           {% for staff in team %}
             <div class="text-left px-5 py-6 bg-white rounded-lg shadow-sm ">
-                <img src="{{ url_for('static', filename='img/' + staff.img) }}" class=" pb-3 max-md:h-[238px] w-full rounded-lg md:h-[291px]" >
+                <img src="{{ url_for('static', filename='img/' + staff.img) }}" class=" pb-3 max-md:h-[238px] w-auto rounded-lg md:h-[291px]" >
                 <div class="space-y-[13.7px]">
                     <h4 class="md:text-[18px]  leading-[120%] text-[16px] font-bold" >{{staff.name}}</h4>
                     <p class="md:text-[16px] text-black text-[14px] leading-[120%]">{{staff.field}}</p>

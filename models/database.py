@@ -10,8 +10,8 @@ class User(db.Model):
     __tablename__ = "user"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     fullname: Mapped[str] = mapped_column(String(100), nullable=False)
-    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
-    phone: Mapped[str] = mapped_column(String(255), unique=True,nullable=False)
+    email: Mapped[str] = mapped_column(String(255), unique=False, nullable=False)
+    phone: Mapped[str] = mapped_column(String(255), unique=False,nullable=False)
     course: Mapped[str] = mapped_column(String(255), unique=False, nullable=False)
     funnel: Mapped[str] = mapped_column(String(255), unique=False, nullable=False)
     gender: Mapped[str] = mapped_column(String(255), unique=False, nullable=False)

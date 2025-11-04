@@ -99,7 +99,7 @@ section{
   @apply mb-15 md:mb-35 ;
 }
 .page-wrapper{
- @apply max-w-md md:max-w-screen-xl mx-auto sm:px-6 lg:px-8;
+ @apply  max-md:px-[24px] md:px-[80px] mx-auto sm:px-6 lg:px-8;
 }
 
 .powa-btn {

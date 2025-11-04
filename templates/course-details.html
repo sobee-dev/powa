@@ -27,7 +27,7 @@
         </section>
 
         <section class="space-y-4">
-            <h1 class="font-bold text-[24px] leading-[48px] font-clash md:text-[40px]">Who the course is for?</h1>
+            <h1 class="font-bold text-[24px] leading-[48px] font-clash md:text-[40px]">Who this course is for?</h1>
             <ul class=" text-left space-y-[16px] p-2 custom-checklist">
             {% for b in course.beneficiaries %}
             <li class="md:text-[18px] text-[16px]">{{b}}</li>
@@ -82,12 +82,16 @@
 
                 <div class="md:space-y-[25px] space-y-4">
                     <h2 class="font-bold font-clash text-[24px] md:text-[28px]">Tuition</h2>
-                    <p class="text-[15px] md:text-[16px] leading-[41.5-px] ">For full access to this course, you will be paying</p>
+                    <p class="text-[15px] md:text-[16px] leading-[41.5-px] ">Secure your slot in class NOW!</p>
                     <ul class="text-[15px] md:text-[16px] leading-[41.5px] text-left p-2 px-2 list-disc pl-8">
 
-                        <li class=" text-primary font-bold">&#8358;{{course.full_price}} </li>
+                        {% set full = course.full_price.replace(',', '') | int %}
+                        {% set part = (full * 0.6) | int %}
+                        {% set remaining = full - part %}
+
+                        <li class="  font-bold"> Full Tuition:  <span class="text-primary">&#8358;{{course.full_price}}</span> </li>
                         <li class="">installment option available upon registration </li>
-                        <li class="">(&#8358;{{course.part_payment}} on registration)  ( balance due in week 2) </li>
+                        <li class="">Pay <strong>&#8358;{{ "{:,}".format(part) }}</strong> (60%) on registration and balance <strong>&#8358;{{ "{:,}".format(remaining) }}</strong> in week 2 </li>
                         <li class="">Live session schedule is activated after your first payment</li>
 
                     </ul>
@@ -99,7 +103,7 @@
         <section class="text-left text-black text-left space-y-4">
             <div class="space-y-4 mb-10 text-left md:text-center">
                 <h1 class=" font-bold text-[24px] leading-[120%] font-clash md:text-[40px]">Benefits of learning with us</h1>
-                <p class="text-[16px] md:text-[20px] leading-[37px]">Here’s why hundreds of students choose to build their tech<br>careers with us.</p>
+                <p class="text-[16px] md:text-[20px] leading-[37px]">Here’s why hundreds of students choose to build their tech careers with us.</p>
             </div>
 
             <ul class="text-[16px] md:text-[18px] leading-[246%] mx-auto justify-between text-left p-2 list-disc pl-5 md:grid md:grid-cols-2 gap-8">

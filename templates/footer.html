@@ -25,11 +25,11 @@
       <div class="space-y-4">
         <h3 class="text-[#F5F5F5] mb-2 font-bold text-[16px] md:text-[20px]"> Our Services</h3>
         <ul class="text-[14px] text-white/90 space-y-4" >
-          <li><a href="" class="hover:text-primary">Web design & Development</a></li>
-          <li><a href="" class="hover:text-primary">Social Media Management</a></li>
-          <li><a href="" class="hover:text-primary">Digital Marketing & Marketing</a></li>
-          <li><a href="" class="hover:text-primary">Writing Services</a></li>
-          <li><a href="" class="hover:text-primary">Consulting & brand strategy</a></li>
+          <li><a href="{{ url_for ('controller.contact_us') }}" class="hover:text-primary">Web design & Development</a></li>
+          <li><a href="{{ url_for ('controller.contact_us') }}" class="hover:text-primary">Social Media Management</a></li>
+          <li><a href="{{ url_for ('controller.contact_us') }}" class="hover:text-primary">Digital Marketing & Marketing</a></li>
+          <li><a href="{{ url_for ('controller.contact_us') }}" class="hover:text-primary">Writing Services</a></li>
+          <li><a href="{{ url_for ('controller.contact_us') }}" class="hover:text-primary">Consulting & brand strategy</a></li>
         </ul>
 
       </div>
@@ -67,7 +67,7 @@
 
 <div class="fixed bottom-5 right-5 text-white p-1 px-2 z-50">
    <a href="https://wa.me/2348141713547" target="_blank" class=" flex flex-row items-center gap-2 hover:bg-green-600 text-white p-2 rounded-2xl shadow-lg">
-     <span class="hover:bg-green-900 bg-green-300  p-2 rounded-2xl">Chat with us</span>
+     <span class="hover:bg-green-900 bg-primary  p-2 rounded-2xl">Chat with us</span>
      <img src="{{ url_for('static', filename='img/whatsapp.png') }}">
    </a>
 </div>

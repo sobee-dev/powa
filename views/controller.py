@@ -203,11 +203,11 @@ def logout():
 
 @controller.route("/terms")
 def terms():
-    render_template('terms.html')
+    return render_template('terms.html')
 
 @controller.route("/privacy_policy")
 def privacy_policy():
-    render_template('privacy.html')
+    return render_template('privacy.html')
 
 
 @controller.route("/hq")
