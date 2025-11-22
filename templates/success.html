@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>POWA | Registration Successful</title>
-
+-
     <link href="static/css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+<body class=" bg-gray-50 flex items-center justify-center min-h-screen">
 
-  <main class="bg-white shadow-xl rounded-2xl p-8 max-w-md text-center">
+  <main class="bg-white space-y-3 shadow-md rounded-2xl p-8 max-w-md text-center">
     <div id="successAnimation" class="w-28 h-28 mx-auto mb-4" role="img" aria-label="Success animation"></div>
 
     <h1 class="text-2xl font-bold text-green-600 mb-2">🎉 Registration Successful!</h1>
@@ -23,34 +23,33 @@
       Your Application for <span class="font-semibold">{{ course.title }}</span> has been received.
     </p>
 
-    <p class="text-gray-500 mb-6">
+    <div class="text-left">
+      <p class=" mb-4">
       Proceed to Check your email <span class="font-semibold">{{ user.email }}</span> for the next step.
     </p>
     <p>Check your spam folder if message delayed.</p>
-
-    {% if course.payment_link %}
-      <a href="{{ course.payment_link }}"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition transform hover:-translate-y-0.5">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m0 0l-3-3m3 3l3-3M3 12h18" />
-        </svg>
-        Proceed to Payment
-      </a>
-    {% else %}
-      <p class="text-gray-500">Payment link not currently available.</p>
-    {% endif %}
-
-    <a>Alternatively, Make payment to </a>
-
-    <p>Account Name: <strong>THE TECH POWA LTD</strong></p>
-    <p>Account Number: <strong>0127083533</strong></p>
-    <p>Bank: <strong>Wema Bank Plc</strong></p>
-    <p>send your proof of payment to  <a class="text-xl bg-primary py-2 px-3 text-white" href="https://wa.me/2348141713547" target="_blank"> 08141713547 </a> </p>
+    </div>
 
 
-    <a href="{{ url_for('controller.home') }}" class="block mt-4 text-sm text-gray-600 hover:text-green-700">Back to Home</a>
+    <a
+    href="{{ url_for('controller.make_payment', slug=course.slug, email=user.email) }}"
+    class="mb-4 bg-primary text-white px-3 py-1 rounded-xl hover:bg-green-500"
+    >
+      Pay Online (₦{{ course.full_price }})
+    </a>
+
+    <div class=" p-2 text-left space-y-4 bg-gray-300">
+
+      <a>Alternatively, Make payment to </a>
+      <p>Account Name: <strong>THE TECH POWA LTD</strong></p>
+      <p>Account Number: <strong>0127083533</strong></p>
+      <p>Bank: <strong>Wema Bank Plc</strong></p>
+      <p>send your proof of payment to  whatsapp <a class="bg-primary text-white px-3 py-1 rounded-xl hover:bg-green-500 border-b-1" href="https://wa.me/2348141713547" target="_blank"> 08141713547 </a> </p>
+
+    </div>
+
+
+    <a href="{{ url_for('controller.home') }}" class="block mt-4 text-sm text-gray-700 hover:text-green-600">Back to Home</a>
   </main>
 
   <script>

@@ -24,3 +24,5 @@ class Config:
 
     ADMIN_EMAIL = os.getenv('ADMIN_EMAIL')
     ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
+
+    PAYSTACK_SECRET_KEY = os.getenv('PAYSTACK_SECRET_KEY')

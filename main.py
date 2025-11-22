@@ -21,7 +21,6 @@ migrate = Migrate(app, db)
 login_manager.init_app(app)
 
 
-
 # ensure upload folder exists
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
@@ -34,6 +33,7 @@ app.register_blueprint(controller)
 
 if __name__ == "__main__":
     with app.app_context():
+        db.create_all()
         print(User.query.all())
     app.run(debug= True)
 

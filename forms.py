@@ -11,9 +11,9 @@ class LoginForm(FlaskForm):
 
 
 class RegisterForm(FlaskForm):
-    fullname = StringField('Fullname', validators=[DataRequired(),Length(min=3, max=30),  Regexp(r'^[A-Za-z]+(?: [A-Za-z]+)*$', message="Only letters are allowed.")])
+    fullname = StringField('Fullname', validators=[DataRequired(),Length(min=3, max=30),  Regexp(r"^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$", message="Only valid letters are allowed.")])
     email = StringField('Email Address', validators=[DataRequired(),Email()])
-    phone = StringField('Phone Number', validators=[DataRequired(), Regexp(r'^0\d{10,}$', message="Enter a valid phone number")])
+    phone = StringField('Phone Number', validators=[DataRequired(), Regexp(r'^(\+?[1-9]\d{7,14}|0\d{7,14})$', message="Enter a valid phone number")])
     select_course = SelectField('Select a course', validators=[DataRequired()], choices=[
         ('', '-- Select a course --'),
         ('sales-and-copywriting', 'Sales & Copywriting'),
@@ -67,6 +67,3 @@ class VerifyForm(FlaskForm):
     otp = StringField('OTP', validators=[DataRequired(),Length(min=3, max=8)])
     submit = SubmitField('Submit')
 
-class SlidetextForm(FlaskForm):
-    header_text = TextAreaField('Enter text for header slide')
-    home_text = TextAreaField ('Enter text for homepage slide')

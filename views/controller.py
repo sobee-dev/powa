@@ -1,7 +1,8 @@
+import uuid
 
 import requests
 from config.config import Config
-from flask import render_template, redirect, url_for, flash, request, Blueprint, abort, current_app, session
+from flask import render_template, redirect, url_for, flash, request, Blueprint, abort, current_app, session, jsonify
 from flask_login import current_user, login_user, login_required, logout_user
 import random
 from Services import data_services
@@ -10,6 +11,7 @@ from models.database import db, User
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from Services.user_services import Admin
+from urllib.parse import quote
 controller = Blueprint("controller", __name__)
 
 
@@ -85,13 +87,13 @@ def course_details(slug):
 def send_registration_email(user, course):
     subject = "Course Enrollment!!!"
     to_email = user.email
-
+    pay_link = url_for("controller.make_payment", slug=course["slug"],email=user.email, _external=True)
     message = Mail(
         from_email=(Config.FROM_EMAIL, "THE TECH POWA"),
         to_emails=to_email,
         subject=subject,
         plain_text_content=f"Hi {user.fullname}, Welcome to THE TECH POWA!!!",
-        html_content=render_template("registration_email.html", user=user, course=course)
+        html_content=render_template("registration_email.html", user=user,pay_link=pay_link, course=course)
     )
 
     try:
@@ -111,6 +113,7 @@ def send_registration_email(user, course):
 @controller.route("/register",methods=["GET", "POST"])
 def register():
     register_form = RegisterForm()
+
     if request.method == 'POST' and register_form.validate_on_submit():
 
         fullname = register_form.fullname.data
@@ -223,24 +226,118 @@ def admin_dashboard():
 def contact_us():
     return render_template("contact-us.html")
 
+@controller.route("/pay-link/<slug>/<email>")
+def generate_pay_link(slug, email):
+    # this is NOT the paystack initialization
+    # this simply returns the URL to start payment
+    return redirect (url_for("controller.make_payment", slug=slug, email=email, _external=True))
 
-# @controller.route("/verify")
-# def verify():
-#     verify_form = VerifyForm()
-#
-#     if request.method == "POST" and verify_form.validate_on_submit():
-#         if request.method == "POST" and verify_form.validate_on_submit():
-#             user = current_user  # Use the currently logged-in user
-#             if not user.is_verified:
-#                 # Added verification logic here (e.g., OTP match or email code)
-#                 user.is_verified = True
-#                 db.session.commit()
-#                 flash("Your account has been verified!", "success")
-#                 return redirect(url_for('controller.dashboard'))  # Redirect to a relevant page
-#             else:
-#                 flash("Account is already verified.", "info")
-#
-#     return render_template("courses.html", form=verify_form)
+@controller.route("/start-payment/<slug>/<email>")
+def make_payment(slug,email):
+
+    if not email:
+        return "Email is required", 400
+
+    # Find course using your existing method
+    courses = data_services.courses
+    course = None
+    for c in courses:
+        if c["slug"] == slug:
+            course = c
+            break
+
+    if not course:
+        abort(404)
+
+    amount = int(course["full_price"].replace(",", "").replace(" ", "")) * 100
+    if not amount:
+        return "Amount required"
+
+    reference = str(uuid.uuid4())
+    headers = {
+        "Authorization": f"Bearer {Config.PAYSTACK_SECRET_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    data = {
+        "email": email,
+        "amount": amount,
+        "reference": reference,
+        "callback_url": url_for("controller.verify_payment", slug=slug, _external=True)
+    }
+    try:
+         response = requests.post("https://api.paystack.co/transaction/initialize",json=data,headers=headers)
+         response.raise_for_status()
+         paystack_response = response.json()
+
+         if paystack_response['status']:
+             return redirect(paystack_response['data']['authorization_url'])
+         else:
+             return jsonify({"message": paystack_response['message']}), 400
+    except requests.exceptions.RequestException as e:
+         return jsonify({"message": f"Error initializing payment: {e}"}), 500
+
+
+@controller.route("/verify/<slug>")
+def verify_payment(slug):
+    reference = request.args.get("reference")
+    if not reference:
+        return jsonify({"message": "Payment reference missing"}), 400
+
+    headers = {
+        "Authorization": f"Bearer {Config.PAYSTACK_SECRET_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    # Verify transaction
+    try:
+        response = requests.get(f"https://api.paystack.co/transaction/verify/{reference}", headers=headers)
+        response.raise_for_status()
+        paystack_response = response.json()
+
+        if paystack_response['status'] and paystack_response['data']['status'] == 'success':
+            courses = data_services.courses
+            course = next((c for c in courses if c["slug"] == slug), None)
+
+            if not course:
+                abort(404)
+
+            # Build WhatsApp redirect
+            message = f"Hello! I just made payment for the {course['title']} class. My name is ..."
+            encoded_message = quote(message)
+
+            whatsapp_url = f"https://wa.me/2348141713547?text={encoded_message}"
+
+            return redirect(whatsapp_url)
+
+        else:
+            # Payment failed or not successful
+            return jsonify({"message": "Payment verification failed", "data": paystack_response['data']}), 400
+    except requests.exceptions.RequestException as e:
+        return jsonify({"message": f"Error verifying payment: {e}"}), 500
+
+    # Payment was successful
+    # Find the course again (same technique)
+
+
+@controller.route("/verify")
+def verify():
+    # verify_form = VerifyForm()
+    #
+    # if request.method == "POST" and verify_form.validate_on_submit():
+    #     if request.method == "POST" and verify_form.validate_on_submit():
+    #         user = current_user  # Use the currently logged-in user
+    #         if not user.is_verified:
+    #             # Added verification logic here (e.g., OTP match or email code)
+    #             user.is_verified = True
+    #             db.session.commit()
+    #             flash("Your account has been verified!", "success")
+    #             return redirect(url_for('controller.dashboard'))  # Redirect to a relevant page
+    #         else:
+    #             flash("Account is already verified.", "info")
+    user=""
+    course=""
+    return render_template("success.html",user=user, course=course)
 #
 
 

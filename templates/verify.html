@@ -2,11 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Verify OTP</title>
-</head>
-<body>
-<form>
+    <title>POWA | Registration Successful</title>
 
-</form>
+    <link href="static/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+</head>
+<body class="bg-gray-50 flex space-y-4 items-center justify-center min-h-screen">
+
+  <main class="bg-white space-y-4 shadow-xl rounded-2xl p-8 max-w-md text-center">
+    <div id="successAnimation" class="w-28 h-28 mx-auto mb-4" role="img" aria-label="Success animation"></div>
+
+    <h1 class="text-2xl font-bold text-green-600 mb-2">🎉 Registration Successful!</h1>
+
+    <p class="text-gray-700 mb-2">
+      Hi <span class="font-semibold">{{ user.fullname }}</span>,
+    </p>
+
+    <p class="text-gray-700 mb-4">
+      Your Application for <span class="font-semibold">{{ course.title }}</span> has been received.
+    </p>
+
+    <p class="text-gray-500 mb-6">
+      Proceed to Check your email <span class="font-semibold">{{ user.email }}</span> for the next step.
+    </p>
+    <p>Check your spam folder if message delayed.</p>
+
+    <a
+    href="{{ url_for('controller.make_payment', slug=course.slug, email=user.email) }}"
+    class="bg-primary text-white px-6 py-2 rounded"
+    >
+      Pay Online (₦{{ course.full_price }})
+    </a>
+
+    <a>Alternatively, Make payment to </a>
+
+    <p>Account Name: <strong>THE TECH POWA LTD</strong></p>
+    <p>Account Number: <strong>0127083533</strong></p>
+    <p>Bank: <strong>Wema Bank Plc</strong></p>
+    <p>send your proof of payment to  <a class="text-xl bg-primary py-2 px-3 text-white" href="https://wa.me/2348141713547" target="_blank"> 08141713547 </a> </p>
+
+
+    <a href="{{ url_for('controller.home') }}" class="block mt-4 text-sm text-gray-600 hover:text-green-700">Back to Home</a>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      lottie.loadAnimation({
+        container: document.getElementById('successAnimation'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://assets10.lottiefiles.com/packages/lf20_touohxv0.json'
+      });
+    });
+  </script>
 </body>
 </html>
