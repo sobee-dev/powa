@@ -1,8 +1,8 @@
 
 
-  <header class="page-wrapper w-full sticky  top-0 z-60 mb-[50px]  md:mb-[85px] bg-[#FCFCFC] shadow-gray-300/50 shadow-sm">
+  <header class="page-wrapper w-full sticky  top-0 z-60 mb-[24px]  md:mb-[85px] bg-[#FCFCFC] shadow-gray-300/50 shadow-sm">
 
-    <div class=" h-[100px] flex items-center justify-between">
+    <div class=" h-[50px] md:h-[100px] flex items-center justify-between">
       <a href="{{url_for('controller.home')}}">
         <div class="w-"  >
 
@@ -11,13 +11,13 @@
         </div>
       </a>
       <nav class="md:text-[18px] hidden md:flex items-center gap-9 text-sm text-gray-900">
-        <a href="{{url_for('controller.about_powa')}}" class="hover:text-green-600">About Us</a>
-        <a href="{{url_for('controller.services')}}" class="hover:text-green-600">Our Services</a>
-        <a href="{{url_for('controller.courses')}}" class="hover:text-green-600">Courses we offer</a>
-        <a href="{{url_for('controller.contact_us')}}" class="hover:text-green-600">Contact us</a>
+        <a href="{{url_for('controller.about_powa')}}" class="{{ 'underline font-bold' if request.endpoint == 'controller.about_powa' else '' }} hover:text-green-600">About Us</a>
+        <a href="{{url_for('controller.services')}}" class="{{ 'underline font-bold' if request.endpoint == 'controller.services' else '' }} hover:text-green-600">Our Services</a>
+        <a href="{{url_for('controller.courses')}}" class="{{ 'underline font-bold' if request.endpoint == 'controller.courses' else '' }} hover:text-green-600">Courses we offer</a>
+        <a href="{{url_for('controller.contact_us')}}" class="{{ 'underline font-bold' if request.endpoint == 'controller.contact_us' else '' }} hover:text-green-600">Contact us</a>
       </nav>
       <div class="hidden md:flex items-center  gap-4">
-        <a href="{{url_for('controller.register')}}" class="bg-primary rounded-lg text-white  hover:bg-gradient-to-r from-green-500 to-emerald-700 font-bold hover:scale-105 px-8 py-2.5 md:text-lg text-sm">Enroll now</a>
+        <a href="{{url_for('controller.register')}}" class="powa-btn">Enroll now</a>
       </div>
       <button id="menu-toggle" class="relative w-8 h-8 flex items-center justify-center md:hidden group">
         <span class="absolute w-6 h-0.5 bg-green-500 transition-all duration-300 ease-in-out -translate-y-2 group-[.open]:rotate-45 group-[.open]:translate-y-0"></span>
@@ -27,14 +27,19 @@
         <span class="absolute w-6 h-0.5 bg-green-500 transition-all duration-300 ease-in-out translate-y-2 group-[.open]:-rotate-45 group-[.open]:translate-y-0"></span>
       </button>
     </div>
-    <nav id="mobile-menu" class=" space-y-4 hidden flex-col bg-gray-200 px-4 py-6 md:hidden items-center">
+    <nav id="mobile-menu" class=" space-y-4 hidden flex-col px-4 py-6 md:hidden">
       <a href="{{url_for('controller.home')}}" class="block py-2 hover:text-green-600">Home</a>
       <a href="{{url_for('controller.about_powa')}}" class="block py-2 hover:text-green-600">About Us</a>
       <a href="{{url_for('controller.services')}}" class="block py-2 hover:text-green-600">Our Services</a>
       <a href="{{url_for('controller.courses')}}" class="block py-2 hover:text-green-600">Courses we offer</a>
       <a href="{{url_for('controller.contact_us')}}" class="block py-2 hover:text-green-600">Contact us</a>
 
-      <a href="{{url_for('controller.register')}}" class=" w-full text-center powa-btn text-sm">Enroll now</a>
+      <div class="flex powa-btn justify-center">
+        <a href="{{url_for('controller.register')}}"
+           class=" text-sm">
+           Enroll now
+        </a>
+      </div>
     </nav>
   </header>
   <script>

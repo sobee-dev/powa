@@ -31,40 +31,13 @@
   --font-weight-bold: 700;
 
   --color-primary: #368B3B;
-  --color-faint: ##5F5F5F;
+  --color-faint: #5F5F5F;
+  --color-hovergreen: #41A747;
   --color-normal: #494949;
   --color-secondary:#F1F1F1;
   --color-orange-text:#FF9E37;
 }
 
-@theme animations {
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-
-  /*soft pulse for glow effect*/
-  @keyframes pulse-soft {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.1); }
-  }
-
-  /* Slow rotation for subtle movement */
-  @keyframes rotate-slow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-}
-
-
-  /* my utility classes */
-.animate-float {
-    animation: float 4s ease-in-out infinite;
- }
-
-  .animate-pulse-soft {
-    animation: pulse-soft 3s ease-in-out infinite;
-  }
   .tab-btn {
     @apply px-4 py-3 md:text-[18px] leading-[120%] font-bold bg-gray-200 rounded-xl  text-gray-800 font-medium transition flex-shrink-0;
   }
@@ -99,11 +72,11 @@ section{
   @apply mb-15 md:mb-35 ;
 }
 .page-wrapper{
- @apply  max-md:px-[24px] md:px-[80px] mx-auto sm:px-6 lg:px-8;
+ @apply  max-md:px-[24px] md:px-[80px] mx-auto ;
 }
 
 .powa-btn {
-  @apply bg-primary text-white px-6 py-3 rounded-lg hover:bg-gradient-to-r from-green-500 to-emerald-700 hover:scale-105;
+  @apply bg-primary text-white px-6 py-3 rounded-lg hover:bg-hovergreen hover:scale-105;
 }
 
 .text-fluid {
@@ -133,12 +106,12 @@ section{
 /* ---------------- COMPONENTS ---------------- */
 @layer components {
   .custom-checklist li {
-    @apply relative pl-8;
+    @apply relative pl-9;
   }
   .custom-checklist li::before {
     content: '';
-    @apply absolute left-0 top-[0.35rem] w-5 h-5 bg-no-repeat bg-contain;
-    background-image: url('/static/img/icons/black-tick.png');
+    @apply absolute left-0 w-6 h-6 bg-no-repeat bg-contain;
+    background-image: url('/static/img/icons/white-tick.png');
   }
 }
 
