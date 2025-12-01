@@ -11,7 +11,7 @@ class LoginForm(FlaskForm):
 
 
 class RegisterForm(FlaskForm):
-    fullname = StringField('Fullname', validators=[DataRequired(),Length(min=3, max=30),  Regexp(r"^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$", message="Only valid letters are allowed.")])
+    fullname = StringField('Full Name', validators=[DataRequired(),Length(min=3, max=30),  Regexp(r"^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$", message="Only valid letters are allowed.")])
     email = StringField('Email Address', validators=[DataRequired(),Email()])
     phone = StringField('Phone Number', validators=[DataRequired(), Regexp(r'^(\+?[1-9]\d{7,14}|0\d{7,14})$', message="Enter a valid phone number")])
     select_course = SelectField('Select a course', validators=[DataRequired()], choices=[
@@ -37,7 +37,8 @@ class RegisterForm(FlaskForm):
         ('hr-tech-management-system','HR & Tech Management'),
         ('blogging-and-seo', 'Blogging & SEO Writing'),
         ('wordpress-dev', 'Wordpress Development'),
-        ('fullstack-dev', 'Full Stack Advanced Development')])
+        ('fullstack-dev', 'Full Stack Advanced Development'),
+        ('social-media-management', 'Social Media Management')])
 
     funnel = SelectField('How did you hear about us?', validators=[DataRequired()], choices=[
         ('', '-- Select --'),

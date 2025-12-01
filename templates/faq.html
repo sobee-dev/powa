@@ -5,17 +5,20 @@
         <h1 class="text-[24px] md:text-[40px] text-[#101010] font-semibold font-clash text-center mb-[16px]">Frequently asked questions</h1>
         <p class="max-md:mx-12 mb-10 text-[16px] md:text-[20px] text-[#101010] text-center ">Got questions? We’ve answered the most common ones below</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 justify-between mt-[20px] md:gap-12 ">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-[24px] justify-between mt-[20px] md:gap-12 ">
         {% for key, value in faq_data.items() %}
              {% if key.strip() and value.strip() %}
 
-          <div class="border-b border-gray-300 pb-2">
+          <div class="md:border-b-[0.5px] border-b-[0.28px] border-b-[#B3E1B5]/50">
 
             <button
-              class="faq-btn max-md:text-[12px] w-full flex justify-between items-center text-left font-medium hover:text-green-700 transition-all"
-              onclick="toggleAccordion(this)">
-              <span class="text-gray-800 font-bold">{{key}}</span>
-              <span class="faq-icon text-2xl font-bold transition-all duration-300">+</span>
+              class="faq-btn max-md:text-[12px] w-full px-2 py-4 flex justify-between gap-4 bg-white items-center text-left transition-all"
+              onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="text-gray-800 font-semibold">{{key}}</span>
+              <div class="ml-4 faq-icon relative w-4 h-4 flex-shrink-0">
+                <img src="{{ url_for('static', filename='img/icons/plus.png') }}" alt="" class="plus absolute inset-0 w-full h-full transition-all duration-300" />
+                <img src="{{ url_for('static', filename='img/icons/minus.png') }}" alt="" class="minus absolute inset-0 w-full h-full transition-all duration-300 hidden" />
+              </div>
             </button>
 
             <div
@@ -37,27 +40,28 @@
     const wrapper = button.closest('div'); // the immediate question wrapper
     const content = wrapper.querySelector('.faq-content');
     const icon = button.querySelector('.faq-icon');
+    const plus = icon.querySelector('.plus');
+    const minus = icon.querySelector('.minus');
 
-    // If this panel is open -> close it
-    if (content.classList.contains('max-h-[1000px]')) {
-      content.classList.remove('max-h-[1000px]', 'opacity-100');
-      content.classList.add('max-h-0', 'opacity-0');
-      if (icon) icon.textContent = '+';
-      return;
-    }
+    const isOpen = content.classList.contains('max-h-[1000px]');
 
     // Close all other panels (accordion behavior)
     document.querySelectorAll('.faq-content').forEach(el => {
       el.classList.remove('max-h-[1000px]', 'opacity-100');
       el.classList.add('max-h-0', 'opacity-0');
     });
-    document.querySelectorAll('.faq-icon').forEach(el => {
-      el.textContent = '+';
+
+    document.querySelectorAll('.faq-icon').forEach(wrapper => {
+        wrapper.querySelector('.plus').classList.remove('hidden');
+        wrapper.querySelector('.minus').classList.add('hidden');
     });
 
-    // Open the clicked one
-    content.classList.remove('max-h-0', 'opacity-0');
-    content.classList.add('max-h-[1000px]', 'opacity-100');
-    if (icon) icon.textContent = '−';
+    // toggle the clicked one
+     if (!isOpen) {
+        content.classList.remove('max-h-0', 'opacity-0');
+        content.classList.add('max-h-[1000px]', 'opacity-100');
+        plus.classList.add('hidden');
+        minus.classList.remove('hidden');
+    }
   }
   </script>

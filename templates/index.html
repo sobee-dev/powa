@@ -17,29 +17,29 @@
       <section class=" py-7  overflow-hidden">
 
         <!-- Main Grid -->
-        <div class="z-10 h-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 md:px-0">
+        <div class="z-10 h-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center md:gap-[101px] gap-y-10 px-4 md:px-0">
 
 
           <!-- Text -->
-          <div class=" flex flex-col justify-center  text-left h-auto ">
-            <div class=" md:space-y-8 max-md:space-y-[26px] ">
-            <h1 class=" md:text-[60px] text-[40px] font-clash font-bold text-black leading-[129%]">
+          <div class=" flex flex-col justify-center  text-center md:text-left h-auto ">
+            <div class=" md:space-y-8 max-md:space-y-[32px] ">
+            <h1 class=" md:text-[60px] text-[40px] font-clash font-semibold text-black leading-[129%]">
               Your Skills Can <span class="text-primary">Pay</span> You.
               Let’s Show You How
             </h1>
 
-            <p class="text-gray-600 text-[16px] leading-[200%] md:text-[18px]">
+            <p class="text-[#494949] text-[16px] leading-[200%] md:text-[18px]">
               We help you learn practical digital and tech skills that open doors to better jobs,
               remote work, and financial freedom.
             </p>
 
-            <div class="flex text-center flex-wrap text-[16px] justify-center md:justify-start gap-4">
+            <div class="flex flex-row text-center text-[16px] justify-center md:gap-[38px] md:justify-start gap-[15px]">
               <a href="{{ url_for ('controller.courses') }}"
-                 class="powa-btn max-md:grow-1 hover:scale-105 transition">
+                 class=" md:px-8 px-2 max-md:grow leading-[120%] bg-primary text-white py-3 rounded-lg hover:bg-hovergreen hover:scale-105 transition">
                 Explore skills
               </a>
               <a href="{{url_for ('controller.register')}}"
-                 class="border max-md:grow-1 border-green-600 text-green-700 px-6 py-3 rounded-lg  hover:bg-green-50  hover:scale-105 transition">
+                 class="border leading-[120%] max-md:grow border-green-600 font-bold text-green-700 md:px-6 py-3 rounded-lg  hover:bg-green-50  hover:scale-105 transition">
                 Join our community
               </a>
             </div>
@@ -47,7 +47,7 @@
           </div>
 
           <!-- Right Image -->
-          <div class=" rounded-[20px] overflow-hidden md:h-full h-screen">
+          <div class=" rounded-[20px] overflow-hidden md:h-full h-[300px]">
             <img
               src="{{ url_for('static', filename='img/hero2.webp') }}"
               alt="Team working together"
@@ -65,19 +65,19 @@
         </p>
 
         <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-[19px]">
-          <div class="p-5 md:h-[257px] bg-white rounded-[20px] border border-[#DFDFDF4D] shadow-sm shadow-[#9696961A] ">
+          <div class="p-5 md:h-[257px] bg-white rounded-[20px] my-shadow ">
             <div class="text-center mb-6 h-[60px] w-[60px] rounded-full bg-[#FFF4EA] p-2  text-orange-text text-[24px] z-10"> 01</div>
             <h4 class="mb-4 font-bold md:leading-[120%] text-[24px]">Aspiring Tech Professionals</h4>
             <p class="md:leading-[120%] text-[18px]">Learn in-demand tech skills with hands-on training.</p>
           </div>
 
-          <div class="p-5 md:h-[257px] bg-white rounded-[20px] border border-[#DFDFDF4D] shadow-sm shadow-[#9696961A] ">
+          <div class="p-5 md:h-[257px] bg-white rounded-[20px] my-shadow ">
             <div class="text-center mb-6 h-[60px] w-[60px] rounded-full bg-[#FFF4EA] p-2  text-orange-text text-[24px] z-10"> 02</div>
             <h4 class="mb-4 font-bold md:leading-[120%] text-[24px]">Startups & Small Businesses</h4>
             <p class="md:leading-[120%] text-[18px]">Get websites, branding, and digital systems that scale.</p>
           </div>
 
-          <div class="p-5 md:h-[257px] bg-white rounded-[20px] border border-[#DFDFDF4D] shadow-sm shadow-[#9696961A] ">
+          <div class="p-5 md:h-[257px] bg-white rounded-[20px] my-shadow ">
             <div class="text-center mb-6 h-[60px] w-[60px] rounded-full bg-[#FFF4EA] p-2  text-orange-text text-[24px] z-10"> 03</div>
             <h4 class="mb-4 font-bold md:leading-[120%] text-[24px]">Professionals & Teams</h4>
             <p class="md:leading-[120%] text-[18px]">Upgrade skills and boost productivity with mentorship and support.</p>
@@ -119,10 +119,10 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-[16px] ">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 gap-y-8 ">
 
               {% for course in featured %}
-          <div class=" w-full py-10 px-4 space-y-5  shadow-sm filter drop-shadow-[1px_1px_20px_5px_#0000001A] bg-white rounded-lg flex flex-col">
+          <div class=" w-full py-10 px-4 space-y-5 my-shadow bg-white rounded-lg flex flex-col">
             <div class="w-full max-md:h-[214.4px] md:h-[230px] rounded-2xl mx-auto overflow-hidden">
               <img src="static/img/{{course.img}}" loading="lazy" class="object-cover h-full w-full">
             </div>
@@ -131,7 +131,11 @@
               <p class="md:leading-[29.2px] text-[13px] md:text-[14px]">{{course.desc}}</p>
             </div>
             <div class="space-y-5 mt-auto">
-              <h6 class="max-md:text-[12px]"><strong class="max-md:text-[13px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+              <div class="flex items-center gap-1 max-md:text-[12px]">
+                <strong class="max-md:text-[13px]">Duration:</strong>
+                {{ course.duration }} |
+                <img src="{{ url_for('static', filename='img/icons/clock.png') }}" class="inline-block"> Live Classes
+              </div>
               <div class="max-md:text-[15.5px] flex text-center justify-between gap-2 py-2 mt-auto">
                 <a class="grow powa-btn" href="{{url_for('controller.register')}}">Enroll now</a>
                 <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-auto border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
@@ -158,7 +162,7 @@
 
             <!-- Slide 1 -->
             <div class="w-full md:w-2/5 text-[14px] flex-shrink-0 px-4">
-              <div class="bg-white rounded-2xl shadow-sm p-8 h-full">
+              <div class="bg-white rounded-2xl my-shadow p-8 h-full">
                 <h3 class="md:text-[24px] font-bold mb-2">Blessing. A.</h3>
                 <div class="md:text-[24px] text-orange-400 mb-8">
                   ★ ★ ★ ★ ★
@@ -169,7 +173,7 @@
 
             <!-- Slide 2 -->
             <div class="w-full md:w-2/5 flex-shrink-0 px-4 text-[14px]">
-              <div class="bg-white rounded-2xl shadow-sm p-8 h-full">
+              <div class="bg-white rounded-2xl my-shadow p-8 h-full">
                 <h3 class="md:text-[24px] font-bold mb-2">Sarah. O.</h3>
                 <div class="md:text-[24px] text-orange-400 mb-8">
                   ★ ★ ★ ★ ★
@@ -180,7 +184,7 @@
 
             <!-- Slide 3 -->
             <div class="w-full md:w-2/5 flex-shrink-0 px-4 text-[14px]">
-              <div class="bg-white rounded-2xl shadow-sm p-8 h-full">
+              <div class="bg-white rounded-2xl my-shadow p-8 h-full">
                 <h3 class="md:text-[24px] font-bold mb-2">Esther. K.</h3>
                 <div class="md:text-[24px] text-orange-400 mb-8">
                   ★ ★ ★ ★ ★

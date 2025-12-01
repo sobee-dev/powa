@@ -1,28 +1,17 @@
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Nexa';
-  src: url('/static/fonts/nexa/Nexa-ExtraLight.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Nexa';
-  src: url('/static/fonts/nexa/Nexa-Heavy.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
 
 /* Tailwind v4 inline theme config */
 
 
 
 @theme {
-  --font-nexa: "Nexa", sans-serif;
   --font-clash: "Clash Display", sans-serif;
   --font-sans: "Poppins", sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
 
   --font-weight-light: 300;
   --font-weight-normal: 400;
@@ -61,39 +50,39 @@
   }
 
 
+
 /* ---------------- CUSTOM UTILITIES ---------------- */
 
 
 
 body {
-  @apply font-nexa text-gray-900 bg-[#FCFCFC];
+  @apply font-montserrat text-gray-900 bg-[#FAFAFA];
 }
 section{
   @apply mb-15 md:mb-35 ;
 }
 .page-wrapper{
- @apply  max-md:px-[24px] md:px-[80px] mx-auto ;
+ @apply  max-md:px-[24px] md:px-[69px] mx-auto ;
 }
 
 .powa-btn {
   @apply bg-primary text-white px-6 py-3 rounded-lg hover:bg-hovergreen hover:scale-105;
 }
 
+.my-shadow{
+  @apply border border-[#DFDFDF]/30 filter shadow-[0_4px_40px_#0000000D]
+}
+
 .text-fluid {
   @apply text-[min(10vw,70px)];
 }
 
-.fade-in {
-  @apply opacity-0 translate-y-8 transition-all duration-1000 ease-in-out;
-}
 
 .visible-y {
   @apply opacity-100 translate-y-0;
 }
 
-.left-in {
-  @apply opacity-0 translate-x-3 transition-all duration-1500 ease-in-out;
-}
+
 
 .visible-x {
   @apply opacity-100 translate-x-0;

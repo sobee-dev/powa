@@ -12,9 +12,9 @@
 
 </head>
 <body>
-<div class="page-wrapper">
+
 {% include 'header.html' %}
-    </div>
+
 
 
 
@@ -50,97 +50,107 @@
             </div>
 
             <div class="">
-                <div id="featured" class="tab-content grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4 active">
+                <div id="featured" class="tab-content grid grid-cols-1 md:grid-cols-4 gap-4 gap-y-8 active">
 
                   {% for course in featured %}
-                  <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
-                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
-                      <img src="static/img/{{course.img}}" class=" object-cover h-full w-full">
+                  <div class=" w-full py-10 px-4 space-y-5 border border-[#969696]/10 filter drop-shadow-[0_0_100px_0_#0000002A] bg-white rounded-lg flex flex-col">
+                    <div class="w-full max-md:h-[214.4px] md:h-[230px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" loading="lazy" class="object-cover h-full w-full">
                     </div>
                     <div class="space-y-5 flex-1">
-                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
-                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
-                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <h4 class="text-[20.7px] md:text-2xl text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[29.2px] text-[13px] md:text-[14px]">{{course.desc}}</p>
                     </div>
-                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
-                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
-                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                    <div class="space-y-5 mt-auto">
+                      <h6 class="max-md:text-[12px]"><strong class="max-md:text-[13px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <div class="max-md:text-[15.5px] flex text-center justify-between gap-2 py-2 mt-auto">
+                        <a class="grow powa-btn" href="{{url_for('controller.register')}}">Enroll now</a>
+                        <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-auto border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                      </div>
                     </div>
                   </div>
                   {% endfor %}
             </div>
-                <div id="writing" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4">
+            <div id="writing" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 gap-y-8">
 
                   {% for course in writing %}
-                    <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
-                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
-                      <img src="static/img/{{course.img}}" class="object-cover h-full w-full">
+                  <div class=" w-full py-10 px-4 space-y-5 border border-[#969696]/10 filter drop-shadow-[0_0_100px_0_#0000002A] bg-white rounded-lg flex flex-col">
+                    <div class="w-full max-md:h-[214.4px] md:h-[230px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" loading="lazy" class="object-cover h-full w-full">
                     </div>
                     <div class="space-y-5 flex-1">
-                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
-                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
-                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <h4 class="text-[20.7px] md:text-2xl text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[29.2px] text-[13px] md:text-[14px]">{{course.desc}}</p>
                     </div>
-                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
-                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
-                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                    <div class="space-y-5 mt-auto">
+                      <h6 class="max-md:text-[12px]"><strong class="max-md:text-[13px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <div class="max-md:text-[15.5px] flex text-center justify-between gap-2 py-2 mt-auto">
+                        <a class="grow powa-btn" href="{{url_for('controller.register')}}">Enroll now</a>
+                        <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-auto border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                      </div>
                     </div>
                   </div>
               {% endfor %}
             </div>
-                <div id="tech" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4">
+                <div id="tech" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 gap-y-8">
 
                   {% for course in tech %}
-              <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
-                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
-                      <img src="static/img/{{course.img}}" class="object-cover h-full w-full">
+                  <div class=" w-full py-10 px-4 space-y-5 border border-[#969696]/10 filter drop-shadow-[0_0_100px_0_#0000002A] bg-white rounded-lg flex flex-col">
+                    <div class="w-full max-md:h-[214.4px] md:h-[230px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" loading="lazy" class="object-cover h-full w-full">
                     </div>
                     <div class="space-y-5 flex-1">
-                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
-                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
-                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <h4 class="text-[20.7px] md:text-2xl text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[29.2px] text-[13px] md:text-[14px]">{{course.desc}}</p>
                     </div>
-                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
-                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
-                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
-                    </div>
-                  </div>
+                    <div class="space-y-5 mt-auto">
+                      <h6 class="max-md:text-[12px]"><strong class="max-md:text-[13px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <div class="max-md:text-[15.5px] flex text-center justify-between gap-2 py-2 mt-auto">
+                        <a class="grow powa-btn" href="{{url_for('controller.register')}}">Enroll now</a>
+                        <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-auto border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                      </div>
+                </div>
+          </div>
               {% endfor %}
             </div>
-                <div id="marketing" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4">
+                <div id="marketing" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 gap-y-8">
 
                   {% for course in marketing %}
-                  <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
-                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
-                      <img src="static/img/{{course.img}}" class="object-cover  h-full w-full">
-                    </div>
-                    <div class="space-y-5 flex-1">
-                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
-                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
-                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
-                    </div>
-                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
-                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
-                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
-                    </div>
+                      <div class=" w-full py-10 px-4 space-y-5 border border-[#969696]/10 filter drop-shadow-[0_0_100px_0_#0000002A] bg-white rounded-lg flex flex-col">
+                <div class="w-full max-md:h-[214.4px] md:h-[230px] rounded-2xl mx-auto overflow-hidden">
+                  <img src="static/img/{{course.img}}" loading="lazy" class="object-cover h-full w-full">
+                </div>
+                <div class="space-y-5 flex-1">
+                  <h4 class="text-[20.7px] md:text-2xl text-black font-bold">{{course.title}}</h4>
+                  <p class="md:leading-[29.2px] text-[13px] md:text-[14px]">{{course.desc}}</p>
+                </div>
+                <div class="space-y-5 mt-auto">
+                  <h6 class="max-md:text-[12px]"><strong class="max-md:text-[13px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                  <div class="max-md:text-[15.5px] flex text-center justify-between gap-2 py-2 mt-auto">
+                    <a class="grow powa-btn" href="{{url_for('controller.register')}}">Enroll now</a>
+                    <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-auto border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
                   </div>
+                </div>
+              </div>
                 {% endfor %}
             </div>
-                <div id="design" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 space-y-4">
+                <div id="design" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 gap-y-8">
 
                 {% for course in design %}
-                  <div class=" w-full py-10 px-4 space-y-5 shadow-md shadow-gray-400 bg-white rounded-lg flex flex-col">
-                    <div class="w-full h-[214.4px] md:h-[181.6px] rounded-2xl mx-auto overflow-hidden">
-                      <img src="static/img/{{course.img}}" class="object-cover  h-full w-full">
+                  <div class=" w-full py-10 px-4 space-y-5 border border-[#969696]/10 filter drop-shadow-[0_0_100px_0_#0000002A] bg-white rounded-lg flex flex-col">
+                    <div class="w-full max-md:h-[214.4px] md:h-[230px] rounded-2xl mx-auto overflow-hidden">
+                      <img src="static/img/{{course.img}}" loading="lazy" class="object-cover h-full w-full">
                     </div>
                     <div class="space-y-5 flex-1">
-                      <h4 class="text-[20.7px] md:text-[17.5px] leading-[120%] text-black font-bold">{{course.title}}</h4>
-                      <p class="md:leading-[21.36px] text-[11.7px] md:text-[14px]">{{course.desc}}</p>
-                      <h6 class="md:text-[10.24px] max-md:text-[12px]"><strong class="max-md:text-[13px] md:text-[11.7px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <h4 class="text-[20.7px] md:text-2xl text-black font-bold">{{course.title}}</h4>
+                      <p class="md:leading-[29.2px] text-[13px] md:text-[14px]">{{course.desc}}</p>
                     </div>
-                    <div class="md:text-[13px] flex text-center justify-between gap-2 py-2 mt-auto">
-                      <a class="grow hover:scale-105 leading-[120%] hover:bg-green-500 text-white py-3 px-3 bg-primary rounded-lg" href="{{url_for('controller.register')}}">Enroll now</a>
-                      <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg leading-[120%] text-primary py-3  border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                    <div class="space-y-5 mt-auto">
+                      <h6 class="max-md:text-[12px]"><strong class="max-md:text-[13px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <div class="max-md:text-[15.5px] flex text-center justify-between gap-2 py-2 mt-auto">
+                        <a class="grow powa-btn" href="{{url_for('controller.register')}}">Enroll now</a>
+                        <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-auto border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
+                      </div>
                     </div>
                   </div>
                 {% endfor %}

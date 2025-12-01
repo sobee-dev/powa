@@ -10,10 +10,10 @@
 </head>
 <body class="">
 
-
+{% include 'header.html' %}
   <div class="page-wrapper">
-    {% include 'header.html' %}
-    <section class=" h-148 relative grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-6 py-10">
+
+    <section class=" grid grid-cols-1 md:grid-cols-2 md:h-[558px] items-center gap-y-12 gap-6 ">
 
       <div class="space-y-7">
         <h1 class="text-[36px] md:text-[48px] leading-[140%] font-bold text-black">
@@ -21,27 +21,46 @@
           Build Tech Talents
         </h1>
 
-        <p class="text-black text-[16px] md:text-[18px] leading-[200%] mx-auto">
+        <p class="text-[#494949] text-[16px] md:text-[18px] leading-[200%] mx-auto">
           At POWA, we blend digital innovation with tech education, helping
           businesses scale and individuals upskill. Together, we power growth that lasts.
         </p>
 
-        <a href="{{ url_for ('controller.register') }}" class="bg-primary hover:bg-green-700 text-white font-semibold py-2 px-8 rounded-lg transition-all">
+        <a href="{{ url_for ('controller.register') }}" class="powa-btn transition-all">
           Enroll now
         </a>
       </div>
 
-      <div class="max-md:w-full max-md:h-[323px] relative flex justify-center items-center">
-         <img loading="lazy" class=" w-full h-full  rounded-xl shadow-sm z-10" src="{{ url_for('static', filename='img/aboutstar.png') }}">
+      <div class="relative max-md:w-[330px] max-md:h-[282px]  md:h-full rounded-[12px] overflow-visible">
+  <!-- Star behind -->
+          <img loading="lazy"
+               class="absolute top-[-10%] right-[-10%] w-[30%] h-auto z-0"
+               src="{{ url_for('static', filename='img/star.png') }}"
+               alt="Star">
+
+          <!-- Main image on top -->
+          <img loading="lazy"
+               class="w-full h-full object-cover rounded-[12px] relative z-10"
+               src="{{ url_for('static', filename='img/about1.jpg') }}"
+               alt="About Image">
       </div>
     </section>
 
 
-    <section class=" h-auto space-y-[24px] md:h-148 relative grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-8 pt-10">
+    <section class=" gap-15 md:h-148 grid grid-cols-1 md:grid-cols-2 md:items-center md:gap-17 ">
 
-        <div class="w-full  relative flex justify-center items-center order-2 md:order-1">
-          <img loading="lazy" class="max-md:h-[358px] w-full rounded-xl shadow-lg z-10" src="{{ url_for('static', filename='img/whoweare.png') }}">
+        <div class="relative max-md:w-[330px] max-md:h-[282px] md:order-1 order-2  md:h-full rounded-[12px] overflow-visible">
+  <!-- dots behind -->
+          <img loading="lazy"
+               class="absolute top-[-10%] left-[-10%] w-[40%] h-auto z-0"
+               src="{{ url_for('static', filename='img/green-dot-up.png') }}"
+               alt="powa-dots">
 
+          <!-- Main image on top -->
+          <img loading="lazy"
+               class="w-full h-full object-cover rounded-[12px] relative z-10"
+               src="{{ url_for('static', filename='img/about2.jpg') }}"
+               alt="About Image">
         </div>
 
         <div class="  space-y-7 order-1 md:order-2" >
@@ -74,15 +93,15 @@
 
               <div class="md:pl-10 space-y-[8px] md:text-[24px] text-[16px] leading-[242%] font-bold items-center ">
                 <p class="flex items-center flex-row gap-4">
-                  <img src="{{ url_for('static', filename='img/icons/black-tick.png') }}">
+                  <img src="{{ url_for('static', filename='img/icons/white-tick.png') }}">
                   In-demand tech skill courses
                 </p>
                 <p class="flex items-center flex-row gap-4">
-                  <img src="{{ url_for('static', filename='img/icons/black-tick.png') }}">
+                  <img src="{{ url_for('static', filename='img/icons/white-tick.png') }}">
                   Easy to understand curriculum
                 </p>
                 <p class="flex items-center flex-row gap-4">
-                  <img src="{{ url_for('static', filename='img/icons/black-tick.png') }}">
+                  <img src="{{ url_for('static', filename='img/icons/white-tick.png') }}">
                   Experienced tutors
                 </p>
               </div>
