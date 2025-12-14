@@ -336,7 +336,7 @@
             "<b>Social Media & Basic Content Management:</b> Learn to schedule posts, manage content, and support online presence.\n",
             "<b>Administrative Tasks & Reporting:</b> Handle data entry, research, and reporting tasks effectively.\n",
             "<b>Setting Up as a Virtual Assistant:</b> Learn to offer services professionally, manage clients, and work remotely."],
-        "requirements": ["A laptop or desktop computer.",
+        "requirements": ["A phone or laptop.",
             "Google account for accessing course materials and tools.",
             "No prior experience is required.",
             "Google Workspace or Microsoft Office.\n"],
@@ -879,7 +879,47 @@
             "Implement authentication, authorization, and security best practices.",
             "Use version control and collaboration tools like Git and GitHub.",
             "Optimize web applications for speed, scalability, and performance."]
+    },
+    {
+        "id": 23,
+        "title": "Social Media Management",
+        "slug": "social-media-management",
+        "img": "smm.jpeg",
+        "cat": "marketing",
+        "desc": "Learn how to manage and grow digital communities across major social platforms with a clear, strategic approach.Develop skills in content planning, analytics, engagement, and platform-specific best practices to create ",
+
+        "about": "Social Media Management is one of the most essential digital skills for businesses and brands looking to grow online visibility and drive sales.\nIn this course, you will master content creation, audience engagement, analytics, strategy building, and platform management across major social media channels.\nBy the end, you’ll be able to manage social pages professionally, create effective strategies, and help brands grow with confidence and measurable results.",
+        "full_price": "20,000" ,
+        "part_payment": " " ,
+        "purchase_link": "",
+        "duration": "4 weeks",
+        "beneficiaries": ["Beginners who want to start a career in social media management.",
+            "Business owners who want to manage and grow their brand online.",
+            "Freelancers looking to offer social media services to clients.",
+            "Content creators who want to improve structure, strategy, and engagement.",
+            "Marketing professionals seeking to upgrade their digital skillset."],
+        "course_outline": ["<b>Introduction to Social Media Management:</b> Overview of platforms, online branding, and the role of a social media manager.",
+            "<b>Content Creation Basics:</b> Learn to design simple, engaging posts using Canva and other creative tools",
+            "<b>Strategy & Content Planning:</b> How to build strategies, set goals, and create content calendars for brands.",
+            "<b>Community Management:</b> Master replying to comments, DMs, reviews, and building an active audience.",
+            "<b>Analytics & Reporting:</b> Use insights and analytics tools to measure growth and campaign performance.",
+            "<b>Social Media Tools & Automation:</b> DExplore scheduling tools, Meta Business Suite, and workflow management apps.",
+            "<b>Portfolio & Client Management:</b> Learn how to price your services, onboard clients, communicate professionally, and build a strong SMM portfolio."
+             ],
+        "requirements": ["A smartphone or laptop",
+            "A stable internet connection",
+            "Classes will hold via Google Meet."
+            ],
+        "time_commitment": "4-6 hours weekly",
+        "course_benefits": ["Create effective social media strategies for different types of brands",
+            "Design content calendars and manage daily posting across platforms.",
+            "Analyze social media insights and use analytics to improve performance.",
+            "Write engaging captions, scripts, and copy that attract the right audience.",
+            "Manage brand accounts professionally and handle customer interactions.",
+            "Use key tools like Canva, Meta Business Suite, and scheduling apps.",
+            "Build reports and measure campaign success using real data."]
     }
+
 
 
 

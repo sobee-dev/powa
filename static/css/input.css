@@ -28,7 +28,7 @@
 }
 
   .tab-btn {
-    @apply px-4 py-3 md:text-[18px] leading-[120%] font-bold bg-gray-200 rounded-xl  text-gray-800 font-medium transition flex-shrink-0;
+    @apply px-4 py-3 md:text-[18px] leading-[120%] font-bold bg-[#FAFAFA] rounded-xl  text-gray-800 font-medium transition flex-shrink-0;
   }
   .tab-btn:hover {
     @apply bg-primary text-white;
@@ -49,7 +49,27 @@
     animation: rotate-slow 10s linear infinite;
   }
 
+  #tabs {
+  /* This ensures the scrollbar is visible if it was hidden by scrollbar-hide */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #368B3B #F3F4F6; /* Firefox: Thumb color, Track color  */
+}
 
+/* Webkit (Chrome, Safari, Edge) */
+#tabs::-webkit-scrollbar {
+  height: 12px; /* Height of the horizontal scrollbar */
+}
+
+#tabs::-webkit-scrollbar-track {
+  background: #F3F4F6; /* Tailwind's gray-100 for the track */
+  border-radius: 10px;
+}
+
+#tabs::-webkit-scrollbar-thumb {
+  background-color: #368B3B; /* Tailwind's green-500 for the thumb */
+  border-radius: 14px;
+  border: 3px solid #F3F4F6; /* Add padding/border to match track */
+}
 
 /* ---------------- CUSTOM UTILITIES ---------------- */
 

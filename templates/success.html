@@ -6,62 +6,66 @@
 -
     <link href="static/css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/powa-favicon.ico') }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
 </head>
-<body class=" bg-gray-50 flex items-center justify-center min-h-screen">
+<body class=" bg-gray-50 md:px-[150px] px-[24px] py-[50px] ">
+  <section class=" w-full ">
 
-  <main class="bg-white space-y-3 shadow-md rounded-2xl p-8 max-w-md text-center">
-    <div id="successAnimation" class="w-28 h-28 mx-auto mb-4" role="img" aria-label="Success animation"></div>
+    <main class="text-[11.8px] md:text-[16px]  bg-white space-y-5 w-full shadow-md rounded-2xl p-8  text-center">
+      <div class="w-28 h-28 mx-auto mb-4" >
+        <img src="{{ url_for('static', filename='img/success.png') }}" class="w-full h-full">
+      </div>
 
-    <h1 class="text-2xl font-bold text-green-600 mb-2">🎉 Registration Successful!</h1>
+      <h1 class="text-[17.8px] md:text-[24px] font-bold text-green-600 mb-10">Registration Successful!</h1>
+      <div class=" md:mx-[15px] mx-[12px] space-y-5">
+        <p class="leading-[120%] text-gray-700">Hi <span class="font-semibold">{{ user.fullname }}</span>,
+        </p>
 
-    <p class="text-gray-700 mb-2">
-      Hi <span class="font-semibold">{{ user.fullname }}</span>,
-    </p>
-
-    <p class="text-gray-700 mb-4">
-      Your Application for <span class="font-semibold">{{ course.title }}</span> has been received.
-    </p>
-
-    <div class="text-left">
-      <p class=" mb-4">
-      Proceed to Check your email <span class="font-semibold">{{ user.email }}</span> for the next step.
-    </p>
-    <p>Check your spam folder if message delayed.</p>
-    </div>
+        <p class="text-gray-700 leading-[120%]">
+          Your Application for <span class="font-semibold underline">{{ course.title }}</span> has been received.
+        </p>
 
 
-    <a
-    href="{{ url_for('controller.make_payment', slug=course.slug, email=user.email) }}"
-    class="mb-4 bg-primary text-white px-3 py-1 rounded-xl hover:bg-green-500"
-    >
-      Pay Online (₦{{ course.full_price }})
-    </a>
+        <p class="">
+          Proceed to Check your email <span class="font-semibold">{{ user.email }}</span> for the next step. Check your spam folder if message seem delayed.
+        </p>
+      </div>
 
-    <div class=" p-2 text-left space-y-4 bg-gray-300">
-
-      <a>Alternatively, Make payment to </a>
-      <p>Account Name: <strong>THE TECH POWA LTD</strong></p>
-      <p>Account Number: <strong>0127083533</strong></p>
-      <p>Bank: <strong>Wema Bank Plc</strong></p>
-      <p>send your proof of payment to  whatsapp <a class="bg-primary text-white px-3 py-1 rounded-xl hover:bg-green-500 border-b-1" href="https://wa.me/2348141713547" target="_blank"> 08141713547 </a> </p>
-
-    </div>
+      <div class="p-2">
+        <a
+        href="{{ url_for('controller.make_payment', slug=course.slug, email=user.email) }}"
+        class="mb-4 md:px-6 px-4 py-3 bg-primary text-white px-3 py-1 rounded-[20px] hover:bg-green-500">
+          Pay Tuition fee (NGN {{ course.full_price }})
+        </a>
+      </div>
 
 
-    <a href="{{ url_for('controller.home') }}" class="block mt-4 text-sm text-gray-700 hover:text-green-600">Back to Home</a>
-  </main>
+      <div class="bg-[#101010] mx-5 p-6 my-7 text-white mt-3 p-2  space-y-5">
+        <p class="text-center mx-5">Alternatively, Make payment to this <br>account detail</p>
+        <div class="grid justify-between grid grid-cols-2 gap-3">
+          <div class="text-[#B5B5B5] space-y-3 text-left space-y-[28px] md:space-y-[32px]">
+            <p>Account Name: </p>
+            <p>Account Number: </p>
+            <p>Bank: </p>
+          </div>
+          <div class="text-white text-right space-y-[28px] md:space-y-[32px]">
+            <p> <strong> THE TECH POWA LTD </strong></p>
+            <p> <strong> 0127083533 </strong></p>
+            <p> <strong> Wema Bank Plc </strong> </p>
+          </div>
+        </div>
+      </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      lottie.loadAnimation({
-        container: document.getElementById('successAnimation'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'https://assets10.lottiefiles.com/packages/lf20_touohxv0.json'
-      });
-    });
-  </script>
+      <div class="text-left space-y-3 mx-5">
+        <p >Send your proof of payment to our Whatsapp Number  </p>
+        <a class="text-primary underline leading-[170%] font-bold" href="https://wa.me/2348141713547" target="_blank"> 08141713547 </a>
+
+      </div>
+
+
+      <a href="{{ url_for('controller.home') }}" class=" mt-4 underline font-bold text-sm text-gray-700 hover:text-green-600">Back to Home</a>
+    </main>
+  </section>
+
 </body>
 </html>

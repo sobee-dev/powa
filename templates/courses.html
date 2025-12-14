@@ -31,7 +31,7 @@
         </div>
 
         <section class="space-y-6">
-            <div id="tabs" class="flex overflow-x-auto scrollbar-hide space-x-3 md:space-x-4 snap-x snap-mandatory justify-start md:justify-evenly ">
+            <div id="tabs" class="flex overflow-x-auto  space-x-3 md:space-x-4 snap-x snap-mandatory justify-start md:justify-evenly ">
                 <button onclick="showTab('featured')" id="tab-featured" class="tab-btn bg-green-100 text-green-700 border-green-500">
                   Featured Courses
                 </button>
@@ -137,7 +137,7 @@
                 <div id="design" class="tab-content hidden grid grid-cols-1 md:grid-cols-4 gap-4 gap-y-8">
 
                 {% for course in design %}
-                  <div class=" w-full py-10 px-4 space-y-5 border border-[#969696]/10 filter drop-shadow-[0_0_100px_0_#0000002A] bg-white rounded-lg flex flex-col">
+                  <div class=" w-full py-10 px-4 space-y-5 my-shadow bg-white rounded-lg flex flex-col">
                     <div class="w-full max-md:h-[214.4px] md:h-[230px] rounded-2xl mx-auto overflow-hidden">
                       <img src="static/img/{{course.img}}" loading="lazy" class="object-cover h-full w-full">
                     </div>
@@ -146,7 +146,11 @@
                       <p class="md:leading-[29.2px] text-[13px] md:text-[14px]">{{course.desc}}</p>
                     </div>
                     <div class="space-y-5 mt-auto">
-                      <h6 class="max-md:text-[12px]"><strong class="max-md:text-[13px]">Duration:</strong> {{course.duration}} | 🕓 Live Classes</h6>
+                      <div class="flex items-center gap-1 max-md:text-[12px]">
+                        <strong class="max-md:text-[13px]">Duration:</strong>
+                        {{ course.duration }} |
+                        <img src="{{ url_for('static', filename='img/icons/clock.png') }}" class="inline-block"> Live Classes
+                      </div>
                       <div class="max-md:text-[15.5px] flex text-center justify-between gap-2 py-2 mt-auto">
                         <a class="grow powa-btn" href="{{url_for('controller.register')}}">Enroll now</a>
                         <a href="{{ url_for('controller.course_details', slug=course.slug) }}" class="grow rounded-lg text-primary py-3 px-auto border-1  border-primary  bg-white hover:text-green-600 hover:scale-105">View Course Details</a>
