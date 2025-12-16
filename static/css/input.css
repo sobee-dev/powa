@@ -28,7 +28,7 @@
 }
 
   .tab-btn {
-    @apply px-4 py-3 md:text-[18px] leading-[120%] font-bold bg-[#FAFAFA] rounded-xl  text-gray-800 font-medium transition flex-shrink-0;
+    @apply px-4 py-3 text-[18px] leading-[120%] font-bold bg-[#FAFAFA] rounded-xl  text-gray-800 font-medium transition flex-shrink-0;
   }
   .tab-btn:hover {
     @apply bg-primary text-white;
@@ -37,20 +37,11 @@
     @apply bg-primary text-white;
   }
 
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
   .animate-rotate-slow {
     animation: rotate-slow 10s linear infinite;
   }
 
-  #tabs {
-  /* This ensures the scrollbar is visible if it was hidden by scrollbar-hide */
+#tabs {
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #368B3B #F3F4F6; /* Firefox: Thumb color, Track color  */
 }
@@ -61,14 +52,40 @@
 }
 
 #tabs::-webkit-scrollbar-track {
-  background: #F3F4F6; /* Tailwind's gray-100 for the track */
+  background: #B0B0B0;
   border-radius: 10px;
 }
 
+
 #tabs::-webkit-scrollbar-thumb {
-  background-color: #368B3B; /* Tailwind's green-500 for the thumb */
+  background-color: #368B3B;
   border-radius: 14px;
   border: 3px solid #F3F4F6; /* Add padding/border to match track */
+}
+
+
+.tabs-wrapper {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.fade-right {
+    /* Positions the element absolutely within the tabs-wrapper */
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    /* Make it cover the height of the tabs */
+    height: 100%;
+
+    /* Define the width of the fade area */
+    width: 3rem;
+
+    background: linear-gradient(to right, transparent, #FAFAFA);
+
+    /* Ensures users can still click the button underneath the fade */
+    pointer-events: none;
 }
 
 /* ---------------- CUSTOM UTILITIES ---------------- */

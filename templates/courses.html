@@ -30,8 +30,9 @@
             <p class="text-[16px] leading-[37px] text-normal">Our courses are designed to help you build real skills for the real world. Whether you’re just starting out or leveling up, you’ll find hands-on lessons, expert guidance, and practical projects to help you grow faster.  Choose a path, learn at your pace, and start building something amazing today.</p>
         </div>
 
-        <section class="space-y-6">
-            <div id="tabs" class="flex overflow-x-auto  space-x-3 md:space-x-4 snap-x snap-mandatory justify-start md:justify-evenly ">
+        <section class="space-y-10 relative">
+            <div class="tabs-wrapper relative">
+            <div id="tabs" class="flex overflow-x-auto pb-5 space-x-3 md:space-x-4 snap-x snap-mandatory justify-start md:justify-evenly ">
                 <button onclick="showTab('featured')" id="tab-featured" class="tab-btn bg-green-100 text-green-700 border-green-500">
                   Featured Courses
                 </button>
@@ -48,6 +49,9 @@
                     Design & Creativity
                 </button>
             </div>
+                <div class="fade-right "> </div>
+            </div>
+
 
             <div class="">
                 <div id="featured" class="tab-content grid grid-cols-1 md:grid-cols-4 gap-4 gap-y-8 active">

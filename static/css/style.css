@@ -1129,6 +1129,9 @@
   .pb-3 {
     padding-bottom: calc(var(--spacing) * 3);
   }
+  .pb-5 {
+    padding-bottom: calc(var(--spacing) * 5);
+  }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
   }
@@ -2309,6 +2312,7 @@
   background-color: #FAFAFA;
   padding-inline: calc(var(--spacing) * 4);
   padding-block: calc(var(--spacing) * 3);
+  font-size: 18px;
   --tw-leading: 120%;
   line-height: 120%;
   --tw-font-weight: var(--font-weight-bold);
@@ -2319,9 +2323,6 @@
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
-  @media (width >= 48rem) {
-    font-size: 18px;
-  }
 }
 .tab-btn:hover {
   background-color: var(--color-primary);
@@ -2330,13 +2331,6 @@
 .tab-btn.active {
   background-color: var(--color-primary);
   color: var(--color-white);
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 .animate-rotate-slow {
   animation: rotate-slow 10s linear infinite;
@@ -2349,13 +2343,26 @@
   height: 12px;
 }
 #tabs::-webkit-scrollbar-track {
-  background: #F3F4F6;
+  background: #B0B0B0;
   border-radius: 10px;
 }
 #tabs::-webkit-scrollbar-thumb {
   background-color: #368B3B;
   border-radius: 14px;
   border: 3px solid #F3F4F6;
+}
+.tabs-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.fade-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 3rem;
+  background: linear-gradient(to right, transparent, #FAFAFA);
+  pointer-events: none;
 }
 body {
   background-color: #FAFAFA;
