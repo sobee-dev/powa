@@ -28,7 +28,7 @@ class RegisterForm(FlaskForm):
         ('video-editing&motion-graphics','Video Editing & Motion Graphics'),
         ('smartphone-video-editing','Smartphone Video Editing'),
         ('graphics-design','Graphics Design'),
-        ('frontend - development','Front-end Development'),
+        ('frontend-development','Front-end Development'),
         ('backend-development','Back-end Development'),
         ('project-management','Project Management'),
         ('ui-ux-design','UI/UX Design'),
