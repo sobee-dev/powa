@@ -9,8 +9,9 @@
 
   </head>
   <body class="">
+    {% include 'header.html' %}
     <div class="page-wrapper">
-      {% include 'header.html' %}
+
 
       <h2 class=" mb-10 flex items-center leading-[152%] md:text-[40px] font-clash text-[24px] font-semibold text-black">
         <span class="w-3 h-3 bg-orange-400  rounded-full mr-2"></span>
@@ -22,12 +23,12 @@
         <span class="md:text-[24px] text-[16px] text-normal">We offer strategic services + hands-on training to help businesses grow and individuals level up.</span>
       </h2>
 
-      <section class="w-full md:h-screen  grid grid-cols-1 md:grid-cols-2 gap-6 md:py-10">
+      <section class="w-full md:h-auto  grid grid-cols-1 md:grid-cols-2 gap-6 md:py-10">
         <img loading="lazy" src="{{ url_for('static', filename='img/services1.jpg') }}" class=" w-full sm:h-[313px] h-full object-cover rounded-2xl">
         <img loading="lazy" src="{{ url_for('static', filename='img/services2.jpg') }}" class="w-full sm:h-[313px] h-full object-cover rounded-2xl">
       </section>
 
-      <section class="text-center mt-15">
+      <section class="text-center ">
         <h1 class="font-clash text-[24px] leading-[30px] font-semibold md:text-[40px] mb-4">Every digital service you need</h1>
         <p class="mb-10 text-[16px] leading-[30px] md:text-[20px] text-[#101010]">We help you launch, grow, and dominate in the digital space</p>
         <div class="grid grid-cols-1 space-y-4 md:grid-cols-4 gap-3 ">
@@ -37,9 +38,9 @@
               <img src="{{ url_for('static', filename='img/icons/sv1.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
             </div>
 
-            <div class="mb-5 mt-2 p-2 text-[18px]">
-              <h3 class="mb-[16.6px] md:text-2xl text-[18px] font-bold py-2">Tech Skill Trainings</h3>
-              <p class="max-md:text-[18.7px] leading-[31px] text-[#52525B]">Hands-on learning programs in design, marketing, development, and digital skills.</p>
+            <div class="space-y-4 mt-2 p-2 text-[18px]">
+              <h3 class=" font-bold ">Tech Skill Trainings</h3>
+              <p class="md:text-[14px] leading-[30px] text-[#52525B]">Hands-on learning programs in design, marketing, development, and digital skills.</p>
             </div>
           </div>
 
@@ -48,9 +49,9 @@
               <img src="{{ url_for('static', filename='img/icons/sv2.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
             </div>
 
-            <div class="mb-5 mt-2 p-2 text-[18px]">
-              <h3 class="mb-[16.6px] md:text-2xl text-[18px] font-bold py-2">Website Design & Development</h3>
-              <p class="max-md:text-[18.7px] leading-[31px] text-[#52525B]">Build fast, modern, high-converting websites tailored to your brand and goals.</p>
+            <div class="space-y-4 mt-2 p-2 text-[18px]">
+              <h3 class=" font-bold ">Website Design & Development</h3>
+              <p class="md:text-[14px] leading-[31px] text-[#52525B]">Build fast, modern, high-converting websites tailored to your brand and goals.</p>
             </div>
           </div>
 
@@ -59,9 +60,9 @@
               <img src="{{ url_for('static', filename='img/icons/sv3.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
             </div>
 
-            <div class="mb-5 mt-2 p-2 text-[18px]">
-              <h3 class="mb-[16.6px] md:text-2xl text-[18px] font-bold py-2">Social Media Management</h3>
-              <p class="max-md:text-[18.7px] leading-[31px] text-[#52525B]">Grow your online presence with consistent content, engagement, and community building.</p>
+            <div class="space-y-4 mt-2 p-2 text-[18px]">
+              <h3 class=" font-bold ">Social Media Management</h3>
+              <p class="md:text-[14px] leading-[31px] text-[#52525B]">Grow your online presence with consistent content, engagement, and community building.</p>
             </div>
           </div>
 
@@ -70,9 +71,9 @@
               <img src="{{ url_for('static', filename='img/icons/sv4.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
             </div>
 
-            <div class="mb-5 mt-2 p-2 text-[18px]">
-              <h3 class="mb-[16.6px] md:text-2xl text-[18px] font-bold py-2">Digital Marketing & Advertising</h3>
-              <p class="max-md:text-[18.7px] leading-[31px] text-[#52525B]">Run targeted campaigns that drive traffic, leads, and measurable results</p>
+            <div class="space-y-4 mt-2 p-2 text-[18px]">
+              <h3 class=" font-bold ">Digital Marketing & Advertising</h3>
+              <p class="md:text-[14px] leading-[31px] text-[#52525B]">Run targeted campaigns that drive traffic, leads, and measurable results</p>
             </div>
           </div>
 
@@ -81,9 +82,9 @@
               <img src="{{ url_for('static', filename='img/icons/sv5.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
             </div>
 
-            <div class="mb-5 mt-2 p-2 text-[18px]">
-              <h3 class="mb-[16.6px] md:text-2xl text-[18px] font-bold py-2">SEO & Content Marketing</h3>
-              <p class="max-md:text-[18.7px] leading-[31px] text-[#52525B]">Rank higher, attract organic traffic, and turn visitors into customers.</p>
+            <div class="space-y-4 mt-2 p-2 text-[18px]">
+              <h3 class="font-bold ">SEO & Content Marketing</h3>
+              <p class="md:text-[14px] leading-[31px] text-[#52525B]">Rank higher, attract organic traffic, and turn visitors into customers.</p>
             </div>
           </div>
 
@@ -92,9 +93,9 @@
               <img src="{{ url_for('static', filename='img/icons/sv6.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
             </div>
 
-            <div class="mb-5 mt-2 p-2 text-[18px]">
-              <h3 class="mb-[16.6px] md:text-2xl text-[18px] font-bold py-2">Writing & Copy Services</h3>
-              <p class="max-md:text-[18.7px] leading-[31px] text-[#52525B]">High-converting website copy, sales pages, blogs, ads, and brand messaging.</p>
+            <div class=" space-y-4 mt-2 p-2 text-[18px]">
+              <h3 class=" font-bold">Writing & Copy Services</h3>
+              <p class="md:text-[14px] leading-[31px] text-[#52525B]">High-converting website copy, sales pages, blogs, ads, and brand messaging.</p>
             </div>
           </div>
 
@@ -103,9 +104,9 @@
               <img src="{{ url_for('static', filename='img/icons/sv7.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
             </div>
 
-            <div class="mb-5 mt-2 p-2 text-[18px]">
-              <h3 class="mb-[16.6px] md:text-2xl text-[18px] font-bold py-2">Consulting & Brand Strategy</h3>
-              <p class="max-md:text-[18.7px] leading-[31px] text-[#52525B]">Get expert guidance to define your brand, positioning, and digital roadmap.</p>
+            <div class="space-y-4 mt-2 p-2 text-[18px]">
+              <h3 class=" font-bold ">Consulting & Brand Strategy</h3>
+              <p class="md:text-[14px] leading-[31px] text-[#52525B]">Get expert guidance to define your brand, positioning, and digital roadmap.</p>
             </div>
           </div>
 
@@ -114,9 +115,9 @@
               <img src="{{ url_for('static', filename='img/icons/sv8.png') }}" class="h-[24.5px] w-[24.5px] mx-auto" alt="Powa merits icon">
             </div>
 
-            <div class="mb-5 mt-2 p-2 text-[18px]">
-              <h3 class="mb-[16.6px] md:text-2xl text-[18px] font-bold py-2">Career Mentorship & Community Support</h3>
-              <p class="max-md:text-[18.7px] leading-[31px] text-[#52525B]">Live mentorship, support groups, and real-world guidance to help individuals grow faster.</p>
+            <div class=" space-y-4 mt-2 p-2 text-[18px]">
+              <h3 class="  font-bold ">Career Mentorship & Community Support</h3>
+              <p class="md:text-[14px] leading-[31px] text-[#52525B]">Live mentorship, support groups, and real-world guidance to help individuals grow faster.</p>
             </div>
           </div>
 
