@@ -12,13 +12,20 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from Services.user_services import Admin
 from urllib.parse import quote
+
+from sqlalchemy import text
+
 controller = Blueprint("controller", __name__)
 
 
 
 @controller.route("/checkhealth")
 def check():
-    return "OK", 200
+    try:
+        db.session.execute(text("SELECT 1"))
+        return jsonify({"status": "healthy", "database": "connected"}), 200
+    except Exception as e:
+        return jsonify({"status": "unhealthy", "error": str(e)}), 503
 
 # @controller.route("/mail")
 # def mail_test():
